@@ -232,8 +232,10 @@ innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox2}
 		
 		\vspace{2.6cm}
 		\hrule \vspace{0.2cm}
-		\noindent {\sffamily \bfseries Abstract} \\[0.1cm]
-\TODO{WORK IN PROGRESS!} 
+		\noindent {\sffamily \bfseries Abstract}{ \\[0.1cm]
+These notes cover some basic ideas and theory behind the field of machine learning. These notes are by no means 
+even close to being exhaustive and simply meant for quick reference and interview preparation. Partly inspired by the 
+amazing 100-page textbook.\footnote{The Hundred-Page Machine Learning Book. by Andriy Burkov, Quebec City, Canada, 2019}}
 \vspace{0.5cm}
 \hrule
 
@@ -243,8 +245,30 @@ innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox2}
 	\end{titlepage}
 	
 	
+	\section{introduction}
+	
+	it is no exagerration to say that all aspects of human life is related to data. What we buy, what we buy online and many others
+	are all data-driven and uses machine learning (ML) methods. What movies are recommended to you on Netflix or what Amazon
+	recommends you to buy in bundle are all determined by various algorithms of ML. The pricing of airline tickets and the web history 
+	or what links you visit all determines what you are being shown online and how much you pay. 
+	
+	These notes are a brief introduction to the fundamentals and methods used in machine learning. Usually, ML is 
+	classified into three parts: Supervised, Unsupervised, Reinforcement learning. The canvas of ML is shown in Fig.~\ref{fig:EXP}. 
+	
+	
+	
+	
 	\newpage
 	\section{Some famous ML algorithms}
+	
+	
+	
+
+\begin{figure}
+\centering 
+\includegraphics[width=0.65\textwidth]{cartoonML.png}
+\caption{\label{fig:EXP}A cartoon showing the landscape of machine learning.}
+\end{figure}
 	
 	
 Some popular ML algorithms are: 
@@ -255,8 +279,11 @@ Consider an example where you are required to arrange a few plastic boxes of dif
 The task is to be completed without manually weighing the boxes. Instead, you need to guess the weight just by observing the height, dimensions, and sizes of the box. 
 In short, the entire task is driven based on visual analysis. Thus, you have to use a combination of visible variables to make the 
 final arrangement on the shelves. Linear regression in machine learning is of a similar kind, where the relationship between independent and dependent variables is established 
-by fitting them to a regression line. This line has a mathematical representation given by the linear equation $y = mx + c$, where $y$ represents the dependent variable, 
-$m$ = slope, $x$ = independent variable, and $b$ = intercept. We need to find the best fit by minimizing the errors. 
+by fitting them to a regression line. This line has a mathematical representation given by the linear equation $y = wx + c$, where $y$ represents the dependent variable, 
+$w$ = slope, $x$ = independent variable, and $b$ = intercept. We need to find the best fit by minimizing the errors using Ordinary Least Squares (OLS) as:
+\begin{equation}
+\text{Min.} \sum_{i=1}^{N} (y_{i} - w_{i} x_{i})
+\end{equation}
 \item Logistic regression: The dependent variable is of binary type (dichotomous) in logistic regression. This type of regression analysis describes data and explains the relationship between one dichotomous variable and one or more independent variables.
 Logistic regression is used in predictive analysis where pertinent data predict an event probability to a logit function. Thus, it is also called logit regression.
 Mathematically, logistic regression is represented by the equation:
@@ -268,7 +295,26 @@ Logistic regression could be used to predict whether a particular team will win 
 or whether a lockdown will be imposed (1) due to rising COVID-19 cases or not (0) or whether a tumor is benign or not. 
 Thus, the binary outcomes of logistic regression facilitate faster decision-making as you only need to pick one out of the two alternatives.
 \item Decision trees: With a decision tree, you can visualize the map of potential results for a series of decisions. It enables companies to compare possible outcomes and then take a straightforward decision based on parameters such as advantages and probabilities that are beneficial to them. Decision tree algorithms can potentially anticipate the best option based on a mathematical construct and also come in handy while brainstorming over a specific decision. The tree starts with a root node (decision node) and then branches into sub-nodes representing potential outcomes. Each outcome can further create child nodes that can open up other possibilities. The algorithm generates a tree-like structure that is used for classification problems. For example, consider the decision tree below that helps finalize a weekend plan based on the weather forecast.
-\item Support Vector Machines (SVM): Support vector machine algorithms are used to accomplish both classification and regression tasks. These are supervised machine learning algorithms that plot each piece of data in the n-dimensional space, with n referring to the number of features. Each feature value is associated with a coordinate value, making it easier to plot the features. Moreover, classification is further performed by distinctly determining the hyper-plane that separates the two sets of support vectors or classes. A good separation ensures a good classification between the plotted data points. In short, SVMs represent the coordinates for individual observations. These are popular machine learning classifiers used in applications such as data classification, facial expression classification, text classification, steganography detection in digital images, speech recognition, and others.
+\item Support Vector Methods: Support vector machine algorithms are used to accomplish both classification (SVM, M for Machine) and regression (SVR, R for regression) tasks. 
+With SVR, we can then give our model some flexibility in finding the predicted values, as long as the error is within that range.
+In contrast to OLS discussed above in Linear regression, 
+the objective function of SVR is to minimize the coefficients — more specifically, the norm of the coefficient vector — not the squared error. 
+The error term is instead handled in the constraints, where we set the absolute error less than or equal to a specified margin, called the maximum error, $\epsilon$. 
+We can tune epsilon to gain the desired accuracy of our model. Our new objective function and constraints are as follows:
+
+\begin{equation}
+\text{Min.} \vert \textbf{w} \vert^{2} 
+\end{equation}
+with contraints: $\vert y_{i} - w_{i} x_{i}\vert  \le \epsilon $. 
+We can add another hyperparameter $\xi$. This is called a slack variable and the idea is simple -- for any value that falls outside of $\epsilon$, we can denote its deviation from the margin as $\xi$. 
+We know that these deviations have the potential to exist, but we would still like to minimize them as much as possible. Thus, we can add these deviations to the objective function.
+\begin{equation}
+\text{Min.} \vert \textbf{w} \vert^{2}  + C \sum_{i=1}^{N} \vert \xi_i \vert
+\end{equation}
+with contraints: $\vert y_{i} - w_{i} x_{i} \vert  \le \epsilon + \vert \xi_i \vert $.
+These are supervised machine learning algorithms that plot each piece of data in the $n$-dimensional space, with n referring to the number of features. Each feature value is associated with a coordinate value, making it easier to plot the features. Moreover, classification is further performed by distinctly determining the hyper-plane that separates the two sets of support vectors or classes. A good separation ensures a good classification between the plotted data points. In short, SVMs represent the coordinates for individual observations. These are popular machine learning classifiers used in applications such as data classification, facial expression classification, text classification, steganography detection in digital images, speech recognition, and others.
+
+
 \item Naive Bayes: This refers to a probabilistic machine learning algorithm based on the Bayesian probability model and is used to address classification problems. The fundamental assumption of the algorithm is that features under consideration are independent of each other and a change in the value of one does not impact the value of the other. For example, you can consider a ball, a cricket ball, if it is red, round, has a 7.1-7.26 cm diameter, and has a mass of 156-163 g. Although all these features could be interdependent, each one contributes to the probability that it is a cricket ball. This is the reason the algorithm is referred to as ‘naïve’. Let’s look at the mathematical representation of the algorithm.
 If $X, Y$ = probabilistic events, $P(X)$ = probability of X being true, $P(X \vert Y)$ = conditional probability of X happening in case Y has occured. Then, Bayes’ theorem is given by the equation:
 \begin{equation}
@@ -276,18 +322,18 @@ P(X \vert Y) = \frac{P(Y \vert X) P(X)}{P(Y)}
 \end{equation}
 A naive Bayesian approach is easy to develop and implement. It is capable of handling massive datasets and is useful for making real-time predictions. 
 Its applications include spam filtering, sentiment analysis and prediction, document classification, and others.
-\item kNN (k Nearest Neighbor): KNN algorithm is used for both classification and regression problems. It stores all the known use cases and classifies new use cases (or data points) by segregating them into different classes. This classification is accomplished based on the similarity score of the recent use cases to the available ones. KNN is a supervised machine learning algorithm, wherein ‘K’ refers to the number of neighboring points we consider while classifying and segregating the known n groups. The algorithm learns at each step and iteration, thereby eliminating the need for any specific learning phase. The classification is based on the neighbor’s majority vote.
+\item kNN ($k$ Nearest Neighbor): KNN algorithm is used for both classification and regression problems. It stores all the known use cases and classifies new use cases (or data points) by segregating them into different classes. This classification is accomplished based on the similarity score of the recent use cases to the available ones. KNN is a supervised machine learning algorithm, wherein ‘K’ refers to the number of neighboring points we consider while classifying and segregating the known n groups. The algorithm learns at each step and iteration, thereby eliminating the need for any specific learning phase. The classification is based on the neighbor’s majority vote.
 The algorithm uses these steps to perform the classification:
 For a training dataset, calculate the distance between the data points that are to be classified and the rest of the data points.
 Choose the closest ‘K’ elements based on the distance or function used.
 Consider a ‘majority vote’ between the K points–the class or label dominating all data points reveals the final ranking. 
 The real-life applications of KNN algorithms include facial recognition, text mining, and recommendation systems such as Amazon, Netflix, and others.
 
-\item k-Means: This is a distance-based unsupervised machine learning algorithm that accomplishes clustering tasks. In this algorithm, you classify datasets into clusters (K clusters) where the data 
-points within one set remain homogenous, and the data points from two different clusters remain heterogeneous. The clusters under k-Means are formed using these steps:
+\item $k$-Means: This is a distance-based unsupervised machine learning algorithm that accomplishes clustering tasks. In this algorithm, you classify datasets into clusters (K clusters) where the data 
+points within one set remain homogenous, and the data points from two different clusters remain heterogeneous. The clusters under $k$-Means are formed using these steps:
 \begin{enumerate} 
-\item Initialization: The K-means algorithm selects centroids for each cluster (‘K’ number of points).
-\item Assign objects to centroid: Clusters are formed with the closest centroids (K clusters) at each data point.
+\item Initialization: The $K$-means algorithm selects centroids for each cluster (‘$K$’ number of points).
+\item Assign objects to centroid: Clusters are formed with the closest centroids ($K$ clusters) at each data point.
 \item Centroid update: Create new centroids based on existing clusters and determine the closest distance for each data point based on new centroids. Here, the position of the centroid also gets updated whenever required.
 \item Repeat: Repeat the process till the centroids do not change.
 \end{enumerate} 
@@ -315,13 +361,51 @@ There are primarily three different types of neural networks algorithms in deep 
 \end{itemize} 
 
 
+
+
+What is Deep Learning?
+
+Deep learning uses artificial neural networks to perform sophisticated computations on large amounts of data. It is a type of machine learning that works based on the structure and function of the human brain. 
+
+Deep learning algorithms train machines by learning from examples. Industries such as health care, eCommerce, entertainment, and advertising commonly use deep learning.
+
+
+A neural network is structured like the human brain and consists of artificial neurons, also known as nodes. These nodes are stacked next to each other in three layers:
+The input layer, the hidden layer(s), the output layer
+
+
+
+Here is the list of top 10 most popular deep learning algorithms:
+\begin{enumerate}
+\item Convolutional Neural Networks (CNNs)
+\item Long Short Term Memory Networks (LSTMs)
+\item Recurrent Neural Networks (RNNs)
+\item Generative Adversarial Networks (GANs)
+\item Radial Basis Function Networks (RBFNs)
+\item Multilayer Perceptrons (MLPs)
+\item Self Organizing Maps (SOMs)
+\item Deep Belief Networks (DBNs)
+\item Restricted Boltzmann Machines( RBMs)
+\item Autoencoders
+\end{enumerate} 
+
+
+
+
 Types of problems: Regression, Classification, Clustering 
 
 \begin{enumerate}
-\item Classification: Logistic regression, k-NN, SVM, Naive Bayes, Decision Tree, Random Forest Classifiers
+\item Classification: Logistic regression, k-NN, Support Vector Machine (SVM), Naive Bayes, Decision Tree, Random Forest Classifiers
 \item Regression: LInear (Linear, Lasso, ..), Polynomial Regression, Support Vector Regression (SVR), Decision Tree Regression, Random Forest Regression
-\item Clustering: k-Means Clustering, Hierarchical Clustering
+\item Clustering: k-Means Clustering (KMC), Hierarchical Clustering (HC)
 \end{enumerate}
+
+The two clustering models have their own pros and cons. For example, the pros of k-means is that it is \emph{simple to understand, easily adaptable, works well on small or large datasets, fast, efficient and performant}
+while the cons is \emph{choice of number of cluster is crucial, though can be optimally selected}.
+The pros of HC is the fact that the \emph{optimal number of clusters can be obtained by the 
+model itself, practical visualisation with the dendrogram}. The drawback is that it is \emph{not appropriate for large datasets}. 
+These can be done using following commands: \texttt{import scipy.cluster.hierarchy as sch, dendrogram = sch.dendrogram(sch.linkage(X, method = 'ward'))}. 
+Fitting HC to the dataset can be achieved by: \texttt{from sklearn.cluster import AgglomerativeClustering}
 
 
 \subsection{Data cleaning}
@@ -347,11 +431,12 @@ In \PAD~we can use: $\texttt{df.isna()}$ and $\texttt{df.isna().sum()}$
 
 
 
-%\begin{figure}
-%\centering 
-%\includegraphics[width=0.65\textwidth]{xxxx.png}
-%\caption{\label{fig:EXP}-----}.}
-%\end{figure}
+\begin{figure}
+\centering 
+\includegraphics[width=0.65\textwidth]{cartoon1.png}
+\caption{\label{fig:bias1}Diagrammatic representation of bias and variance and how we can over/under fit the model.}
+\end{figure}
+
 
 
 
