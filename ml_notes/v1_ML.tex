@@ -245,9 +245,9 @@ amazing 100-page textbook.\footnote{The Hundred-Page Machine Learning Book. by A
 	\end{titlepage}
 	
 	
-	\section{introduction}
+	\section{Introduction}
 	
-	it is no exagerration to say that all aspects of human life is related to data. What we buy, what we buy online and many others
+	It is no exagerration to say that all aspects of human life is related to data. What we buy, what we buy online and many others
 	are all data-driven and uses machine learning (ML) methods. What movies are recommended to you on Netflix or what Amazon
 	recommends you to buy in bundle are all determined by various algorithms of ML. The pricing of airline tickets and the web history 
 	or what links you visit all determines what you are being shown online and how much you pay. 
@@ -389,6 +389,12 @@ Here is the list of top 10 most popular deep learning algorithms:
 \item Autoencoders
 \end{enumerate} 
 
+Long Short Term Memory networks – usually just called `LSTMs' – are a special kind of RNN, 
+capable of learning long-term dependencies. 
+They were introduced by Hochreiter \& Schmidhuber (1997), 
+and were refined and popularized by many people in following work.
+They work tremendously well on a large variety of problems, and are now widely used.
+
 
 
 
@@ -396,8 +402,8 @@ Types of problems: Regression, Classification, Clustering
 
 \begin{enumerate}
 \item Classification: Logistic regression, k-NN, Support Vector Machine (SVM), Naive Bayes, Decision Tree, Random Forest Classifiers
-\item Regression: LInear (Linear, Lasso, ..), Polynomial Regression, Support Vector Regression (SVR), Decision Tree Regression, Random Forest Regression
-\item Clustering: k-Means Clustering (KMC), Hierarchical Clustering (HC)
+\item Regression: Linear (Linear, Lasso, ..), Polynomial Regression, Support Vector Regression (SVR), Decision Tree Regression, Random Forest Regression
+\item Clustering: These are unsupervised algorithms. k-Means Clustering (KMC), Hierarchical Clustering (HC)
 \end{enumerate}
 
 The two clustering models have their own pros and cons. For example, the pros of k-means is that it is \emph{simple to understand, easily adaptable, works well on small or large datasets, fast, efficient and performant}
@@ -408,6 +414,19 @@ These can be done using following commands: \texttt{import scipy.cluster.hierarc
 Fitting HC to the dataset can be achieved by: \texttt{from sklearn.cluster import AgglomerativeClustering}
 
 
+
+Unsupervised learning can be divided into three parts: Clustering, Dimensional Reduction (PCA), and Association Problems. 
+Association problems are based on identifying sequences: such as what clothes do I wear together?
+
+
+Between supervised and unsupervised learning, we have something which is - reinforcement learning (RL). 
+It is the case where we have no data at all, like city for a self-driven car. In this sense, the entire
+knowledge about roads and traffic rules won't teach the car how to drive itself. The goal is to minimize errors
+and not to predict the moves! Survival of the fittest or rather the algorithm is the sole motive of RL. 
+
+Q-learning is a commonly used model-free approach which can be used for building a self-playing PacMan agent. 
+It revolves around the notion of updating Q values which denotes value of performing action a in state $s$. 
+The following value update rule is the core of the Q-learning algorithm.
 
 
 
