@@ -408,6 +408,9 @@ These can be done using following commands: \texttt{import scipy.cluster.hierarc
 Fitting HC to the dataset can be achieved by: \texttt{from sklearn.cluster import AgglomerativeClustering}
 
 
+
+
+
 \subsection{Data cleaning}
 
 It is important aspect of data science and can be summarised below in some steps:
@@ -436,6 +439,28 @@ In \PAD~we can use: $\texttt{df.isna()}$ and $\texttt{df.isna().sum()}$
 \includegraphics[width=0.65\textwidth]{cartoon1.png}
 \caption{\label{fig:bias1}Diagrammatic representation of bias and variance and how we can over/under fit the model.}
 \end{figure}
+
+
+\subsection{Stochastic Gradient Descent (SGD)} 
+
+
+In several problems in machine learning, we have to optimize. The optimizer is an algorithm that adjusts the weights to minimize the loss. Nearly 
+all of the optimization algorithms used in deep learning belong to a family called stochastic gradient descent. 
+They are iterative algorithms that train a network in steps. One step of training goes is as follows:
+
+\begin{itemize}
+\item Sample some training data and run it through the network to make predictions.
+\item Measure the loss between the predictions and the true values.
+\item Adjust the weights in a direction that makes the loss smaller.
+\end{itemize} 
+
+
+An astute reader might ask: why is it called SGD? 
+It is called so because, the gradient is a vector that specifies in what direction the weights need to move. 
+More precisely, it tells us how to change the weights to make the loss change fastest. We call our process 
+gradient descent because it uses the gradient to descend the loss curve towards a minimum. Stochastic means 
+`determined by chance'. Our training is stochastic because the batches we use 
+are random samples from the dataset. Hence, the name SGD. 
 
 
 
