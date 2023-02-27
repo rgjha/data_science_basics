@@ -214,7 +214,7 @@ innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox2}
 		\bigskip\
 		\vspace{1cm}
 		\begin{center}
-			{\fontsize{19}{38}\textsc{Notes on Machine Learning}}  %- \large{Beginner's Guide}}}
+			{\fontsize{19}{38}\textsc{Notes on Data Science and Machine Learning}}  %- \large{Beginner's Guide}}}
 		\end{center}
 		\vspace{0.2cm}
 		\begin{center}
@@ -361,6 +361,267 @@ There are primarily three different types of neural networks algorithms in deep 
 \end{itemize} 
 
 
+\subsection{EDA}
+
+Exploratory Data Analysis (EDA) is a crucial step in the data science process. 
+
+
+
+\begin{mdframed}[backgroundcolor=celadon!6]
+\begin{lstlisting}[language=Python]
+# import necessary libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# load the dataset
+df = pd.read_csv("titanic.csv")
+
+# print the first few rows of the DataFrame
+print(df.head())
+
+# print the DataFrame's shape
+print(df.shape)
+
+# print the DataFrame's data types
+print(df.dtypes)
+
+# check for missing values
+print(df.isnull().sum())
+
+# visualize the distribution of a numeric column
+plt.hist(df['Age'])
+plt.show()
+
+# visualize the distribution of a categorical column
+df['Sex'].value_counts().plot(kind='bar')
+plt.show()
+
+# calculate basic statistics for a numeric column
+print(df['Fare'].describe())
+
+# calculate the correlation between two numeric columns
+print(df['Fare'].corr(df['Survived']))
+
+# group the data by a categorical column and calculate statistics
+grouped_df = df.groupby('Pclass')['Survived'].mean()
+print(grouped_df)
+
+# create a scatter plot to visualize the relationship between two numeric columns
+plt.scatter(df['Age'], df['Fare'])
+plt.xlabel('Age')
+plt.ylabel('Fare')
+plt.show()
+
+# create a box plot to visualize the distribution of a numeric column
+plt.boxplot(df['Fare'])
+plt.ylabel('Fare')
+plt.show()
+
+# create a bar plot to visualize the mean of a numeric column for each category of a categorical column
+df.groupby('Sex')['Age'].mean().plot(kind='bar')
+plt.ylabel('Average Age')
+plt.show()
+
+# create a pivot table to summarize the data
+pivot_table = df.pivot_table(index='Sex', columns='Pclass', values='Fare', aggfunc='mean')
+print(pivot_table)
+
+# create a heatmap to visualize the pivot table
+plt.pcolor(pivot_table, cmap='Reds')
+plt.colorbar()
+plt.show()
+
+# create a pairplot to visualize the relationships between multiple numeric columns
+import seaborn as sns
+sns.pairplot(df, vars=['Age', 'Fare', 'SibSp'])
+plt.show()
+
+# create a bar plot to visualize the count of a categorical column
+df['Embarked'].value_counts().plot(kind='bar')
+plt.ylabel('Count')
+plt.show()
+
+# create a countplot to visualize the count of a categorical column by the categories of another categorical column
+sns.countplot(x='Sex', hue='Pclass', data=df)
+plt.show()
+
+# create a point plot to visualize the mean of a numeric column by the categories of a categorical column
+sns.pointplot(x='Sex', y='Age', data=df)
+plt.ylabel('Average Age')
+plt.show()
+
+# create a violin plot to visualize the distribution of a numeric column by the categories of a categorical column
+sns.violinplot(x='Sex', y='Age', data=df)
+plt.ylabel('Age')
+plt.show()
+
+# create a box plot to visualize the distribution of a numeric column by the categories of a categorical column
+sns.boxplot(x='Sex', y='Age', data=df)
+plt.ylabel('Age')
+plt.show()
+
+# create a swarm plot to visualize the distribution of a numeric column by the categories of a categorical column
+sns.swarmplot(x='Sex', y='Age', data=df)
+plt.ylabel('Age')
+plt.show()
+
+# create a faceting grid to visualize the distribution of multiple numeric columns by the categories of a categorical column
+g = sns.FacetGrid(df, col='Sex')
+g.map(plt.hist, 'Age')
+plt.show()
+
+# create a heatmap to visualize the correlation between multiple numeric columns
+plt.figure(figsize=(12, 8))
+sns.heatmap(df.corr(), cmap='RdYlGn', annot=True)
+plt.show()
+
+# create a lag plot to check for autocorrelation in a numeric column
+from pandas.plotting import lag_plot
+lag_plot(df['Fare'])
+plt.show()
+
+# create an autocorrelation plot to visualize the autocorrelation in a numeric column
+from pandas.plotting import autocorrelation_plot
+autocorrelation_plot(df['Fare'])
+plt.show()
+
+# create a scatter plot matrix to visualize the relationships between multiple numeric columns
+from pandas.plotting import scatter_matrix
+scatter_matrix(df[['Age', 'Fare', 'SibSp']], alpha=0.2, figsize=(6, 6))
+plt.show()
+
+# create a regression plot to visualize the relationship between two numeric columns
+sns.regplot(x='Age', y='Fare', data=df)
+plt.show()
+
+# create a barplot to visualize the mean of a numeric column by the categories of a categorical column
+sns.barplot(x='Sex', y='Age', data=df)
+plt.ylabel('Average Age')
+plt.show()
+
+# create a pointplot to visualize the mean and confidence interval of a numeric column by the categories of a categorical column
+sns.pointplot(x='Sex', y='Age', data=df, ci=95)
+plt.ylabel('Average Age')
+plt.show()
+
+# create a lmplot to visualize the relationship between two numeric columns and the categories of a categorical column
+sns.lmplot(x='Age', y='Fare', hue='Sex', data=df)
+plt.show()
+
+# create a factorplot to visualize the distribution of a numeric column by the categories of a categorical column
+sns.factorplot(x='Sex', y='Age', data=df)
+plt.ylabel('Average Age')
+plt.show()
+
+# create a boxenplot to visualize the distribution of a numeric column by the categories of a categorical column
+sns.boxenplot(x='Sex', y='Age', data=df)
+plt.ylabel('Age')
+plt.show()
+
+# create a distplot to visualize the distribution of a numeric column
+sns.distplot(df['Fare'])
+plt.show()
+
+# create a kdeplot to visualize the kernel density estimate of a numeric column
+sns.kdeplot(df['Fare'])
+plt.show()
+
+# create a rugplot to visualize the distribution of a numeric column
+sns.rugplot(df['Fare'])
+plt.show()
+
+# create a jointplot to visualize the relationship between two numeric columns and their distributions
+sns.jointplot(x='Age', y='Fare', data=df)
+plt.show()
+\end{lstlisting}
+\end{mdframed}
+
+
+\subsection{Data preprocessing} 
+
+
+We list some steps for data preprocessing below: 
+
+\begin{itemize} 
+\item Handling missing values: This technique is used when there are missing values in the dataset. There are various ways to handle missing values, such as filling them with the mean, median, or mode of the column, or dropping rows with missing values. The appropriate method will depend on the specific dataset and the goal of the analysis.
+\item Encoding categorical variables: This technique is used when the dataset contains categorical variables, which are variables that can take on a limited number of categories. One-hot encoding is a common method for encoding categorical variables, which creates a new binary column for each category. This is useful for inputting categorical variables into machine learning models, which typically only accept numerical input.
+\item Standardizing numeric columns: This technique is used to scale the values of a numeric column so that they have zero mean and unit variance. This is often useful when the numeric columns have different scales and the machine learning model will be sensitive to this difference in scales.
+\item Normalizing numeric columns: This technique is used to scale the values of a numeric column so that they have a minimum value of 0 and a maximum value of 1. This is often useful when the numeric columns have different scales and the machine learning model will be sensitive to this difference in scales.
+\item Binning numeric columns: This technique is used to divide the values of a numeric column into bins. This is useful for turning a continuous numeric column into a categorical column, which can be useful for certain types of analysis or machine learning models.
+\item Applying min-max scaling: This technique is used to scale the values of a numeric column so that they have a minimum value of 0 and a maximum value of 1. This is often useful when the numeric columns have different scales and the machine learning model will be sensitive to this difference in scales.
+\item Applying robust scaling: This technique is used to scale the values of a numeric column using the median and interquartile range. This is often useful when the data contains outliers, as it is less sensitive to the influence of outliers compared to other scaling methods.
+\item Applying power transformations: Power transformations are a class of functions that can be used to transform the values of a numeric column in order to stabilize or improve the assumptions of certain statistical models. Power transformations can be useful for correcting the skewness of a distribution, as skewed distributions can cause problems when fitting certain types of models.
+\item Applying quantile transformations: This technique is used to transform the values of a numeric column so that they have a uniform or normal distribution. This can be useful for improving the assumptions of certain machine learning models, which may assume that the predictor variables are normally distributed.
+\item Applying box-cox transformations: This technique is used to transform the values of a numeric column so that they are approximately normally distributed. This can be useful for improving the assumptions of certain machine learning models, which may assume that the predictor variables are normally distributed.
+\end{itemize} 
+
+
+\begin{mdframed}[backgroundcolor=celadon!6]
+\begin{lstlisting}[language=Python]
+# create a copy of the original DataFrame
+df_preprocessed = df.copy()
+
+# handle missing values in the DataFrame
+df_preprocessed['Age'].fillna(df_preprocessed['Age'].median(), inplace=True)
+df_preprocessed.dropna(inplace=True)
+
+# encode categorical variables using one-hot encoding
+df_preprocessed = pd.get_dummies(df_preprocessed, columns=['Sex', 'Pclass'], prefix=['sex', 'pclass'])
+
+# standardize the values of a numeric column
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+df_preprocessed['Age_scaled'] = scaler.fit_transform(df_preprocessed[['Age']])
+
+# normalize the values of a numeric column
+from sklearn.preprocessing import Normalizer
+
+normalizer = Normalizer()
+df_preprocessed['Age_normalized'] = normalizer.fit_transform(df_preprocessed[['Age']])
+
+# bin the values of a numeric column
+from sklearn.preprocessing import KBinsDiscretizer
+
+discretizer = KBinsDiscretizer(n_bins=3, encode='ordinal')
+df_preprocessed['Age_binned'] = discretizer.fit_transform(df_preprocessed[['Age']])
+
+# apply a min-max scaling to a numeric column
+from sklearn.preprocessing import MinMaxScaler
+
+scaler = MinMaxScaler()
+df_preprocessed['Age_scaled'] = scaler.fit_transform(df_preprocessed[['Age']])
+
+# apply a robust scaling to a numeric column
+from sklearn.preprocessing import RobustScaler
+
+scaler = RobustScaler()
+df_preprocessed['Age_scaled'] = scaler.fit_transform(df_preprocessed[['Age']])
+
+# apply a power transformation to a numeric column
+from sklearn.preprocessing import PowerTransformer
+
+transformer = PowerTransformer(method='yeo-johnson')
+df_preprocessed['Age_transformed'] = transformer.fit_transform(df_preprocessed[['Age']])
+
+# apply a quantile transformation to a numeric column
+from sklearn.preprocessing import QuantileTransformer
+
+transformer = QuantileTransformer(output_distribution='normal')
+df_preprocessed['Age_transformed'] = transformer.fit_transform(df_preprocessed[['Age']])
+
+# apply a box-cox transformation to a numeric column
+from scipy.stats import boxcox
+
+df_preprocessed['Age_transformed'], lambda_ = boxcox(df_preprocessed['Age'])
+\end{lstlisting}
+\end{mdframed}
+
+
+
+
 
 
 What is Deep Learning?
@@ -415,8 +676,32 @@ Fitting HC to the dataset can be achieved by: \texttt{from sklearn.cluster impor
 
 
 
-Unsupervised learning can be divided into three parts: Clustering, Dimensional Reduction (PCA), and Association Problems. 
+Unsupervised learning can be divided into three parts: Clustering, Dimensional Reduction based on Principal Component Analysis (PCA), and Association Problems. 
 Association problems are based on identifying sequences: such as what clothes do I wear together?
+
+
+Principal Component Analysis (PCA) can be 
+thought of as fitting a $p$-dimensional ellipsoid to the data, 
+where each axis of the ellipsoid represents a principal component. 
+If some axis of the ellipsoid is small, then the variance along that axis is also small.
+PCA is defined as an orthogonal linear transformation that transforms the data to a 
+new coordinate system such that the greatest variance by some scalar projection of the 
+data comes to lie on the first coordinate (called the first principal component), the second greatest variance on the second coordinate, and so on. 
+
+
+
+\begin{mdframed}[backgroundcolor=celadon!6]
+\begin{lstlisting}[language=Python]
+import numpy as np
+from sklearn.decomposition import PCA
+X = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
+pca = PCA(n_components=2)
+pca.fit(X)
+PCA(n_components=2)
+print(pca.explained_variance_ratio_)
+print(pca.singular_values_)
+\end{lstlisting}
+\end{mdframed}
 
 
 Between supervised and unsupervised learning, we have something which is - reinforcement learning (RL). 
@@ -484,7 +769,26 @@ are random samples from the dataset. Hence, the name SGD.
 
 
 
-\section{Acknowledgements}
+
+\subsection{Back propagation} 
+
+\TODO{Fill in .....} 
+
+
+\subsection{To ask} 
+
+\begin{itemize} 
+\item Is Spark needed or Pandas is enough. Seems like threshold of memory consumption is 10-12 Gb. 
+\item What level of SQL is needed beyond simple queries 
+\item Ask about why mlflow is needed and good reference -- Ask about data pipeline (Scikit-learn)?
+
+
+\end{itemize}
+
+
+
+
+%\section{Acknowledgements}
 
 
 \appendix  
