@@ -1,0 +1,23 @@
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{1}
+
+\bibitem{2013arXiv1307.0411L}
+S.~{Lloyd}, M.~{Mohseni}, and P.~{Rebentrost}, ``{Quantum algorithms for
+  supervised and unsupervised machine learning},''
+  \href{http://dx.doi.org/10.48550/arXiv.1307.0411}{{\em arXiv e-prints} (July,
+  2013) arXiv:1307.0411}, \href{http://arxiv.org/abs/1307.0411}{{\ttfamily
+  arXiv:1307.0411 [quant-ph]}}.
+
+\bibitem{2020arXiv200302989B}
+M.~{Broughton}, G.~{Verdon}, T.~{McCourt}, A.~J. {Martinez}, J.~H. {Yoo}, S.~V.
+  {Isakov}, P.~{Massey}, R.~{Halavati}, M.~{Yuezhen Niu}, A.~{Zlokapa},
+  E.~{Peters}, O.~{Lockwood}, A.~{Skolik}, S.~{Jerbi}, V.~{Dunjko}, M.~{Leib},
+  M.~{Streif}, D.~{Von Dollen}, H.~{Chen}, S.~{Cao}, R.~{Wiersema}, H.-Y.
+  {Huang}, J.~R. {McClean}, R.~{Babbush}, S.~{Boixo}, D.~{Bacon}, A.~K. {Ho},
+  H.~{Neven}, and M.~{Mohseni}, ``{TensorFlow Quantum: A Software Framework for
+  Quantum Machine Learning},''
+  \href{http://dx.doi.org/10.48550/arXiv.2003.02989}{{\em arXiv e-prints}
+  (Mar., 2020) arXiv:2003.02989},
+  \href{http://arxiv.org/abs/2003.02989}{{\ttfamily arXiv:2003.02989
+  [quant-ph]}}.
+
+\end{thebibliography}\endgroup

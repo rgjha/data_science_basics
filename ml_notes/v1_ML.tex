@@ -247,7 +247,17 @@ amazing 100-page textbook.\footnote{The Hundred-Page Machine Learning Book. by A
 	
 	\section{Introduction}
 	
-	It is no exagerration to say that all aspects of human life is related to data. What we buy, what we buy online and many others
+	It is no exagerration to say that all aspects of human life is related to data. 
+	It is then an interesting question to ask: how much the machine can learn and think 
+	like humans using that data. These questions all belong to the field of artificial intelligence (AI). 
+	
+	
+	Machine learning (ML) originally emerged as a sub-discipline of AI research which tries to accomplish task 
+	using computers without explicitly programming them. A sub-field of ML is deep learning, whose goal is to mimic
+	neural networks in our brain and enable computer to function similarly. 
+	
+	
+	What we buy, what we buy online and many others
 	are all data-driven and uses machine learning (ML) methods. What movies are recommended to you on Netflix or what Amazon
 	recommends you to buy in bundle are all determined by various algorithms of ML. The pricing of airline tickets and the web history 
 	or what links you visit all determines what you are being shown online and how much you pay. 
@@ -328,6 +338,7 @@ For a training dataset, calculate the distance between the data points that are 
 Choose the closest ‘K’ elements based on the distance or function used.
 Consider a ‘majority vote’ between the K points–the class or label dominating all data points reveals the final ranking. 
 The real-life applications of KNN algorithms include facial recognition, text mining, and recommendation systems such as Amazon, Netflix, and others.
+This algorithm is known as \textbf{instance-based} learning. These work by memorising the training dataset. 
 
 \item $k$-Means: This is a distance-based unsupervised machine learning algorithm that accomplishes clustering tasks. In this algorithm, you classify datasets into clusters (K clusters) where the data 
 points within one set remain homogenous, and the data points from two different clusters remain heterogeneous. The clusters under $k$-Means are formed using these steps:
@@ -363,7 +374,8 @@ There are primarily three different types of neural networks algorithms in deep 
 
 \subsection{EDA}
 
-Exploratory Data Analysis (EDA) is a crucial step in the data science process. 
+Exploratory Data Analysis (EDA) is a crucial step in the data science process. We can have numerical or categorical data. 
+CD can further be of ordinal (size of shirt: L, XL, XXL) or nominal type (color of shirt: Blue, Green).  
 
 
 
@@ -687,6 +699,48 @@ If some axis of the ellipsoid is small, then the variance along that axis is als
 PCA is defined as an orthogonal linear transformation that transforms the data to a 
 new coordinate system such that the greatest variance by some scalar projection of the 
 data comes to lie on the first coordinate (called the first principal component), the second greatest variance on the second coordinate, and so on. 
+It is method for feature extraction. 
+
+
+Logistic regression is a classification algorithm traditionally limited to only two-class classification problems.
+If you have more than two classes then LDA (Linear Discriminant Analysis) is the preferred linear classification technique.
+
+
+
+PCA is an unsupervised learning algorithm while LDA is a supervised learning algorithm. 
+This means that PCA finds directions of maximum variance regardless of class labels while LDA finds directions of maximum class separability.
+
+
+LDA makes some assumptions as below: 
+\begin{itemize} 
+\item The data is Gaussian, that each variable is is shaped like a bell curve when plotted.
+\item Each attribute has the same variance, that values of each variable vary around the mean by the same amount on average.
+\end{itemize} 
+LDA makes predictions by estimating the probability that a new set of inputs belongs to each class. The class that gets the highest probability is the output class and a prediction is made.
+The model uses Bayes Theorem to estimate the probabilities.
+
+Some extensions of LDA 
+
+\begin{itemize} 
+\item Quadratic Discriminant Analysis (QDA): Each class uses its own estimate of variance (or covariance when there are multiple input variables).
+\item Flexible Discriminant Analysis (FDA): Where non-linear combinations of inputs is used such as splines.
+\item Regularized Discriminant Analysis (RDA): Introduces regularization into the estimate of the variance (actually covariance), moderating the influence of different variables on LDA.
+%The original development was called the Linear Discriminant or Fisher’s Discriminant Analysis. The multi-class version was referred to Multiple Discriminant Analysis. These are all simply referred to as Linear Discriminant Analysis now.
+\end{itemize} 
+
+Closely related idea if that of KPCA (kernel principal component analysis) which is nonlinear dimension reduction method. 
+This transforms the data that is not linearly separable onto a new, lower-dimensional subspace that is suitable for linear classifiers. 
+In Scikit-learn, it can be called as: $\texttt{from sklearn. decomposition import KernelPCA}$
+
+
+
+\begin{mdframed}[backgroundcolor=celadon!6]
+\begin{lstlisting}[language=Python]
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
+sklearn_lda = LDA(n_components=2)
+X_lda_sklearn = sklearn_lda.fit_transform(X, y)
+\end{lstlisting}
+\end{mdframed}
 
 
 
@@ -717,11 +771,18 @@ The following value update rule is the core of the Q-learning algorithm.
 
 \subsection{Data cleaning}
 
+It is part of  Data wrangling which includes  importing, cleaning, structuring, handling missing values, text mining. 
+
 It is important aspect of data science and can be summarised below in some steps:
 
 \begin{itemize}
-\item Missing Values: Identify missing values in the dataset. Decide on an appropriate method to handle missing values, such as imputation or deletion. Impute missing values with appropriate values based on the method selected, such as mean, median, or mode. 
-In \PAD~we can use: $\texttt{df.isna()}$ and $\texttt{df.isna().sum()}$
+\item Missing Values: Identify missing values in the dataset. Decide on an appropriate method to handle missing values, such as imputation or deletion. 
+Impute missing values with appropriate values based on the method selected, such as mean, median, or mode. 
+In \PAD~we can use: $\texttt{df.isna()}$ and $\texttt{df.isna().sum()}$ to check which enteries are not available. 
+
+Alternatively, for mean imputation we can use:
+in \PAD -- $\texttt{df.fillna(df.mean())}$
+
 
 \begin{mdframed}[backgroundcolor=celadon!6]
 \lstinputlisting[language=Python]{codes/f_mv.py}
@@ -730,11 +791,13 @@ In \PAD~we can use: $\texttt{df.isna()}$ and $\texttt{df.isna().sum()}$
 
 
 \item Duplicates: Identify and remove duplicate records in the dataset. Verify that all duplicates have been removed
-\item Outliers: Identify and handle outliers or extreme values in the data Decide on an appropriate method to handle outliers, such as deletion, transformation, or imputation. Impute or delete outliers based on the method selected
+\item Outliers: Identify and handle outliers or extreme values in the data Decide on an appropriate method to handle outliers, such as deletion, transformation, or imputation. Impute or delete outliers based on the method selected such as RANSAC
 \item Data Format: Verify that all data is in the correct format. Convert data into the appropriate format, such as converting dates into a common format. Handle inconsistent data formats\
 \item Data Validity: Verify all data is valid and consistent. Check for errors (incorrect values or typos) and correct them
 \item Data Standardization and Normalization: Data is generally processed in one of two ways:  data standardization or data normalization, sometimes referred to as min-max scaling. The two most popular techniques for scaling numerical data prior to modeling are normalization and standardization. Normalization scales each input variable separately to the range 0-1, which is the range for floating-point values where we have the most precision. Standardization scales each input variable separately by subtracting the mean (called centering) and dividing by the standard deviation to shift the distribution to have a mean of zero and a standard deviation of one. This can be achieved in \PAD~as 
 \end{itemize}
+
+
 
 
 
@@ -743,6 +806,62 @@ In \PAD~we can use: $\texttt{df.isna()}$ and $\texttt{df.isna().sum()}$
 \includegraphics[width=0.65\textwidth]{cartoon1.png}
 \caption{\label{fig:bias1}Diagrammatic representation of bias and variance and how we can over/under fit the model.}
 \end{figure}
+
+
+\section{Definitions:}
+
+
+In $k$-fold cross-validation, 
+we divide the dataset into $k$ equal parts. 
+After this, we loop over the entire dataset $k$ times. 
+In each iteration of the loop, one of the $k$ parts is used for testing, 
+and the other $k-1$ parts are used for training. 
+Using $k$-fold cross-validation, each one 
+of the $k$ parts of the dataset ends up 
+being used for training and testing purposes.
+An improvement of this is stratified $k$-fold cross-validation. 
+
+A special case of $k$-fold cross-validation is LOOCV (leave-one-out cross-validation)
+where we do not leave one training set for test but rather choose $k=n$ so that only one training example is
+used for testing during each iteration. 
+
+%\texttt{from sklearn.model_selection import GridSearchCV} followed by 
+%\texttt{GridSearchCV(estimator=SVC(),param_grid={'C': [1, 10], 'kernel': ('linear', 'rbf')})}
+
+
+\subsection{Confusion matrix}
+
+A matrix that lays out the performance of a learning algorithm. 
+It has four elements, \textbf{TP} (true positive),  \textbf{TN} (true negative), 
+\textbf{FP} (false positive) and \textbf{FN} (false negative). 
+
+\begin{equation}
+\textbf{ERR} = \frac{FP+FN}{FP+FN+TP+TN} 
+\end{equation}
+
+whereas the prediction accuracy is 1-ERR. We also have FPR, TPR. 
+
+\begin{equation}
+\textbf{FPR} = \frac{FP}{FP+TN}  = 1 - \textbf{TNR} 
+\end{equation}
+
+\begin{equation}
+\textbf{TPR} = \frac{TP}{FN+TP} 
+\end{equation}
+
+REC (recall) is equal to TPR while PRE (precision) is defined as:
+
+
+\begin{equation}
+\textbf{PRE} = \frac{TP}{FP+TP} 
+\end{equation}
+
+
+
+All same meaning: [Sensitivity, Recall, Hit rate, or True positive rate] and [Specificity, Selectivity or True negative rate (TNR)]
+
+
+
 
 
 \subsection{Stochastic Gradient Descent (SGD)} 
@@ -767,26 +886,68 @@ gradient descent because it uses the gradient to descend the loss curve towards 
 are random samples from the dataset. Hence, the name SGD. 
 
 
+\begin{itemize} 
+\item Overfitting: The model captures the training data well but fails to generalize to unseen data. High variance, Low bias. 
+\item Underfitting: The model does not capture the training data well. High variance, high bias. 
+\end{itemize} 
+
+
+We define variance as measure of how much deviation occurs for particular case if we retrain the model
+multiple times using different subsets of training data. 
+
+\textbf{How to reduce overfitting}
+
+We can either do regularization or \emph{dimensional reduction via feature selection}. 
+
 
 
 
 \subsection{Back propagation} 
-
 \TODO{Fill in .....} 
 
 
-\subsection{To ask} 
-
-\begin{itemize} 
-\item Is Spark needed or Pandas is enough. Seems like threshold of memory consumption is 10-12 Gb. 
-\item What level of SQL is needed beyond simple queries 
-\item Ask about why mlflow is needed and good reference -- Ask about data pipeline (Scikit-learn)?
 
 
+\section{Quantum meets Machine Learning = QML} 
+
+The idea of QML was first introduced in \cite{2013arXiv1307.0411L}. 
+We would not talk about unsupervised QML or quantum reinforcement learning and will only 
+make note of supervised QML. 
+
+
+Check out - \href{https://github.com/Qiskit/qiskit-machine-learning}{QISKIT ML}  \\ 
+\href{https://github.com/tensorflow/quantum}{TensorFlow Quantum}  \cite{2020arXiv200302989B}  \\ 
+And of course, we have \textsc{Penny Lane} developed at Xanadu by Schuld et al. 
+
+\subsection{Acronyms used in QML} 
+
+\begin{itemize}
+\item QNNA: Quantum nearest-neighbor algorithm 
+\item QDTC: Quantum decision tree classifiers
+\item QKM: Quantum kernel methods
+\item QSVM: Quantum support vector machines
+\item QNNC: Quantum neural network classifiers
 \end{itemize}
 
+In QML, we have two data encoding methods. Amplitude encoding (AE) and block encoding (BE). 
+
+\begin{itemize}
+\item AE: The data vector is encoded in the amplitude of the quantum state and then passed to quantum neural network. 
+A $2^{n}$-dimensional vector can be encoded in $n$ qubits as is well-known. AE based QNNs are regarded as 
+`kernel methods' \footnote{Kernel methods owe their name to the use of kernel functions (positive-definite kernel or kernel function is a generalization of a positive-definite function or a positive-definite matrix.), 
+which enable them to operate in a high-dimensional, implicit feature space without ever computing the coordinates of the data in that space, but rather by simply computing the inner products between the images of all pairs of data in the feature space.}. Encoding is a very important step! It is often a bottleneck for the runtime. 
+\item BE: This is more practical on NISQ devices. The initial quantum state is fixed and 
+the input data is required to be encoded into the QNN circuit classically in a way similar to the encoding of the variational parameters.
+There is no need for QRAM (quantum RAM). 
+\end{itemize}
+
+For QML, we need to remember that there are some conditions on the 
+preprocessing i.e., unit length of input vector which is because of the normalized state. 
+The result of QML is a measurement made by the observer. 
 
 
+
+\TODO{By May 2023!} 
 
 %\section{Acknowledgements}
 
