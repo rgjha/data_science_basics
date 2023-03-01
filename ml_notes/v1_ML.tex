@@ -367,15 +367,49 @@ There are primarily three different types of neural networks algorithms in deep 
 
 \begin{itemize}
 \item Artificial Neural Networks (ANN): Artificial neural networks are machine learning algorithms that mimic the human brain (neuronal behavior and connections) to solve complex problems. ANN has three or more interconnected layers in its computational model that process the input data. The first layer is the input layer or neurons that send input data to deeper layers. The second layer is called the hidden layer. The components of this layer change or tweak the information received through various previous layers by performing a series of data transformations. These are also called neural layers. The third layer is the output layer that sends the final output data for the problem. ANN algorithms find applications in smart home and home automation devices such as door locks, thermostats, smart speakers, lights, and appliances. They are also used in the field of computational vision, specifically in detection systems and autonomous vehicles.
-\item Convolution Neural Networks (CNN): Convolutional neural networks (CNN) are all the rage in the deep learning community right now. These CNN models are being used across different applications and domains, and they’re especially prevalent in image and video processing projects.
+\item Convolution Neural Networks (CNN): Convolutional neural networks (CNN) are all the rage in the deep learning community right now. These CNN models are being used across different applications and domains, and they’re especially prevalent in image and video processing projects. They mostly deal with two-dimensional objects (height and width of image). 
 \item Recurrent Neural Networks (RNN): Recurrent neural networks refer to a specific type of ANN that processes sequential data. Here, the result of the previous step acts as the input to the current step. This is facilitated via the hidden state that remembers information about a sequence. It acts as a memory that maintains the information on what was previously calculated. The memory of RNN reduces the overall complexity of the neural network. RNN analyzes time series data and possesses the ability to store, learn, and maintain contexts of any length. RNN is used in cases where time sequence is of paramount importance, such as speech recognition, language translation, video frame processing, text generation, and image captioning. Even Siri, Google Assistant, and Google Translate use the RNN architecture.
 \end{itemize} 
 
 
-\subsection{EDA}
+\subsection{Exploratory Data Analysis (EDA)}
 
-Exploratory Data Analysis (EDA) is a crucial step in the data science process. We can have numerical or categorical data. 
-CD can further be of ordinal (size of shirt: L, XL, XXL) or nominal type (color of shirt: Blue, Green).  
+EDA is a crucial step in the data science process. We can have numerical or categorical data. 
+CD can further be of ordinal (size of shirt: L, XL, XXL) or nominal type (color of shirt: Blue, Green, Red). 
+We can convert categorical into numerical data using two common methods: 1. Integer encoding, 
+2. One-Hot Encoding. 
+
+In integer encoding, ach unique category value is assigned an integer value.
+For example, `red' is 1, `green' is 2, and `blue' is 3. This is called a label encoding or an integer encoding and is 
+easily reversible. For some variables, this may be enough.
+Ordinal variables like the example above would be a good example where a label encoding would be sufficient.
+
+
+For categorical variables where no such ordinal relationship exists, the integer encoding is not enough.
+Using this encoding and allowing the model to assume a natural ordering between categories may result in poor performance 
+or unexpected results (predictions halfway between categories). In this case, a \emph{one-hot encoding} 
+can be applied to the integer representation. 
+This is where the integer encoded variable is 
+removed and a new binary variable is added for each 
+unique integer value.
+
+In the “color” variable example, 
+there are 3 categories and 
+therefore 3 binary variables are needed. 
+A `1' value is placed in the binary variable for the color and 
+`0' values for the other colors. For example:
+
+\begin{equation}
+\begin{matrix}
+Blue & Green & Red\\
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 
+\end{matrix}
+\end{equation}
+
+
+
 
 
 
@@ -900,9 +934,95 @@ multiple times using different subsets of training data.
 We can either do regularization or \emph{dimensional reduction via feature selection}. 
 
 
+\subsection{Activation function} 
+
+An activation function is a function used in artificial neural networks which outputs a small value for small inputs, and a larger value if the 
+inputs exceed a threshold. If the inputs are large enough, the activation function "fires", 
+otherwise it does nothing. In other words, an activation function is like a gate 
+that checks that an incoming value is greater than a critical number.
+
+Activation functions are useful because they add non-linearities into neural networks, 
+allowing the neural networks to learn powerful operations. 
+If the activation functions were to be removed from a feedforward neural network, 
+the entire network could be re-factored to a simple linear operation or matrix transformation on its input, 
+and it would no longer be capable of performing complex tasks such as image recognition.
+\emph{A neural network with no activation functions is equivalent to a linear regression model, and can perform no operation more complex than linear modeling}.
+
+Well-known activation functions used in data science include the rectified linear unit (ReLU) function, 
+and the family of sigmoid functions such as the logistic sigmoid function, 
+the hyperbolic tangent, and the arctangent function.
+Two commonly used activation functions: the rectified linear unit (ReLU) and the logistic sigmoid function. The ReLU has a hard cutoff at 0 where 
+its behavior changes, while the sigmoid exhibits a gradual change. Both tend to 0 for small $x$, and the sigmoid tends to 1 for large $x$.
+
+\subsubsection{ReLU derivative} 
+
+\begin{equation} 
+f(x)=
+\begin{cases} 
+0 & \text{if  }  x < 0 \\
+1 & \text{if  }  x > 0 \\
+\end{cases}
+\end{equation} 
+The reason for it being undefined at $x=0$ is that its left- and right derivative are not equal. 
+This sometimes creates problem with `backpropagation' since 
+when training a neural network, a neuron can become `trapped' in the zero region 
+and backpropagation will never change its weights. Because of the zero gradient problem faced by the ReLU, 
+it is sometimes common to use an adjusted ReLU function called the parametric rectified linear unit, or PReLU:
+\begin{equation} 
+f(\alpha, x)=
+\begin{cases} 
+x & \text{if  }  x \ge 0 \\
+\alpha x & \text{if  }  x < 0 \\
+\end{cases}
+\end{equation} 
+This has the advantage that the gradient is nonzero at all points (except 0 where it is undefined).
+
+
+\begin{equation} 
+f(x) = \dfrac{\exp(x)}{1+\exp(x)} = \dfrac{1}{1+\exp(-x)}
+\end{equation} 
+
 
 
 \subsection{Back propagation} 
+
+
+Backpropagation can be thought of 
+as a computationally efficient approach to 
+compute the partial derivatives of a complex cost function
+in multilayer NNs. The challenge in the parameterization of NN
+is that we are typically dealing with a very large number of weight coefficients in a 
+high-dimensional feature space. In contrast to cost functions of single-layer NNs such as 
+Adaline (single layer), which we have seen in previous chapters, the error 
+surface of an NN cost function is not convex or smooth with respect to the parameters. 
+There are many bumps in this high-dimensional cost surface (local minima) 
+that we have to overcome in order to find the global minimum of the cost function.
+
+Automatic differentiation comes with two modes, the forward and reverse modes.
+Backpropagation is simply a special case of reverse-mode automatic differentiation.
+The trick of reverse mode is that we start from right to left: we multiply a matrix by a vector, 
+which yields another vector that is multiplied by the next matrix and so on. 
+Matrix-vector multiplication is computationally much cheaper than matrix-matrix multiplication, 
+which is why backpropagation is one of the most popular algorithms used in NN training.
+
+
+We start by computing:
+
+\begin{itemize}
+\item $\textbf{\delta}^{\rm{out}} = \textbf{a}^{\rm{out}} - \textbf{y}$
+\end{itemize}
+where $\textbf{y}$ is the vector of true class labels. Now, we compute error in the hidden layer as:
+
+
+
+
+\begin{equation}
+textbf{\delta}^{\rm{(h)}} = textbf{\delta}^{\rm{out}} \Big( \textbf{W}^{\rm{out}}\Big)^{T} \otimes \frac{\partial \phi(z^{(h)})}{\partial z^{(h)}}  
+\end{equation}
+where derivative is taken of the activation function (sigmoid etc.)  
+
+
+
 \TODO{Fill in .....} 
 
 
@@ -948,6 +1068,12 @@ The result of QML is a measurement made by the observer.
 
 
 \TODO{By May 2023!} 
+
+\TODO{Tensor networks for QML}
+
+One of the interesting things is whether we can use the idea of tensor networks 
+to understand QML better. Much work has been done and a good reference page is 
+\href{https://tensornetwork.org/ml/}{this}. I suspect that there should already be work on encoding using these structures. 
 
 %\section{Acknowledgements}
 
