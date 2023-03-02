@@ -266,6 +266,9 @@ amazing 100-page textbook.\footnote{The Hundred-Page Machine Learning Book. by A
 	classified into three parts: Supervised, Unsupervised, Reinforcement learning. The canvas of ML is shown in Fig.~\ref{fig:EXP}. 
 	
 	
+	Machine Learning is a subfield of Data Science that deals with using existing data to help systems automatically learn new skills to perform different 	tasks without having rules to be explicitly programmed. Deep Learning, on the other hand, is a field in Machine Learning that deals with building Machine 	Learning models using algorithms that try to imitate the process of how the human brain learns from the information in a system for it to attain new 		capabilities. In Deep Learning, we make heavy use of deeply connected neural networks with many layers.
+	
+	
 	
 	
 	\newpage
@@ -322,10 +325,17 @@ We know that these deviations have the potential to exist, but we would still li
 \text{Min.} \vert \textbf{w} \vert^{2}  + C \sum_{i=1}^{N} \vert \xi_i \vert
 \end{equation}
 with contraints: $\vert y_{i} - w_{i} x_{i} \vert  \le \epsilon + \vert \xi_i \vert $.
-These are supervised machine learning algorithms that plot each piece of data in the $n$-dimensional space, with n referring to the number of features. Each feature value is associated with a coordinate value, making it easier to plot the features. Moreover, classification is further performed by distinctly determining the hyper-plane that separates the two sets of support vectors or classes. A good separation ensures a good classification between the plotted data points. In short, SVMs represent the coordinates for individual observations. These are popular machine learning classifiers used in applications such as data classification, facial expression classification, text classification, steganography detection in digital images, speech recognition, and others.
+These are supervised machine learning algorithms that plot each piece of data in the $n$-dimensional space, with $n$ referring to the number of features. Each feature value is associated with a coordinate value, making it easier to plot the features. Moreover, classification is further performed by distinctly determining the hyper-plane that separates the two sets of support vectors or classes. A good separation ensures a good classification between the plotted data points. In short, SVMs represent the coordinates for individual observations. These are popular machine learning classifiers used in applications such as data classification, facial expression classification, text classification, steganography detection in digital images, speech recognition, and others.
 
+SVM often admits the kernel trick. Kernels are used in SVM to map the original input data into a higher-dimensional space 
+where it will be easier to find patterns in the data and train the model with better performance (or making the data more linear!). 
+If we have binary class data like a half-moon patterns of blue and red, when plotted in 2D space, a linear SVM kernel will not be able to differentiate the two classes well but we can use RBF (radial basis function) kernel which maps the data into a particular higher-dimensional space where the two classes are clearly separable.
 
-\item Naive Bayes: This refers to a probabilistic machine learning algorithm based on the Bayesian probability model and is used to address classification problems. The fundamental assumption of the algorithm is that features under consideration are independent of each other and a change in the value of one does not impact the value of the other. For example, you can consider a ball, a cricket ball, if it is red, round, has a 7.1-7.26 cm diameter, and has a mass of 156-163 g. Although all these features could be interdependent, each one contributes to the probability that it is a cricket ball. This is the reason the algorithm is referred to as ‘naïve’. Let’s look at the mathematical representation of the algorithm.
+Typically without the kernel trick, in order to calculate support vectors and support vector classifiers, we need first to transform data points one by one to the higher dimensional space, and do the calculations based on SVM equations in the higher dimensional space, then return the results. The ‘trick’ in the kernel trick is that we design the kernels based on some conditions as mathematical functions that are equivalent to a dot product in the higher dimensional space without even having to transform data points to the higher dimensional space. i.e we can calculate support vectors and support vector classifiers in the same space where the data is provided which saves a lot of time and calculations.
+
+%Having domain knowledge can be very helpful in choosing the optimal kernel for your problem, however in the absence of such knowledge following this default rule can be helpful: For linear problems, we can try linear or logistic kernels and for nonlinear problems, we can use RBF or Gaussian kernels.
+
+\item Naive Bayes: This refers to a probabilistic machine learning algorithm based on the Bayesian probability model and is used to address classification problems. The fundamental assumption of the algorithm is that features under consideration are independent of each other and a change in the value of one does not impact the value of the other. For example, you can consider a ball, a cricket ball, if it is red, round, has a 7.1-7.26 cm diameter, and has a mass of 156-163 g. Although all these features could be interdependent, each one contributes to the probability that it is a cricket ball. This is the reason the algorithm is referred to as ‘naïve’. Each variable in the dataset is independent of the other. This kind of assumption is unrealistic for real-world data. However, even with this assumption, it is very useful for solving a range of complicated problems, e.g., spam email classification, etc. Let’s look at the mathematical representation of the algorithm.
 If $X, Y$ = probabilistic events, $P(X)$ = probability of X being true, $P(X \vert Y)$ = conditional probability of X happening in case Y has occured. Then, Bayes’ theorem is given by the equation:
 \begin{equation}
 P(X \vert Y) = \frac{P(Y \vert X) P(X)}{P(Y)}
@@ -357,7 +367,9 @@ K-Means clustering is useful in applications such as clustering Facebook users w
 \item Carry out voting for each expected result.
 \item  Select the final prediction result based on the highest voted prediction result.
 \end{enumerate} 
-This algorithm finds applications in finance, ecommerce (recommendation engines), computational biology (gene classification, biomarker discovery), and others.
+This algorithm finds applications in finance, ecommerce (recommendation engines), computational biology (gene classification, biomarker discovery), and others. It uses the random subspace method, also called attribute bagging or feature bagging. It is an ensemble learning method that attempts to reduce the correlation between estimators in an ensemble by training them on \emph{random} samples of features instead of the entire feature set.
+
+\textsc{Side Note:} Bagging is an ensemble learning method. It stands for bootstrap aggregating. In this technique, we generate some data using the bootstrap method, in which we use an already existing dataset and generate multiple samples of the $N$ size. This bootstrapped data is then used to train multiple models in parallel, which makes the bagging model more robust than a simple model. Once all the models are trained, when it’s time to make a prediction, we make predictions using all the trained models and then average the result in the case of regression, and for classification, we choose the result, generated by models, that have the highest frequency (or majority voting).
 
 
 
@@ -367,9 +379,14 @@ There are primarily three different types of neural networks algorithms in deep 
 
 \begin{itemize}
 \item Artificial Neural Networks (ANN): Artificial neural networks are machine learning algorithms that mimic the human brain (neuronal behavior and connections) to solve complex problems. ANN has three or more interconnected layers in its computational model that process the input data. The first layer is the input layer or neurons that send input data to deeper layers. The second layer is called the hidden layer. The components of this layer change or tweak the information received through various previous layers by performing a series of data transformations. These are also called neural layers. The third layer is the output layer that sends the final output data for the problem. ANN algorithms find applications in smart home and home automation devices such as door locks, thermostats, smart speakers, lights, and appliances. They are also used in the field of computational vision, specifically in detection systems and autonomous vehicles.
-\item Convolution Neural Networks (CNN): Convolutional neural networks (CNN) are all the rage in the deep learning community right now. These CNN models are being used across different applications and domains, and they’re especially prevalent in image and video processing projects. They mostly deal with two-dimensional objects (height and width of image). 
-\item Recurrent Neural Networks (RNN): Recurrent neural networks refer to a specific type of ANN that processes sequential data. Here, the result of the previous step acts as the input to the current step. This is facilitated via the hidden state that remembers information about a sequence. It acts as a memory that maintains the information on what was previously calculated. The memory of RNN reduces the overall complexity of the neural network. RNN analyzes time series data and possesses the ability to store, learn, and maintain contexts of any length. RNN is used in cases where time sequence is of paramount importance, such as speech recognition, language translation, video frame processing, text generation, and image captioning. Even Siri, Google Assistant, and Google Translate use the RNN architecture.
+\item Convolution Neural Networks (CNN): Convolutional neural networks (CNN) are all the rage in the deep learning community right now are being used across different applications and domains, and they’re especially prevalent in image and video processing projects. They mostly deal with two-dimensional objects (height and width of image). 
+\item Recurrent Neural Networks (RNN): Recurrent neural networks refer to a specific type of ANN that processes sequential data. Here, the result of the previous step acts as the input to the current step. This is facilitated via the hidden state that remembers information about a sequence. It acts as a memory that maintains the information on what was previously calculated. The memory of RNN reduces the overall complexity of the neural network. RNN analyzes time series data and possesses the ability to store, learn, and maintain contexts of any length. RNN is used in cases where time sequence is of paramount importance, such as speech recognition, language translation, video frame processing, text generation, and image captioning. RNNs are a kind of feedforward network, in which information from one layer passes to another layer, and each node in the network performs mathematical operations on the data. These operations are temporal, i.e., RNNs store contextual information about previous computations in the network. It is called recurrent because it performs the same operations on some data every time it is passed. However, the output may be different based on past computations and their results.
+
+
 \end{itemize} 
+
+
+GNN: Graph neural networks (GNNs) to solve graph prediction tasks. A GNN is an optimizable transformation on all attributes of the graph (nodes, edges, global-context) that preserves graph symmetries (permutation invariances).
 
 
 \subsection{Exploratory Data Analysis (EDA)}
@@ -884,16 +901,17 @@ whereas the prediction accuracy is 1-ERR. We also have FPR, TPR.
 \end{equation}
 
 REC (recall) is equal to TPR while PRE (precision) is defined as:
-
-
 \begin{equation}
 \textbf{PRE} = \frac{TP}{FP+TP} 
 \end{equation}
 
-
-
 All same meaning: [Sensitivity, Recall, Hit rate, or True positive rate] and [Specificity, Selectivity or True negative rate (TNR)]
 
+
+F1 score is the harmonic mean of \textbf{PRE} and \textbf{REC}, and it is calculated 
+using the following formula: 
+\[ F1 = \frac{2 \cdot \textbf{PRE} \cdot \textbf{REC}}{\textbf{PRE} + \textbf{REC}}\] 
+The F1 score is used when the recall and the precision are equally important.
 
 
 
@@ -1009,11 +1027,9 @@ which is why backpropagation is one of the most popular algorithms used in NN tr
 We start by computing:
 
 \begin{itemize}
-\item $\textbf{\delta}^{\rm{out}} = \textbf{a}^{\rm{out}} - \textbf{y}$
+\item $textbf \delta^{\rm{out}}  = \textbf{a}^{\rm{out}} - \textbf{y}$
 \end{itemize}
 where $\textbf{y}$ is the vector of true class labels. Now, we compute error in the hidden layer as:
-
-
 
 
 \begin{equation}
@@ -1078,7 +1094,41 @@ to understand QML better. Much work has been done and a good reference page is
 %\section{Acknowledgements}
 
 
+
 \appendix  
+
+\section{Some probability recap} 
+
+\textsc{Question 1:} What is the probability to get two heads consecutively when a coin is tossed 5 times. What about general $n$? \\ \\ 
+\textsc{Question 2:} Suppose $P(A)$ is the probability that $A$ passes an exam, $P(B)$ is the probability that $B$ passes an exam, $P(A \cap B)$ is that both passes, $P(A \cup B)$ is at least one passes. We have: 
+\[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \] 
+
+% https://www.geeksforgeeks.org/expected-number-of-trials-to-get-n-consecutive-heads/?ref=rp
+
+
+
+\section{Some statistics recap}
+
+\begin{itemize}
+\item Central limit theorem: According to CLT, we can treat sampling distribution of any population as normal irrespective of the distribution function of the 
+population. This theorem needs the sample size to be large enough.
+\item R-squared ($R^2$) is a statistical measure that represents the proportion of the variance for a dependent variable that's explained by an independent variable or variables in a regression model. $R^2 = 1$ means that all variation in dependent can be explained. R-Squared only works as intended in a simple linear regression model with one explanatory variable. With a multiple regression made up of several independent variables, the R-Squared must be adjusted.
+The adjusted R-squared compares the descriptive power of regression models that include diverse numbers of predictors. Every predictor added to a model increases R-squared and never decreases it. Thus, a model with more terms may seem to have a better fit just for the fact that it has more terms, while the adjusted R-squared compensates for the addition of variables and only increases if the new term enhances the model above what would be obtained by probability and decreases when a predictor enhances the model less than what is predicted by chance. In an overfitting situation, 
+an incorrectly high value of R-squared is obtained, even when the model actually has a decreased ability to predict. This is not the case with the adjusted R-squared.
+\item $p$-value: The p-value is a probability that the observed spatial pattern was created by some random process. When the $p$-value is very small i.e., $ p < 0.05$, it means it is very unlikely that the observed spatial pattern is the result of random processes, so you can reject the null hypothesis.\
+In other words, \emph{a $p$-value is a number describing how likely it is that your data would have occurred under the null hypothesis of your statistical test.}
+The $p$ value can only tell you whether or not the null hypothesis is supported. It cannot tell you whether your alternative hypothesis is true, or why.
+The threshold value for determining statistical significance is also known as the $\alpha$-value. All statistical tests have a null hypothesis. For most tests, the null hypothesis is that there is no relationship between your variables of interest or that there is no difference among groups. For example, in a $t$ test, the null hypothesis is that the difference between two groups is zero. Recall that a 
+$t$-test is a statistical test that is used to compare the means of any two groups. 
+\item $z$-score: $z$-scores are standard deviations. For example a $z=2$ means that the result is 2 standard deviations from the mean. 
+Both $z$-scores and $p$-values are associated with the standard normal distribution. Very high or very low (negative) $z$-scores, 
+associated with very small $p$-values, are found in the tails of the normal distribution. The higher or lower the $z$-score, the more unlikely the result is to happen by chance and the more likely the result is meaningful.
+
+
+
+\end{itemize}  
+
+
 	
 	\newpage
 	\addcontentsline{toc}{section}{References}
