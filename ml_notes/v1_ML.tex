@@ -359,6 +359,14 @@ points within one set remain homogenous, and the data points from two different 
 \item Repeat: Repeat the process till the centroids do not change.
 \end{enumerate} 
 K-Means clustering is useful in applications such as clustering Facebook users with common likes and dislikes, document clustering, segmenting customers who buy similar ecommerce products, etc.
+
+Clusters are evaluated based on some similarity or dissimilarity measure such as the distance between cluster points. If the clustering algorithm separates dissimilar observations apart and similar observations together, then it has performed well. The two most popular metrics evaluation metrics for clustering algorithms are the Silhouette coefficient (S) and Dunn's index. 
+
+
+
+
+
+
 \item Random forest: Random forest algorithms use multiple decision trees to handle classification and regression problems. It is a supervised machine learning algorithm where different decision trees are built on different samples during training. These algorithms help estimate missing data and tend to keep the accuracy intact in situations when a large chunk of data is missing in the dataset. Random forest algorithms follow these steps:
 
 \begin{enumerate} 
@@ -1123,10 +1131,91 @@ $t$-test is a statistical test that is used to compare the means of any two grou
 \item $z$-score: $z$-scores are standard deviations. For example a $z=2$ means that the result is 2 standard deviations from the mean. 
 Both $z$-scores and $p$-values are associated with the standard normal distribution. Very high or very low (negative) $z$-scores, 
 associated with very small $p$-values, are found in the tails of the normal distribution. The higher or lower the $z$-score, the more unlikely the result is to happen by chance and the more likely the result is meaningful.
-
-
-
 \end{itemize}  
+
+
+
+\section{Natural Language Processing (NLP), ChatGPT and all that..}
+
+Unless you have been living in the mountains with no internet, you must have read 
+or experimented with ChatGPT. In this post, and probably subsequent ones, we will try to explain 
+what makes it tick and the foundations behind this progress. First some acronyms used:
+
+\begin{itemize}
+\item ML: Machine learning
+\item LLM: Large Language Model
+\item GPT: Generative Pre-training Transformer
+\item LSTM: Long-Short-Term-Memory
+\end{itemize}
+
+and Tranformer models
+
+
+ChatGPT is an extrapolation of a class of ML models known as LLM. LLMs takes in 
+huge quantities of text data and infer relationships between words in that text. 
+The capability of LLMs increase with increase in size of their input datasets and parameter space. 
+
+
+In NLP, one is interested in making inferences from large data of text. 
+The most basic and traditional method was S-to-S (sequence to sequence) models. 
+However, when we have large amount of text this was not optimal since the model 
+forgets the learning from the earlier parts as it moves along a sequence. This means 
+that there is loss of information/learning. LSTM and GRU's did try to salvage this situation 
+by discarding information that was not useful along the way to remember important information. 
+Though, it still wasn’t enough. Then in 2014, a paper introduced `attention mechanisms'. 
+The authors suggested assigning relative importance to each word in a sentence such that the 
+model focuses on important words and ignores the rest (much like importance sampling in Monte Carlo methods). 
+It emerged to be a massive improvement over encoder-decoder models. 
+
+
+The most basic training of language models involves predicting a word in a 
+sequence of words. This is observed as either next-token-prediction (you must have noticed this in Gmail when composing an email when it suggest auto completion) 
+and masked-language-modeling (where a sentence like `Bill ??? running', is suggested completion through words as `likes', `hates' etc. ??? denotes the mask!). 
+These basic-sequencing techniques are often implemented through LSTM. However, it has some drawbacks! 
+
+While running might be associated to `hate', it might be that Bill is a marathon runner and actually loves it. There might be other sentences in the text
+which affirms this like `Bill runs thrice a day'. However, if it is masked, LSTM might actually assign `hate' to complete the sentence as:
+`Bill hates running'. This means that the model is unable to give more importance to some surrounding words than others. 
+The other issue is that the input data is processed individually and sequentially rather than as a whole big chunk. 
+This means that when an LSTM is trained, the window of context is fixed. This limits the complexity of the relationships between words and the meanings that can be derived.
+So, suppose we have two sentences -- `Stochastic gradient is a very powerful tool in machine learning' , and `Stochastic gradient which is related to conjugate gradient 
+is a method frequently used in inverting fermionic operators in lattice field theory'. Now, if we train the model, and ask `What is stochastic gradient?'. It will not 
+say anything about lattice field theory since it doesn't see the whole corpus of data. 
+
+
+Because of these limitations, in 2017, a paper titled `Attention is all you need' was posted which introduced the idea of `transformers'. 
+The title is named because the central idea of this architecture is to rely on attention (or, self-attention) 
+instead of the feedback loop found in RNNs. Remember that 
+LSTM networks are a type of RNN that uses special units in addition to standard units. 
+Unlike LSTMs, transformers can process all input data at once! 
+Using self-attention mechanism, the model can give different 
+weights to different parts of the input data in relation to any position of the language sequence. 
+This feature enabled massive improvements in putting meaning into LLMs 
+and enables processing of significantly larger datasets and tackle dependencies between them. 
+
+
+All GPT models make use of 
+the transformer architecture, which means they have an encoder to process the input sequence and a decoder to generate the output sequence. 
+Both the encoder and decoder have a multi-head (The ‘multi-head’ attention is an evolution of self-attention) attention mechanism that allows the model to differentially weight parts of the sequence to infer meaning and context. 
+In addition, the encoder leverages masked-language-modeling to understand the relationship between words and produce more comprehensible responses.
+The self-attention mechanism that drives GPT works by converting tokens (pieces of text, which can be a word, sentence, or other grouping of text) into vectors that represent the importance of the token in the input sequence. 
+To do this, the model,
+
+
+
+
+
+
+
+\begin{figure}
+\centering 
+\includegraphics[width=0.85\textwidth]{paper1.png}
+\caption{\label{fig:PAPER1}The paper which introduced `attention mechanisms' in 2014.}
+\end{figure}
+
+
+
+
 
 
 	
