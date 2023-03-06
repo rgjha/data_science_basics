@@ -349,6 +349,8 @@ Choose the closest ‘K’ elements based on the distance or function used.
 Consider a ‘majority vote’ between the K points–the class or label dominating all data points reveals the final ranking. 
 The real-life applications of KNN algorithms include facial recognition, text mining, and recommendation systems such as Amazon, Netflix, and others.
 This algorithm is known as \textbf{instance-based} learning. These work by memorising the training dataset. 
+The term “non-parametric” refers to not making any assumptions on the underlying data distribution. These methods do not have any fixed numbers of parameters in the model.
+Similarly in KNN, the model parameters grow with the training data by considering each training case as a parameter of the model. KNN is a non-parametric algorithm.
 
 \item $k$-Means: This is a distance-based unsupervised machine learning algorithm that accomplishes clustering tasks. In this algorithm, you classify datasets into clusters (K clusters) where the data 
 points within one set remain homogenous, and the data points from two different clusters remain heterogeneous. The clusters under $k$-Means are formed using these steps:
@@ -1133,6 +1135,59 @@ Both $z$-scores and $p$-values are associated with the standard normal distribut
 associated with very small $p$-values, are found in the tails of the normal distribution. The higher or lower the $z$-score, the more unlikely the result is to happen by chance and the more likely the result is meaningful.
 \end{itemize}  
 
+\section{Recommender Systems}
+
+A recommender system, or a recommendation system, is a subclass of information filtering system that seeks to predict the “rating” or “preference” a user would give to an item. Recommender systems are utilized in a variety of areas, with commonly recognized examples taking the form of playlist generators for video and music services, product recommenders for online stores, etc. These systems can operate using a single input, like music, or multiple inputs within and across platforms like news, books, and search queries. Recommender systems are utilized in order to make better product suggestions to customers, or personalized recommendations to friends.
+
+Recommender systems leverage machine learning algorithms in order to make better predictions about a user’s preferences. There are a number of different machine learning algorithms that can be used in a recommender system.  Each algorithm has its own strengths and weaknesses, and the best algorithm for a particular application will depend on the nature of the data. The most common is the linear regression algorithm. The linear regression algorithm is used to find the best linear approximation to a data set. In a recommender system, this algorithm is used to predict how a user will rate an item based on their past ratings. Other machine learning algorithms that can be used in Recommender Systems, include some of the following:
+
+\begin{itemize}
+\item Neural Networks: A neural network is a type of machine learning algorithm that is similar to the brain. It is composed of interconnected neurons that can learn to recognize patterns. Neural networks are often used for prediction tasks, like recommender systems.
+\item K-NearestNeighbor (K-NN): The K-NN algorithm is often used for recommender systems because it is able to handle large amounts of data and can produce good predictions. The K-NN algorithm works by finding the k nearest neighbours of a given item. The neighbours are then used to vote on the rating of the item. The algorithm then uses the average of the votes to predict the rating of the item. The K-NN algorithm is often used for Recommender Systems because it is able to handle large amounts of data and can produce good predictions.
+\item Bayesian inference: Bayesian inference is a type of machine learning algorithm that is used to make better predictions. It is often used in recommender systems because it can handle large amounts of data. The Bayesian inference algorithm works by using a probability model to predict the rating of an item. The algorithm uses the past ratings of a user to build the probability model. This allows the algorithm to make better predictions about a user’s preferences.
+\item Dimensionality reduction: Dimensionality reduction is a type of machine learning algorithm that is used to reduce the number of dimensions in a data set. It is often used in Recommender Systems because it can help to reduce the amount of data that needs to be processed. The dimensionality reduction algorithm works by finding a lower dimensional representation of the data. This can be done by using techniques like Principal Component Analysis (PCA).These are just some of the machine learning algorithms that can be used in Recommender Systems. Each algorithm has its own strengths and weaknesses, and the best algorithm for a particular application will depend on the nature of the data.
+\end{itemize}
+
+
+The following is a list of benefits / value of building recommender system and why businesses must consider:
+
+\begin{itemize}
+\item Recommender systems help businesses make money by increasing sales and predicting what customers want.
+\item Recommender systems can improve customer satisfaction by providing relevant recommendations. They can improve customer loyalty by suggesting new items that the customer may like.
+\item Recommender systems can reduce the amount of time it takes to find the right item for a customer.
+\item Recommender systems can help businesses learn more about their customers’ preferences.
+\end{itemize}
+
+
+There are different types of recommender systems. Some of them are listed below:
+
+\begin{itemize}
+\item Content-based recommendation: The most common type of recommender system is the content-based recommender system. A content-based recommender system is a type of recommender system that relies on the similarity between items to make recommendations. For example, if you’re looking for a new movie to watch, a content-based recommender system might recommend movies that are similar to ones you’ve watched in the past. Content-based recommender systems are commonly used in music, books, and movies. They can be used to recommend products, services, or even websites. Content-based recommender systems are based on the idea that if you like one item, you’re likely to like other items that are similar to it. To build a content-based recommender system, you need to first define what similarity means. This is where machine learning comes in. A content-based recommender system can use machine learning to learn the similarity between items. Once it has learned the similarity between items, it can make recommendations accordingly.
+
+\item Collaborative filtering based recommendation: 
+Another type of recommender system is the collaborative filtering recommender system. A collaborative filtering recommender system is a type of machine learning algorithm that makes predictions about what a user might want to buy or watch based on the past behavior of other users. The algorithm looks at the items that other users with similar taste have purchased or rated highly, and recommends those items to the new user.
+The main advantage of collaborative filtering is that it doesn’t require any information about the users or items; all it needs is a dataset of past user behavior. Collaborative filtering is one of the most popular techniques for building recommender systems, and is used by major companies such as Amazon, Netflix, and Spotify.
+
+\item Hybrid recommender system: A third type of recommender system is the hybrid recommender system. The hybrid approach has become increasingly popular in recent years as it offers the potential to overcome some of the limitations of each individual approach.
+\end{itemize}
+
+
+
+
+Content-based recommender systems focus on the attributes of items in order to make recommendations. This can often lead to issues with scalability, as the system needs to be constantly updated with new content in order to make accurate recommendations. Collaborative filtering systems, on the other hand, focus on the relationships between users and items. This can often result in problems with sparsity, as it can be difficult to find enough users who have rated a given item. The hybrid approach seeks to overcome these limitations by combining the two approaches. 
+
+A hybrid recommender system is a type of recommender system that combines both content-based and collaborative filtering approaches. The hybrid approach takes advantage of both content-based and collaborative filtering by using them to supplement each other. For example, a hybrid recommender system might first identify a set of items that are similar to the item the user is interested in, and then use collaborative filtering to identify which of those items the user is most likely to enjoy. This approach can provide more accurate recommendations than either method used alone. The hybrid approach has been shown to be more effective than either method used alone, as it is able to leverage the strengths of both approaches. Hybrid recommender systems are often more scalable and efficient than pure content-based or collaborative filtering systems.
+
+Examples of Recommender Systems
+Some of the most popular examples of recommender systems include the ones used by Amazon, Netflix, and Spotify.
+
+Amazon’s recommender system is based on a combination of collaborative filtering and content-based algorithms. It uses past customer behavior to make recommendations for new products. Amazon’s recommender system is one of the most complex and sophisticated in the world.
+Netflix’s recommender system is also based on a combination of collaborative filtering and content-based algorithms. However, Netflix takes things a step further by also incorporating machine learning into its algorithm. This allows Netflix to make predictions about what a user might want to watch based on the behavior of other users.
+Spotify’s recommender system is based on collaborative filtering. It uses past user behavior to make recommendations for new songs to listen to.
+
+
+In short, recommender systems are a type of machine learning based systems that are used to predict the ratings or preferences of items for a given user. There are three main types of Recommender Systems: collaborative filtering, content-based, and hybrid. Some of the most popular examples of Recommender Systems include the ones used by Amazon, Netflix, and Spotify. Collaborative filtering systems use past user behavior to make recommendations for new products. Content-based systems focus on the attributes of items in order to make recommendations. The hybrid approach is a combination of both content-based and collaborative filtering approaches. Hybrid recommender systems are often more scalable and efficient than pure content-based or collaborative filtering systems. 
+
 
 
 \section{Natural Language Processing (NLP), ChatGPT and all that..}
@@ -1212,6 +1267,43 @@ To do this, the model,
 \includegraphics[width=0.85\textwidth]{paper1.png}
 \caption{\label{fig:PAPER1}The paper which introduced `attention mechanisms' in 2014.}
 \end{figure}
+
+
+\section{SQL}
+
+SQL is case insensitive. 
+
+\begin{itemize}
+\item \textsc{find second highest salary}: \texttt{SELECT MAX(SALARY) FROM Employee WHERE SALARY < (SELECT MAX(SALARY) FROM Employee);} 
+\item \textsc{nth highest salary:} \texttt{Select Salary from EMPLOYEE order by Salary DESC limit n-1,1;} 
+\item \texttt{select * from city where population > 100000 and CountryCode="USA"} 
+\item \texttt{select * from city where ID="1661"} 
+\item \texttt{SELECT NAME FROM CITY WHERE COUNTRYCODE = 'JPN'} 
+
+\end{itemize} 
+
+
+
+\section{Basic programming algorithms}
+
+There are different ways to sort a list. Some important ones can be remembered by mneumonic \textbf{ISBMQ}. 
+Insertion, Selection, Bubble, Merge, Quick. We denote time and space complexity as $C(\cdot, \cdot)$
+
+\begin{itemize} 
+\item Insertion: Start with second element of the list and place it on left or right of first element. Do this loop over elements similarly.  $C(N^2, 1)$
+\item Selection: Find minimum of list and place it first (assuming ascending sort). Then focus on remaining and iterate.   $C(N^2, 1)$
+\item Bubble: This works by repeatedly swapping the adjacent elements if they are in the wrong order.  $C(N^2, 1)$
+\item Merge: Divide and conquer. It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves.  The merge(A, p, q, r) is a key process that assumes that A[p..q] and A[q+1..r] are sorted and merges the two sorted sub-arrays into one. $C(N \log N, N$)
+\item Quicksort: QuickSort is also a divide and conquer algorithm. It picks an element as a pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways. $N \log N, \log N$
+\end{itemize} 
+
+
+
+
+
+
+
+
 
 
 
