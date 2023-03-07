@@ -1271,17 +1271,227 @@ To do this, the model,
 
 \section{SQL}
 
+\subsection{Main commands} 
+
+\begin{itemize}
+\item \textbf{SELECT}: The SELECT statement is used to retrieve data from one or more tables in a database. You should master using SELECT to filter, sort, and group data using different functions such as WHERE, ORDER BY, and GROUP BY. Here is an example of a SELECT statement:
+\begin{quote}
+\begin{verbatim}
+SELECT column1, column2, column3 FROM table_name WHERE condition; 
+\end{verbatim}
+\end{quote}
+\item In this example, column1, column2, and column3 are the names of the columns that you want to retrieve data from, and table\_name is the name of the table that contains the data. The WHERE clause is optional but is used to specify a condition that must be met in order for the query to retrieve data. Here’s an example that selects all records from a table called `customers' where the customer’s age is greater than or equal to 18:
+\begin{quote}
+\begin{verbatim}
+SELECT * 
+FROM customers
+WHERE age >= 18;
+\end{verbatim}
+\end{quote}
+
+
+\item \textbf{JOIN}: The JOIN statement is used to combine data from two or more tables in a database. You should master using JOIN to retrieve data from multiple tables and specify the type of join (e.g. INNER, LEFT, RIGHT, FULL OUTER) as appropriate.
+An INNER JOIN returns only the rows where there is a match between the columns in both tables. Here is an example:
+\begin{quote}
+\begin{verbatim}
+SELECT orders.order_id, customers.customer_name
+FROM orders
+INNER JOIN customers
+ON orders.customer_id = customers.customer_id;
+\end{verbatim}
+\end{quote}
+In this example, the orders table and the customers table are joined using the customer\_id column. The resulting table will only include the order\_id and customer\_name columns where there is a match between the customer\_id columns in both tables.
+
+\item \textbf{LEFT JOIN}: A LEFT JOIN returns all the rows from the left table and the matching rows from the right table. If there is no match in the right table, the result will contain NULL values. Here is an example:
+\begin{quote}
+\begin{verbatim}
+SELECT customers.customer_name, orders.order_id
+FROM customers
+LEFT JOIN orders
+ON customers.customer_id = orders.customer_id;
+\end{verbatim}
+\end{quote}
+In this example, the customers table is the left table and the orders table is the right table. The customer\_id column is used to join the tables. The resulting table will include all the rows from the customers table and the matching rows from the orders table. If there is no match in the orders table, the order\_id column will contain NULL values.
+
+
+
+\item \textbf{RIGHT JOIN}: A RIGHT JOIN returns all the rows from the right table and the matching rows from the left table. If there is no match in the left table, the result will contain NULL values. Here is an example:
+\begin{quote}
+\begin{verbatim}
+SELECT customers.customer_name, orders.order_id
+FROM customers
+RIGHT JOIN orders
+ON customers.customer_id = orders.customer_id;
+\end{verbatim}
+\end{quote}
+In this example, the orders table is the left table and the customers table is the right table. The customer\_id column is used to join the tables. The resulting table will include all the rows from the orders table and the matching rows from the customers table. If there is no match in the customers table, the customer\_name column will contain NULL values.
+
+
+
+\item \textbf{OUTER JOIN}: An OUTER JOIN in SQL is used to return all the rows from one or both tables, including the non-matching rows. There are two types of OUTER JOINs: LEFT OUTER JOIN and RIGHT OUTER JOIN.
+\begin{quote}
+\begin{verbatim}
+SELECT customers.customer_name, orders.order_id
+FROM customers
+LEFT OUTER JOIN orders
+ON customers.customer_id = orders.customer_id;
+
+* Now RIGHT OUTER JOIN
+
+SELECT customers.customer_name, orders.order_id
+FROM customers
+RIGHT OUTER JOIN orders
+ON customers.customer_id = orders.customer_id;
+\end{verbatim}
+\end{quote}
+In this example, the orders table is the left table and the customers table is the right table. The customer\_id column is used to join the tables. The resulting table will include all the rows from the orders table and the matching rows from the customers table. If there is no match in the customers table, the customer\_name column will contain NULL values. Some databases may not support RIGHT OUTER JOINs, but you can achieve the same result by using a LEFT OUTER JOIN and swapping the order of the tables.
+
+
+\item \textbf{WHERE}: 
+\begin{quote}
+\begin{verbatim}
+SELECT name, department, salary
+FROM employees
+WHERE department = 'Sales' AND salary > 50000;
+\end{verbatim}
+\end{quote}
+
+
+
+\item \textbf{GROUP BY}: 
+\begin{quote}
+\begin{verbatim}
+SELECT department, AVG(salary) as avg_salary
+FROM employees
+GROUP BY department;
+\end{verbatim}
+\end{quote}
+
+
+\item \textbf{HAVING}: 
+\begin{quote}
+\begin{verbatim}
+SELECT customer_id, SUM(quantity) AS total_quantity
+FROM orders
+GROUP BY customer_id
+HAVING SUM(quantity) >= 50;
+\end{verbatim}
+\end{quote}
+
+
+These are Window functions. 
+\item \textbf{HAVING}: 
+\begin{quote}
+\begin{verbatim}
+ROW_NUMBER() \\
+SUM()\\
+RANK()\\
+AVERAGE()\\
+Basic query: SELECT column1, column2, ..., ####() OVER (ORDER BY column1) AS \newline
+row_num
+FROM table_name;
+\end{verbatim}
+Replace hashes by either four of these like RANK(). 
+\end{quote}
+
+
+\item \textbf{UNION}:  Suppose we have two tables named “customers” and “employees”, both with columns for “name” and “city”. We want to create a list of all people (both customers and employees) who live in New York City. We can use the UNION operator to combine the results of two SELECT statements, one for each table:
+\begin{quote}
+\begin{verbatim}
+SELECT name, city
+FROM customers
+WHERE city = 'New York'
+UNION
+SELECT name, city
+FROM employees
+WHERE city = 'New York';
+\end{verbatim}
+\end{quote}
+
+
+\item \textbf{CREATE}:  The CREATE statement is used to create a new database table, view, or other database objects. You should master using CREATE to create new tables, views, and other database objects. Here’s an example of using the CREATE statement in SQL. Suppose we want to create a new table called “customers” with columns for “id”, “name”, “email”, and “phone”. We can use the CREATE statement to do this:
+\begin{quote}
+\begin{verbatim}
+CREATE TABLE customers (
+  id INT PRIMARY KEY,
+  name VARCHAR(50),
+  email VARCHAR(100),
+  phone VARCHAR(20)
+);
+
+INSERT INTO customers (id, name, email, phone)
+VALUES (1, 'John Doe', 'johndoe@example.com', '555-555-1234');
+\end{verbatim}
+\end{quote}
+
+
+\item \textbf{INSERT}:  As name suugests
+\begin{quote}
+\begin{verbatim}
+INSERT INTO students (id, name, major, gpa)
+VALUES (1234, 'John Doe', 'Computer Science', 3.5);
+\end{verbatim}
+\end{quote}
+
+
+\item \textbf{UPDATE}:  As name suugests
+\begin{quote}
+\begin{verbatim}
+UPDATE students
+SET major = 'Mathematics', gpa = 3.7
+WHERE id = 1234;
+\end{verbatim}
+\end{quote}
+
+
+\item \textbf{DELETE}:  This query below would remove the row with an ID of 1234 from the “students” table. The DELETE statement specifies the name of the table we want to delete from, followed by the WHERE clause to specify which rows we want to delete. In this case, we want to delete the row with an ID of 1234, so we specify “WHERE id = 1234”.
+\begin{quote}
+\begin{verbatim}
+DELETE FROM students
+WHERE id = 1234;
+\end{verbatim}
+\end{quote}
+
+
+% https://levelup.gitconnected.com/13-sql-statements-for-90-of-your-data-science-tasks-27902996dc2b
+% https://learnsql.com/blog/sql-join-examples-with-explanations/
+
+
+% https://sqlzoo.net/wiki/SQL_Tutorial
+
+
+
+\end{itemize}
+
 SQL is case insensitive. 
 
 \begin{itemize}
-\item \textsc{find second highest salary}: \texttt{SELECT MAX(SALARY) FROM Employee WHERE SALARY < (SELECT MAX(SALARY) FROM Employee);} 
+\item \textsc{find second highest salary}:  \texttt{SELECT MAX(SALARY) FROM Employee WHERE SALARY < (SELECT MAX(SALARY) FROM Employee);}
 \item \textsc{nth highest salary:} \texttt{Select Salary from EMPLOYEE order by Salary DESC limit n-1,1;} 
 \item \texttt{select * from city where population > 100000 and CountryCode="USA"} 
 \item \texttt{select * from city where ID="1661"} 
 \item \texttt{SELECT NAME FROM CITY WHERE COUNTRYCODE = 'JPN'} 
+\item \texttt{SELECT * FROM Student WHERE FirstName NOT LIKE 'A\%'} -- The following query returns the rows in which FirstName do not start with A.
+\item \texttt{SELECT * FROM Student WHERE FirstName NOT LIKE '\%d'} -- The following query returns the rows in which FirstName do not end with d.
+\item \texttt{select distinct(city) from station where city not REGEXP '\^[AEIOU]' AND city not REGEXP '[aeiou]\$'; } : Query the list of CITY names from STATION that do not start with 
+vowels and do not end with vowels. Your result cannot contain duplicates.
+\item \texttt{select distinct(city) from station where city not REGEXP '\^[AEIOU]' OR city not REGEXP '[aeiou]\$'; } : Query the list of CITY names from STATION that either do not start with 
+vowels or do not end with vowels. Your result cannot contain duplicates.
+\item \texttt{SELECT NAME FROM EMPLOYEE ORDER BY NAME ASC;}: Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
+\item \texttt{SELECT NAME FROM EMPLOYEE WHERE SALARY > 2000 AND MONTHS < 10 ORDER BY EMPLOYEE\_ID ASC}: Write a query that prints a list of employee names (i.e. the name attribute) for employees in Employee having a salary greater than  2000 per month who have been employees for less than  10 months. Sort your result by ascending employee-id.
+\item \texttt{ALTER TABLE celebs  ADD COLUMN twitter\_handle TEXT;}: Add new column 
+\item \texttt{DELETE FROM celebs WHERE twitter\_handle IS NULL;}: Delete rows where one specific column is empty
+\item \texttt{SELECT SUM(v) FROM ELEMENTS}: Sum Column $v$ from table ELEMENTS
+\item 
+\item 
+\item 
 
+
+\item \texttt{CREATE TABLE}: creates a new table,  \texttt{INSERT INTO}: adds a new row to a table, \texttt{SELECT} queries data from a table, 
+\texttt{ALTER TABLE} changes an existing table, \texttt{UPDATE}: edits a row in a table, \texttt{DELETE FROM} deletes rows from a table. 
 \end{itemize} 
 
+% P is <alias for the source query> and PV is <alias for the pivot table>.
 
 
 \section{Basic programming algorithms}
@@ -1296,6 +1506,52 @@ Insertion, Selection, Bubble, Merge, Quick. We denote time and space complexity 
 \item Merge: Divide and conquer. It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves.  The merge(A, p, q, r) is a key process that assumes that A[p..q] and A[q+1..r] are sorted and merges the two sorted sub-arrays into one. $C(N \log N, N$)
 \item Quicksort: QuickSort is also a divide and conquer algorithm. It picks an element as a pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways. $N \log N, \log N$
 \end{itemize} 
+
+
+
+\section{Codility Exercises Solutions}
+
+\textsc{Question 1:} \href{https://app.codility.com/programmers/trainings/1/longest_password/}{LongestPassword (see here)} \\
+\textsc{Solution 1:} 
+
+
+\begin{mdframed}[backgroundcolor=celadon!6]
+\lstinputlisting[language=Python]{codes/password.py}
+\end{mdframed}
+
+\textsc{Question 2:} \href{https://app.codility.com/programmers/lessons/1-iterations/binary_gap/}{Binary Gap (see here)} \\
+\textsc{Solution 2:} 
+
+\begin{mdframed}[backgroundcolor=celadon!6]
+\begin{lstlisting}[language=Python]
+def solution(N):
+    return len(max(format(N, 'b').strip('0').split('1'))) 
+\end{lstlisting}
+   \end{mdframed} 
+   
+   
+   
+   % Fast API: https://www.datacamp.com/tutorial/introduction-fastapi-tutorial
+   
+
+
+\section{Interview questions}
+
+\begin{enumerate}
+
+\item Q1: How to improve your model performance?  \\
+\textsc{Answer:} Some methods are -- use validation methods, add more data, apply feature engineering techniques (normalization, imputation etc.), compare multiple algorithms, hyperparameter tuning 
+
+\item Q2: What is difference between standardization and log transformation. \\
+\textsc{Answer:} Standardization is the process of putting different variables on the same scale. This process allows you to compare scores between different types of variables. Typically, to standardize variables, you calculate the mean and standard deviation for a variable. Log transformation is a data transformation method in which it replaces each variable $x$ with a $log(x)$. Log-transform decreases skew in some distributions, especially with large outliers. But, it may not be useful as well if the original distribution is not skewed. Also, log transform may not be applied to some cases (negative values), but standardisation is mostly always applicable except $\sigma = 0$. 
+
+\item Q3: How to deal with unbalanced binary classification? \\
+\textsc{Answer:} In a classification task, there is a high chance for the algorithm to be biased if the dataset is imbalanced. An imbalanced dataset is one in which the number of samples in one class is very higher or lesser than the number of samples in the other class. 
+To counter such imbalanced datasets, we use a technique called up-sampling and down-sampling. In up-sampling, we randomly duplicate the observations from the minority class in order to reinforce its signal. The most common way is to resample with replacement. In down-sampling, we randomly remove the observations from the majority class. Thus after up-sampling or down-sampling, the dataset becomes balanced with the same number of observations in each class.
+
+\end{enumerate}
+
+
 
 
 
