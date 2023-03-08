@@ -1137,9 +1137,9 @@ associated with very small $p$-values, are found in the tails of the normal dist
 
 \section{Recommender Systems}
 
-A recommender system, or a recommendation system, is a subclass of information filtering system that seeks to predict the “rating” or “preference” a user would give to an item. Recommender systems are utilized in a variety of areas, with commonly recognized examples taking the form of playlist generators for video and music services, product recommenders for online stores, etc. These systems can operate using a single input, like music, or multiple inputs within and across platforms like news, books, and search queries. Recommender systems are utilized in order to make better product suggestions to customers, or personalized recommendations to friends.
+A recommender system (RS), or a recommendation system, is a subclass of information filtering system that seeks to predict the “rating” or “preference” a user would give to an item. Recommender systems are utilized in a variety of areas, with commonly recognized examples taking the form of playlist generators for video and music services, product recommenders for online stores, etc. These systems can operate using a single input, like music, or multiple inputs within and across platforms like news, books, and search queries. Recommender systems are utilized in order to make better product suggestions to customers, or personalized recommendations to friends.
 
-Recommender systems leverage machine learning algorithms in order to make better predictions about a user’s preferences. There are a number of different machine learning algorithms that can be used in a recommender system.  Each algorithm has its own strengths and weaknesses, and the best algorithm for a particular application will depend on the nature of the data. The most common is the linear regression algorithm. The linear regression algorithm is used to find the best linear approximation to a data set. In a recommender system, this algorithm is used to predict how a user will rate an item based on their past ratings. Other machine learning algorithms that can be used in Recommender Systems, include some of the following:
+RSs leverage machine learning algorithms in order to make better predictions about a user’s preferences. There are a number of different machine learning algorithms that can be used in a recommender system. Each algorithm has its own strengths and weaknesses, and the best algorithm for a particular application will depend on the nature of the data. The most common is the linear regression algorithm. The linear regression algorithm is used to find the best linear approximation to a data set. In a recommender system, this algorithm is used to predict how a user will rate an item based on their past ratings. Other machine learning algorithms that can be used in RS, include some of the following:
 
 \begin{itemize}
 \item Neural Networks: A neural network is a type of machine learning algorithm that is similar to the brain. It is composed of interconnected neurons that can learn to recognize patterns. Neural networks are often used for prediction tasks, like recommender systems.
@@ -1159,7 +1159,7 @@ The following is a list of benefits / value of building recommender system and w
 \end{itemize}
 
 
-There are different types of recommender systems. Some of them are listed below:
+There are different types of RS. Some of them are listed below:
 
 \begin{itemize}
 \item Content-based recommendation: The most common type of recommender system is the content-based recommender system. A content-based recommender system is a type of recommender system that relies on the similarity between items to make recommendations. For example, if you’re looking for a new movie to watch, a content-based recommender system might recommend movies that are similar to ones you’ve watched in the past. Content-based recommender systems are commonly used in music, books, and movies. They can be used to recommend products, services, or even websites. Content-based recommender systems are based on the idea that if you like one item, you’re likely to like other items that are similar to it. To build a content-based recommender system, you need to first define what similarity means. This is where machine learning comes in. A content-based recommender system can use machine learning to learn the similarity between items. Once it has learned the similarity between items, it can make recommendations accordingly.
@@ -1187,6 +1187,26 @@ Spotify’s recommender system is based on collaborative filtering. It uses past
 
 
 In short, recommender systems are a type of machine learning based systems that are used to predict the ratings or preferences of items for a given user. There are three main types of Recommender Systems: collaborative filtering, content-based, and hybrid. Some of the most popular examples of Recommender Systems include the ones used by Amazon, Netflix, and Spotify. Collaborative filtering systems use past user behavior to make recommendations for new products. Content-based systems focus on the attributes of items in order to make recommendations. The hybrid approach is a combination of both content-based and collaborative filtering approaches. Hybrid recommender systems are often more scalable and efficient than pure content-based or collaborative filtering systems. 
+
+In the most basic setup, the RS is made up of five core components:
+as shown in Fig. below. 
+
+\begin{enumerate}
+\item Data Collection and Processing 
+\item Recommender Model
+\item Recommendation post-processing
+\item Online modules (tells us what needs to be stored in logs in order to both report how your system is performing and perhaps to also learn from the usage and interactions)
+\item User interface (For example, it’s good practice to explain to users why they are being recommended an item (e.g. `You may like watching this movie because you liked movies $X$ and $Y$), as this makes the recommender’s decisions more transparent.)
+\end{enumerate} 
+
+
+\subsubsection{Dithering}
+
+There is a relatively low cost but high value technique for improving the quality of our 
+recommendations known as `dithering'. It’s a technique that re-orders a list of recommendations by slightly shuffling them around based on some noise. 
+It is typically implemented in the recommendation post-processing component.
+
+
 
 
 
@@ -1270,6 +1290,16 @@ To do this, the model,
 
 
 \section{SQL}
+
+For someone starting with learning data science, SQL (pronounced `sequel') can be bit tricky. 
+There are two websites which are particularly nice to develop these skills:
+
+\href{https://learnsql.com/blog}{\texttt{Learn SQL}}  \\ 
+\href{https://sqlzoo.net/wiki/SQL_Tutorial}{\texttt{SQL Zoo}} 
+
+% /sql-join-examples-with-explanations/
+% 
+
 
 \subsection{Main commands} 
 
@@ -1387,8 +1417,8 @@ ROW_NUMBER() \\
 SUM()\\
 RANK()\\
 AVERAGE()\\
-Basic query: SELECT column1, column2, ..., ####() OVER (ORDER BY column1) AS \newline
-row_num
+Basic query: SELECT column1, column2, ..., ####() OVER (ORDER BY column1)
+AS row_num
 FROM table_name;
 \end{verbatim}
 Replace hashes by either four of these like RANK(). 
@@ -1453,11 +1483,8 @@ WHERE id = 1234;
 \end{quote}
 
 
+
 % https://levelup.gitconnected.com/13-sql-statements-for-90-of-your-data-science-tasks-27902996dc2b
-% https://learnsql.com/blog/sql-join-examples-with-explanations/
-
-
-% https://sqlzoo.net/wiki/SQL_Tutorial
 
 
 
@@ -1482,9 +1509,45 @@ vowels or do not end with vowels. Your result cannot contain duplicates.
 \item \texttt{ALTER TABLE celebs  ADD COLUMN twitter\_handle TEXT;}: Add new column 
 \item \texttt{DELETE FROM celebs WHERE twitter\_handle IS NULL;}: Delete rows where one specific column is empty
 \item \texttt{SELECT SUM(v) FROM ELEMENTS}: Sum Column $v$ from table ELEMENTS
+\item \begin{quote}
+\begin{verbatim}
+SELECT 
+  employee_id,
+  last_name,
+  first_name,
+  salary,
+  RANK() OVER (ORDER BY salary DESC) as ranking
+FROM employee
+ORDER BY ranking
+\end{verbatim}
+\end{quote}
+In this example query, we will show a list of all employees ordered by salary (highest salary first). The report will include the position of each employee in the ranking.
+RANK is a function which arranges salary in DESC as ranking. 
+\item \begin{quote}
+\begin{verbatim}
+WITH employee_ranking AS (
+  SELECT
+    employee_id,
+    last_name,
+    first_name,
+    salary,
+    RANK() OVER (ORDER BY salary DESC) as ranking
+  FROM employee
+)
+SELECT
+  employee_id,
+  last_name,
+  first_name,
+  salary
+FROM employee_ranking
+WHERE ranking <= 5
+ORDER BY ranking
+\end{verbatim}
+\end{quote}
+Top 5 salary rankings. 
 \item 
-\item 
-\item 
+
+
 
 
 \item \texttt{CREATE TABLE}: creates a new table,  \texttt{INSERT INTO}: adds a new row to a table, \texttt{SELECT} queries data from a table, 
@@ -1492,6 +1555,39 @@ vowels or do not end with vowels. Your result cannot contain duplicates.
 \end{itemize} 
 
 % P is <alias for the source query> and PV is <alias for the pivot table>.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Basic programming algorithms}

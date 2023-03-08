@@ -14,7 +14,6 @@ Personal collection of notebooks and study material for exploring the field of d
 05 March 2023: Practice problems on HackerRank. Add some solutions to the notes <br />
 06 March 2023: Movie Recommender Systems using KNN <br />
 07 March 2023: Tweet Analysis (NLP) for natural calamity - Kaggle <br /> 
-
-
+08 March 2023: Do bit of MySQL, and submit first attempt to Kaggle. <br />
 
 
