@@ -15,5 +15,6 @@ Personal collection of notebooks and study material for exploring the field of d
 06 March 2023: Movie Recommender Systems using KNN <br />
 07 March 2023: Tweet Analysis (NLP) for natural calamity - Kaggle <br /> 
 08 March 2023: Do bit of MySQL, and submit first attempt to Kaggle. <br />
+09 March 2023: Play around with my own flight data since 2009. Start working on House Price Regression  <br />
 
 
