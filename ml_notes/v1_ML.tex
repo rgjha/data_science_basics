@@ -390,7 +390,7 @@ There are primarily three different types of neural networks algorithms in deep 
 \begin{itemize}
 \item Artificial Neural Networks (ANN): Artificial neural networks are machine learning algorithms that mimic the human brain (neuronal behavior and connections) to solve complex problems. ANN has three or more interconnected layers in its computational model that process the input data. The first layer is the input layer or neurons that send input data to deeper layers. The second layer is called the hidden layer. The components of this layer change or tweak the information received through various previous layers by performing a series of data transformations. These are also called neural layers. The third layer is the output layer that sends the final output data for the problem. ANN algorithms find applications in smart home and home automation devices such as door locks, thermostats, smart speakers, lights, and appliances. They are also used in the field of computational vision, specifically in detection systems and autonomous vehicles.
 \item Convolution Neural Networks (CNN): Convolutional neural networks (CNN) are all the rage in the deep learning community right now are being used across different applications and domains, and they’re especially prevalent in image and video processing projects. They mostly deal with two-dimensional objects (height and width of image). 
-\item Recurrent Neural Networks (RNN): Recurrent neural networks refer to a specific type of ANN that processes sequential data. Here, the result of the previous step acts as the input to the current step. This is facilitated via the hidden state that remembers information about a sequence. It acts as a memory that maintains the information on what was previously calculated. The memory of RNN reduces the overall complexity of the neural network. RNN analyzes time series data and possesses the ability to store, learn, and maintain contexts of any length. RNN is used in cases where time sequence is of paramount importance, such as speech recognition, language translation, video frame processing, text generation, and image captioning. RNNs are a kind of feedforward network, in which information from one layer passes to another layer, and each node in the network performs mathematical operations on the data. These operations are temporal, i.e., RNNs store contextual information about previous computations in the network. It is called recurrent because it performs the same operations on some data every time it is passed. However, the output may be different based on past computations and their results.
+\item Recurrent Neural Networks (RNN): Recurrent neural networks refer to a specific type of ANN that processes sequential data. Here, the result of the previous step acts as the input to the current step. This is facilitated via the hidden state that remembers information about a sequence. It acts as a memory that maintains the information on what was previously calculated. The memory of RNN reduces the overall complexity of the neural network. \emph{RNN analyzes time series data and possesses the ability to store, learn, and maintain contexts of any length}. RNN is used in cases where time sequence is of paramount importance, such as speech recognition, language translation, video frame processing, text generation, and image captioning. RNNs are a kind of feedforward network, in which information from one layer passes to another layer, and each node in the network performs mathematical operations on the data. These operations are temporal, i.e., RNNs store contextual information about previous computations in the network. It is called recurrent because it performs the same operations on some data every time it is passed. However, the output may be different based on past computations and their results.
 
 
 \end{itemize} 
@@ -926,26 +926,48 @@ The F1 score is used when the recall and the precision are equally important.
 
 
 
-\subsection{Stochastic Gradient Descent (SGD)} 
+\subsection{Gradient Descent (SGD)} 
 
 
-In several problems in machine learning, we have to optimize. The optimizer is an algorithm that adjusts the weights to minimize the loss. Nearly 
-all of the optimization algorithms used in deep learning belong to a family called stochastic gradient descent. 
-They are iterative algorithms that train a network in steps. One step of training goes is as follows:
+In most of the problems in machine learning, we have to optimize the loss function. 
+The optimizer is an algorithm that adjusts the weights to minimize the loss. Nearly 
+all of the optimization algorithms used in deep learning belong to a family called 
+stochastic gradient descent. They are iterative algorithms that train a network in steps. 
+One step of training goes is as follows:
 
 \begin{itemize}
 \item Sample some training data and run it through the network to make predictions.
 \item Measure the loss between the predictions and the true values.
-\item Adjust the weights in a direction that makes the loss smaller.
+\item Adjust the weights in a direction that makes the loss smaller. 
 \end{itemize} 
 
-
-An astute reader might ask: why is it called SGD? 
+SGD is little different and has advantages of finding global minimum 
+over GD methods. Why is it called SGD? -- 
 It is called so because, the gradient is a vector that specifies in what direction the weights need to move. 
 More precisely, it tells us how to change the weights to make the loss change fastest. We call our process 
 gradient descent because it uses the gradient to descend the loss curve towards a minimum. Stochastic means 
-`determined by chance'. Our training is stochastic because the batches we use 
-are random samples from the dataset. Hence, the name SGD. 
+`randomness' or with a noise. Each step of SGD is taken in a direction which is not 
+necessarily steepest downhill direction due to added noise. 
+
+The mechanism for introducing this randomness is simple. At each step, 
+the algorithm chooses a random subset (called `batch') of training data and computes gradient 
+from this examples alone. Update rule is:
+
+\begin{equation}
+\phi_{t+1} \leftarrow \phi_{t} - \alpha \sum_{i \in \mathcal{B}_{t}} \frac{\partial l_i[\phi_t]}{\partial \phi}
+\end{equation}
+where $\mathcal{B}_{t}$ is a set containing rhe indices of the input/output pairs in current batch and $l_i$
+is the loss due to the ith pair. $\alpha$ is known as the learning rate (aka step size). 
+
+
+Steepest descent is a special case of gradient descent where the step size is chosen to minimize the objective function value. 
+Gradient descent refers to any of a class of algorithms that calculate the gradient of the objective function, then move 
+`downhill' in the indicated direction; the step length can be fixed, estimated (e.g., via line search). 
+
+Stochastic gradient descent (SGD) runs a training epoch for each example within the dataset and it updates each training example's parameters one at a time. Since you only need to hold one training example, they are easier to store in memory. While these frequent updates can offer more detail and speed, it can result in losses in computational efficiency when compared to batch gradient descent. Its frequent updates can result in noisy gradients, but this can also be helpful in escaping the local minimum and finding the global one.
+
+% https://www.math.usm.edu/lambers/mat419/lecture10.pdf
+
 
 
 \begin{itemize} 
@@ -987,11 +1009,11 @@ its behavior changes, while the sigmoid exhibits a gradual change. Both tend to 
 \begin{equation} 
 f(x)=
 \begin{cases} 
-0 & \text{if  }  x < 0 \\
+0 & \text{if  }  x \le 0 \\
 1 & \text{if  }  x > 0 \\
 \end{cases}
 \end{equation} 
-The reason for it being undefined at $x=0$ is that its left- and right derivative are not equal. 
+The reason for the derivative being undefined at $x=0$ is that its left- and right derivative are not equal. 
 This sometimes creates problem with `backpropagation' since 
 when training a neural network, a neuron can become `trapped' in the zero region 
 and backpropagation will never change its weights. Because of the zero gradient problem faced by the ReLU, 
@@ -1047,6 +1069,17 @@ textbf{\delta}^{\rm{(h)}} = textbf{\delta}^{\rm{out}} \Big( \textbf{W}^{\rm{out}
 \end{equation}
 where derivative is taken of the activation function (sigmoid etc.)  
 
+\emph{Remember: SGD algorithm requires gradients to be calculated for 
+each variable in the model. Back-propagation is an automatic differentiation 
+algorithm that can be used to calculate the gradients for the parameters in neural networks.
+Together, the back-propagation algorithm and SGD algorithm 
+can be used to train a neural network. Something like
+`Stochastic Gradient Descent with Back-propagation'. 
+The term back-propagation is often misunderstood as meaning the whole learning algorithm 
+for multi-layer neural networks. 
+Actually, back-propagation refers only to the method for computing the gradient, 
+while another algorithm, such as stochastic gradient descent, 
+is used to perform learning using this gradient.} 
 
 
 \TODO{Fill in .....} 
@@ -1200,6 +1233,11 @@ as shown in Fig. below.
 \end{enumerate} 
 
 
+\subsection{Matrix Factorization}
+
+In collaborative filtering, matrix factorization is the state-of-the-art solution for sparse data problem, it is also known as `Netflix Prize Challenge'.
+
+
 \subsubsection{Dithering}
 
 There is a relatively low cost but high value technique for improving the quality of our 
@@ -1299,6 +1337,10 @@ There are two websites which are particularly nice to develop these skills:
 
 % /sql-join-examples-with-explanations/
 % 
+
+Order is crucial: \textbf{Six Operations to Order: SFWGHO}
+
+These are first letters (to remember) of SELECT, FROM, WHERE, GROUP BY, HAVING, and ORDER BY. 
 
 
 \subsection{Main commands} 
@@ -1644,6 +1686,15 @@ def solution(N):
 \item Q3: How to deal with unbalanced binary classification? \\
 \textsc{Answer:} In a classification task, there is a high chance for the algorithm to be biased if the dataset is imbalanced. An imbalanced dataset is one in which the number of samples in one class is very higher or lesser than the number of samples in the other class. 
 To counter such imbalanced datasets, we use a technique called up-sampling and down-sampling. In up-sampling, we randomly duplicate the observations from the minority class in order to reinforce its signal. The most common way is to resample with replacement. In down-sampling, we randomly remove the observations from the majority class. Thus after up-sampling or down-sampling, the dataset becomes balanced with the same number of observations in each class.
+
+\item Q4: Pruning in Decision Tree?\\
+\textsc{Answer:} Decision Trees are a popular machine-learning model for classification and regression tasks. They build a tree-like decision model based on the data's features to predict the output label of a given input sample. However, if the Decision Tree is allowed to grow too large, it can become overly complex and may start to fit the training data too closely, a phenomenon known as overfitting. 
+
+Pruning is a technique that can be used to reduce the size of a Decision Tree and prevent overfitting. It involves removing nodes from the tree that are not contributing significantly to the model's accuracy. By pruning a Decision Tree, the model's ability to generalize to new data is improved, as the model is less likely to be overly complex and overfit the training set. This is the primary purpose of pruning a Decision Tree.
+
+In addition to improving the model's ability to generalize to new data, pruning a Decision Tree reduces the complexity of the model and makes it easier to interpret. By removing unnecessary nodes from the Decision Tree, the model becomes simpler and more transparent, making it easier to understand and interpret.
+
+Pruning also reduces the number of nodes and decision points the model needs to consider during training, which can improve the model's training speed and efficiency.
 
 \end{enumerate}
 

@@ -1,166 +1,166 @@
-flightNumber,Date,Starting_IATA_Code,Starting_Location,Destination_IATA_Code,Destination_Location,Carrier
-165,01-13-2023,DOH,"Doha,Qatar,Hamad International",JFK,"New York,USA,John F. Kennedy",Qatar Airways
-164,01-13-2023,DEL,"New Delhi,India,Indira Gandhi International",DOH,"Doha,Qatar,Hamad International",Qatar Airways
-163,12-16-2022,EWR,"Newark,USA,Liberty",DEL,"New Delhi,India,Indira Gandhi International",United Airlines
-162,12-16-2022,ORF,"Norfolk,USA,International",EWR,"Newark,USA,Liberty",United Airlines
-161,09-14-2022,JFK,"New York,USA,John F. Kennedy",ORF,"Norfolk,USA,International",American Airlines
-160,09-14-2022,DEL,"New Delhi,India,Indira Gandhi International",JFK,"New York,USA,John F. Kennedy",American Airlines
-159,09-09-2022,HYD,"Hyderabad,India,International (Rajiv Gandhi)",DEL,"New Delhi,India,Indira Gandhi International",GoAir
-158,07-14-2022,DEL,"New Delhi,India,Indira Gandhi International",HYD,"Hyderabad,India,International (Rajiv Gandhi)",Vistara
-157,07-13-2022,YYZ,"Toronto,Canada,Lester B Pearson Intl.",DEL,"New Delhi,India,Indira Gandhi International",Air India
-156,05-30-2022,LGW,"London,United Kingdom,Gatwick",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Westjet Airlines
-155,05-24-2022,DUB,"Dublin,Ireland,International",LPL,"Liverpool,United Kingdom,John Lennon",Ryanair
-154,05-22-2022,LGW,"London,United Kingdom,Gatwick",DUB,"Dublin,Ireland,International",Aer Lingus
-153,05-18-2022,YYZ,"Toronto,Canada,Lester B Pearson Intl.",LGW,"London,United Kingdom,Gatwick",Air Transat
-152,2022,MEX,"Mexico City,Mexico,Internacional Benito Juárez",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Air Canada
-151,2022,YYZ,"Toronto,Canada,Lester B Pearson Intl.",MEX,"Mexico City,Mexico,Internacional Benito Juárez",Aeromexico
-150,2022,YUL,"Montreal,Canada,Pierre Elliott Trudeau/Dorval",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Air Canada
-149,2022,DEL,"New Delhi,India,Indira Gandhi International",YUL,"Montreal,Canada,Pierre Elliott Trudeau/Dorval",Air Canada
-148,2022,DBR,"Darbhanga,India",DEL,"New Delhi,India,Indira Gandhi International",SpiceJet
-147,2022,BLR,"Bangalore,India,Kempegowda International",DBR,"Darbhanga, India",SpiceJet
-146,2021,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",Air India
-145,2021,YYZ,"Toronto,Canada,Lester B Pearson Intl.",DEL,"New Delhi,India,Indira Gandhi International",Air Canada
-144,2021,DOH,"Doha,Qatar,Hamad International",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Air Canada
-143,2021,MLE,"Male,Maldives",DOH,"Doha,Qatar,Hamad International",Qatar Airways
-142,2021,BLR,"Bangalore,India,Kempegowda International",MLE,"Male,Maldives",IndiGo
-141,2021,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",Air India
-140,2021,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",IndiGo
-139,2021,DBR,"Darbhanga,India",BLR,"Bangalore,India,Kempegowda International",SpiceJet
-138,2021,BLR,"Bangalore,India,Kempegowda International",DBR,"Darbhanga, India",SpiceJet
-137,2021,GOI,"Goa,India,Dabolim",BLR,"Bangalore,India,Kempegowda International",IndiGo
-136,2021,BLR,"Bangalore,India,Kempegowda International",GOI,"Goa,India,Dabolim",IndiGo
-135,2021,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",IndiGo
-134,2021,YYZ,"Toronto,Canada,Lester B Pearson Intl.",DEL,"New Delhi,India,Indira Gandhi International",Air India
-133,2020,DEL,"New Delhi,India,Indira Gandhi International",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Air Canada
-132,2020,UDR,"Udaipur,India",DEL,"New Delhi,India,Indira Gandhi International",Air India
-131,2020,DEL,"New Delhi,India,Indira Gandhi International",UDR,"Udaipur,India",IndiGo
-130,2020,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",Air India
-129,2020,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",Air India
-128,2020,YYZ,"Toronto,Canada,Lester B Pearson Intl.",DEL,"New Delhi,India,Indira Gandhi International",Air India
-127,2020,HKG,"Hong Kong,China,International",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Cathay Pacific
-126,2020,DEL,"New Delhi,India,Indira Gandhi International",HKG,"Hong Kong,China,International",Cathay Pacific
-125,2020,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",IndiGo
-124,2020,CCU,"Kolkata,India,Netaji Subhas Int.",BLR,"Bangalore,India,Kempegowda International",SpiceJet
-123,2019,DEL,"New Delhi,India,Indira Gandhi International",CCU,"Kolkata,India,Netaji Subhas Int.",SpiceJet
-122,2019,IST,"Istanbul,Turkey,New Airport",DEL,"New Delhi,India,Indira Gandhi International",Turkish Airlines
-121,2019,YYZ,"Toronto,Canada,Lester B Pearson Intl.",IST,"Istanbul,Turkey,New Airport",Turkish Airlines
-120,2019,MUC,"Munich,Germany,Franz Josef Strauss",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Air Canada
-119,2019,DEL,"New Delhi,India,Indira Gandhi International",MUC,"Munich,Germany,Franz Josef Strauss",Lufthansa
-118,2019,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",IndiGo
-117,2019,PAT,"Patna,India,Lok Nayak Jayaprakash",BLR,"Bangalore,India,Kempegowda International",GoAir
-116,2019,BLR,"Bangalore,India,Kempegowda International",PAT,"Patna,India,Lok Nayak Jayaprakash",GoAir
-115,2019,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",SpiceJet
-114,2019,SVO,"Moscow,Russia,Sheremetyevo",DEL,"New Delhi,India,Indira Gandhi International",Aeroflot
-113,2019,JFK,"New York,USA,John F. Kennedy",SVO,"Moscow,Russia,Sheremetyevo",Aeroflot
-112,2019,AUS,"Austin,USA,Bergstrom International",JFK,"New York,USA,John F. Kennedy",American Airlines
-111,2019,DFW,"Dallas/Fort Worth,USA,International",AUS,"Austin,USA,Bergstrom International",American Airlines
-110,2019,JFK,"New York,USA,John F. Kennedy",DFW,"Dallas/Fort Worth,USA,International",American Airlines
-109,2019,HKG,"Hong Kong,China,International",JFK,"New York,USA,John F. Kennedy",Cathay Pacific
-108,2019,DEL,"New Delhi,India,Indira Gandhi International",HKG,"Hong Kong,China,International",Cathay Pacific
-107,2019,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",SpiceJet
-106,2018,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",SpiceJet
-105,2018,JFK,"New York,USA,John F. Kennedy",DEL,"New Delhi,India,Indira Gandhi International",Air India
-104,2018,EWR,"Newark,USA,Liberty",SYR,"Syracuse,USA,Syracuse Hancock International",United Airlines
-103,2018,DET,"Detroit,USA,City",EWR,"Newark,USA,Liberty",United Airlines
-102,2018,EWR,"Newark,USA,Liberty",DET,"Detroit,USA,City",United Airlines
-101,2018,SYR,"Syracuse,USA,Syracuse Hancock International",EWR,"Newark,USA,Liberty",United Airlines
-100,2018,LHR,"London,United Kingdom,Heathrow",JFK,"New York,USA,John F. Kennedy",Virgin Atlantic Airways
-99,2018,DEL,"New Delhi,India,Indira Gandhi International",LHR,"London,United Kingdom,Heathrow",Virgin Atlantic Airways
-98,2018,BLR,"Bangalore,India,Kempegowda International",JAI,"Jaipur,India",AirAsia
-97,2018,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",IndiGo
-96,2018,BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",DEL,"New Delhi,India,Indira Gandhi International",IndiGo
-95,2018,DEL,"New Delhi,India,Indira Gandhi International",BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",GoAir
-94,2018,LHR,"London,United Kingdom,Heathrow",DEL,"New Delhi,India,Indira Gandhi International",Virgin Atlantic Airways
-93,2018,JFK,"New York,USA,John F. Kennedy",LHR,"London,United Kingdom,Heathrow",Virgin Atlantic Airways
-92,2018,JFK,"New York,USA,John F. Kennedy",SYR,"Syracuse,USA,Syracuse Hancock International",Jetblue Airways
-91,2018,DEN,"Denver,USA,International",JFK,"New York,USA,John F. Kennedy",Jetblue Airways
-90,2018,BOS,"Boston,USA,Logan",DEN,"Denver,USA,International",Jetblue Airways
-89,2018,SYR,"Syracuse,USA,Syracuse Hancock International",BOS,"Boston,USA,Logan",Jetblue Airways
-88,2018,AMS,"Amsterdam,Netherlands,Schiphol",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Jet Airways
-87,2018,BLR,"Bangalore,India,Kempegowda International",AMS,"Amsterdam,Netherlands,Schiphol",Jetblue Airways
-86,2018,AMS,"Amsterdam,Netherlands,Schiphol",BLR,"Bangalore,India,Kempegowda International",Jet Airways
-85,2018,YYZ,"Toronto,Canada,Lester B Pearson Intl.",AMS,"Amsterdam,Netherlands,Schiphol",Jet Airways
-84,2017,CLT,"Charlotte,USA,Charlotte/Douglas International",JFK,"New York,USA,John F. Kennedy",American Airlines
-83,2017,AUS,"Austin,USA,Bergstrom International",CLT,"Charlotte,USA,Charlotte/Douglas International",American Airlines
-82,2017,ORD,"Chicago,USA,O'Hare",AUS,"Austin,USA,Bergstrom International",American Airlines
-81,2017,JFK,"New York,USA,John F. Kennedy",ORD,"Chicago,USA,O'Hare",American Airlines
-80,2017,MAD,"Madrid,Spain,Adolfo Suárez, Barajas",JFK,"New York,USA,John F. Kennedy",Iberia
-79,2017,ORY,"Paris,France,Orly",MAD,"Madrid,Spain,Adolfo Suárez, Barajas",Iberia
-78,2017,BCN,"Barcelona,Spain,El Prat International",ORY,"Paris,France,Orly",Vueling Airlines
-77,2017,GRX,"Granada-Jaén,Spain,Federico García Lorca",BCN,"Barcelona,Spain,El Prat International",Vueling Airlines
-76,2017,JFK,"New York,USA,John F. Kennedy",MAD,"Madrid,Spain,Adolfo Suárez, Barajas",American Airlines
-75,2017,ORD,"Chicago,USA,O'Hare",SYR,"Syracuse,USA,Syracuse Hancock International",American Airlines
-74,2017,NRT,"Tokyo,Japan,Narita",ORD,"Chicago,USA,O'Hare",American Airlines
-73,2017,ORD,"Chicago,USA,O'Hare",NRT,"Tokyo,Japan,Narita",Japan Airlines
-72,2017,SYR,"Syracuse,USA,Syracuse Hancock International",ORD,"Chicago,USA,O'Hare",American Airlines
-71,2017,SVO,"Moscow,Russia,Sheremetyevo",JFK,"New York,USA,John F. Kennedy",Aeroflot
-70,2017,DEL,"New Delhi,India,Indira Gandhi International",SVO,"Moscow,Russia,Sheremetyevo",Aeroflot
-69,2016,SVO,"Moscow,Russia,Sheremetyevo",DEL,"New Delhi,India,Indira Gandhi International",Aeroflot
-68,2016,JFK,"New York,USA,John F. Kennedy",SVO,"Moscow,Russia,Sheremetyevo",Aeroflot
-67,2016,AUH,"Abu Dhabi,United Arab Emirates,International",JFK,"New York,USA,John F. Kennedy",Etihad Airways
-66,2016,DEL,"New Delhi,India,Indira Gandhi International",AUH,"Abu Dhabi,United Arab Emirates,International",Etihad Airways
-65,2016,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",IndiGo
-64,2016,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",IndiGo
-63,2016,MAA,"Chennai,India,International",DEL,"New Delhi,India,Indira Gandhi International",GoAir
-62,2016,BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",MAA,"Chennai,India,International",GoAir
-61,2016,DEL,"New Delhi,India,Indira Gandhi International",BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",GoAir
-60,2016,PAT,"Patna,India,Lok Nayak Jayaprakash",DEL,"New Delhi,India,Indira Gandhi International",IndiGo
-59,2016,AUH,"Abu Dhabi,United Arab Emirates,International",DEL,"New Delhi,India,Indira Gandhi International",Etihad Airways
-58,2016,JFK,"New York,USA,John F. Kennedy",AUH,"Abu Dhabi,United Arab Emirates,International",Etihad Airways
-57,2016,PHL,"Philadelphia,USA,International",SYR,"Syracuse,USA,Syracuse Hancock International",American Airlines
-56,2016,AZA,"Phoenix,USA,Williams Gateway Airport",PHL,"Philadelphia,USA,International",American Airlines
-55,2016,SLC,"Salt Lake City,USA,International",AZA,"Phoenix,USA,Williams Gateway Airport",American Airlines
-54,2016,DFW,"Dallas/Fort Worth,USA,International",SLC,"Salt Lake City,USA,International",American Airlines
-53,2016,PHL,"Philadelphia,USA,International",ADS,"Dallas,USA,Addison Airport",American Airlines
-52,2016,SYR,"Syracuse,USA,Syracuse Hancock International",PHL,"Philadelphia,USA,International",American Airlines
-51,2016,LHR,"London,United Kingdom,Heathrow",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Air Canada
-50,2016,DEL,"New Delhi,India,Indira Gandhi International",LHR,"London,United Kingdom,Heathrow",Jet Airways
-49,2015,LHR,"London,United Kingdom,Heathrow",DEL,"New Delhi,India,Indira Gandhi International",Jet Airways
-48,2015,YYZ,"Toronto,Canada,Lester B Pearson Intl.",LHR,"London,United Kingdom,Heathrow",Air Canada
-47,2015,AUH,"Abu Dhabi,United Arab Emirates,International",JFK,"New York,USA,John F. Kennedy",Etihad Airways
-46,2015,DEL,"New Delhi,India,Indira Gandhi International",AUH,"Abu Dhabi,United Arab Emirates,International",Etihad Airways
-45,2015,BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",JAI,"Jaipur,India",GoAir
-44,2015,DEL,"New Delhi,India,Indira Gandhi International",BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",GoAir
-43,2015,AUH,"Abu Dhabi,United Arab Emirates,International",DEL,"New Delhi,India,Indira Gandhi International",Etihad Airways
-42,2015,JFK,"New York,USA,John F. Kennedy",AUH,"Abu Dhabi,United Arab Emirates,International",Etihad Airways
-41,2015,KEF,"Reykjavik,Iceland,Keflavik International",JFK,"New York,USA,John F. Kennedy",Icelandair
-40,2015,LGW,"London,United Kingdom,Gatwick",KEF,"Reykjavik,Iceland,Keflavik International",Icelandair
-39,2015,ATH,"Athens,Greece,Eleftherios Venizelos",ORY,"Paris,France,Orly",Transavia Airlines
-38,2015,PRG,"Prague,Czech Republic,Vaclav Havel",ATH,"Athens,Greece,Eleftherios Venizelos",Aegean Airlines
-37,2014,LIS,"Lisbon,Portugal,Humberto Delgado",SXF,"Berlin,Germany,Schonefeld",TAP Air Portugal
-36,2014,STN,"London,United Kingdom,Stansted",OPO,"Porto,Portugal,Francisco Sa Carneiro",Ryanair
-35,2014,EDI,"Edinburgh,United Kingdom,Turnhouse",STN,"London,United Kingdom,Stansted",easyJet
-34,2014,STN,"London,United Kingdom,Stansted",EDI,"Edinburgh,United Kingdom,Turnhouse",easyJet
-33,2014,KEF,"Reykjavik,Iceland,Keflavik International",LGW,"London,United Kingdom,Gatwick",Icelandair
-32,2014,JFK,"New York,USA,John F. Kennedy",KEF,"Reykjavik,Iceland,Keflavik International",Icelandair
-31,2014,MIA,"Miami,USA,International",JFK,"New York,USA,John F. Kennedy",American Airlines
-30,2014,POS,"Port-of-Spain,Trinidad and Tobago,Piarco",MIA,"Miami,USA,International",American Airlines
-29,2014,JFK,"New York,USA,John F. Kennedy",POS,"Port-of-Spain,Trinidad and Tobago,Piarco",American Airlines
-28,2014,IST,"Istanbul,Turkey,New Airport",JFK,"New York,USA,John F. Kennedy",Turkish Airlines
-27,2014,DEL,"New Delhi,India,Indira Gandhi International",IST,"Istanbul,Turkey,New Airport",Turkish Airlines
-26,2014,IST,"Istanbul,Turkey,New Airport",DEL,"New Delhi,India,Indira Gandhi International",Turkish Airlines
-25,2014,JFK,"New York,USA,John F. Kennedy",IST,"Istanbul,Turkey,New Airport",Turkish Airlines
-24,2014,MIA,"Miami,USA,International",JFK,"New York,USA,John F. Kennedy",American Airlines
-23,2013,JFK,"New York,USA,John F. Kennedy",MIA,"Miami,USA,International",American Airlines
-22,2013,SFO,"San Francisco,USA,International",JFK,"New York,USA,John F. Kennedy",Delta Air Lines
-21,2013,JFK,"New York,USA,John F. Kennedy",SFO,"San Francisco,USA,International",Delta Air Lines
-20,2013,JFK,"New York,USA,John F. Kennedy",SYR,"Syracuse,USA,Syracuse Hancock International",Jetblue Airways
-19,2013,DEL,"New Delhi,India,Indira Gandhi International",JFK,"New York,USA,John F. Kennedy","Air India"
-18,2013,CCU,"Kolkata,India,Netaji Subhas Int.",DEL,"New Delhi,India,Indira Gandhi International",IndiGo
-17,2012,DEL,"New Delhi,India,Indira Gandhi International",VNS,"Varanasi,India,Lal Bahadur Shastri",SpiceJet
-16,2011,CDG,"Paris,France,Charles de Gaulle",DEL,"New Delhi,India,Indira Gandhi International",Air India
-15,2011,MAD,"Madrid,Spain,Adolfo Suárez, Barajas",BVA,"Beauvais,France,Tille",Ryanair
-14,2011,BCN,"Barcelona,Spain,El Prat International",MAD,"Madrid,Spain,Adolfo Suárez, Barajas",Vueling Airlines
-13,2011,BVA,"Beauvais,France,Tille",BCN,"Barcelona,Spain,El Prat International",Ryanair
-12,2011,NCE,"Nice,France,Cote d'Azur",CDG,"Paris,France,Charles de Gaulle",easyJet
-11,2011,GVA,"Geneva,Switzerland,Geneve-Cointrin",NCE,"Nice,France,Cote d'Azur",easyJet
-10,2011,CDG,"Paris,France,Charles de Gaulle",GVA,"Geneva,Switzerland,Geneve-Cointrin",easyJet
-9,2011,HEL,"Helsinki,Finland,Vantaa",CDG,"Paris,France,Charles de Gaulle",Finnair
-8,2011,DEL,"New Delhi,India,Indira Gandhi International",HEL,"Helsinki,Finland,Vantaa",Finnair
-7,2011,HEL,"Helsinki,Finland,Vantaa",DEL,"New Delhi,India,Indira Gandhi International",Finnair
-6,2011,CDG,"Paris,France,Charles de Gaulle",HEL,"Helsinki,Finland,Vantaa",Finnair
-5,2011,CIA,"Roma,Italy,Ciampino",BVA,"Beauvais,France,Tille",Ryanair
-4,2011,BVA,"Beauvais,France,Tille",BGY,"Bergamo,Italy,Orio al Serio",Ryanair
-3,09-01-2010,DEL,"New Delhi,India,Indira Gandhi International",CDG,"Paris,France,Charles de Gaulle","Air India"
-2,2009,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",IndiGo
-1,06-07-2009,BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",DEL,"New Delhi,India,Indira Gandhi International",Jet Airways
+flightNumber,Date,Starting_IATA_Code,Starting_Location,Destination_IATA_Code,Destination_Location,Carrier, Companion
+165,01-13-2023,DOH,"Doha,Qatar,Hamad International",JFK,"New York,USA,John F. Kennedy",Qatar Airways, 0
+164,01-13-2023,DEL,"New Delhi,India,Indira Gandhi International",DOH,"Doha,Qatar,Hamad International",Qatar Airways, 0
+163,12-16-2022,EWR,"Newark,USA,Liberty",DEL,"New Delhi,India,Indira Gandhi International",United Airlines, 0
+162,12-16-2022,ORF,"Norfolk,USA,International",EWR,"Newark,USA,Liberty",United Airlines, 0
+161,09-14-2022,JFK,"New York,USA,John F. Kennedy",ORF,"Norfolk,USA,International",American Airlines, 0
+160,09-14-2022,DEL,"New Delhi,India,Indira Gandhi International",JFK,"New York,USA,John F. Kennedy",American Airlines, 0
+159,09-09-2022,HYD,"Hyderabad,India,International (Rajiv Gandhi)",DEL,"New Delhi,India,Indira Gandhi International",GoAir, 0
+158,07-14-2022,DEL,"New Delhi,India,Indira Gandhi International",HYD,"Hyderabad,India,International (Rajiv Gandhi)",Vistara, 0
+157,07-13-2022,YYZ,"Toronto,Canada,Lester B Pearson Intl.",DEL,"New Delhi,India,Indira Gandhi International",Air India, 0
+156,05-30-2022,LGW,"London,United Kingdom,Gatwick",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Westjet Airlines, 0
+155,05-24-2022,DUB,"Dublin,Ireland,International",LPL,"Liverpool,United Kingdom,John Lennon",Ryanair, 0
+154,05-22-2022,LGW,"London,United Kingdom,Gatwick",DUB,"Dublin,Ireland,International",Aer Lingus, 0
+153,05-18-2022,YYZ,"Toronto,Canada,Lester B Pearson Intl.",LGW,"London,United Kingdom,Gatwick",Air Transat, 0
+152,2022,MEX,"Mexico City,Mexico,Internacional Benito Juárez",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Air Canada, 0
+151,2022,YYZ,"Toronto,Canada,Lester B Pearson Intl.",MEX,"Mexico City,Mexico,Internacional Benito Juárez",Aeromexico, 0
+150,2022,YUL,"Montreal,Canada,Pierre Elliott Trudeau/Dorval",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Air Canada, 0
+149,2022,DEL,"New Delhi,India,Indira Gandhi International",YUL,"Montreal,Canada,Pierre Elliott Trudeau/Dorval",Air Canada, 0
+148,2022,DBR,"Darbhanga,India",DEL,"New Delhi,India,Indira Gandhi International",SpiceJet, 2
+147,2022,BLR,"Bangalore,India,Kempegowda International",DBR,"Darbhanga, India",SpiceJet, 0
+146,2021,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",Air India, 0
+145,2021,YYZ,"Toronto,Canada,Lester B Pearson Intl.",DEL,"New Delhi,India,Indira Gandhi International",Air Canada, 0
+144,2021,DOH,"Doha,Qatar,Hamad International",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Air Canada, 0
+143,2021,MLE,"Male,Maldives",DOH,"Doha,Qatar,Hamad International",Qatar Airways, 0
+142,2021,BLR,"Bangalore,India,Kempegowda International",MLE,"Male,Maldives",IndiGo, 1
+141,2021,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",Air India, 0
+140,2021,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",IndiGo, 0
+139,2021,DBR,"Darbhanga,India",BLR,"Bangalore,India,Kempegowda International",SpiceJet, 1
+138,2021,BLR,"Bangalore,India,Kempegowda International",DBR,"Darbhanga, India",SpiceJet, 1
+137,2021,GOI,"Goa,India,Dabolim",BLR,"Bangalore,India,Kempegowda International",IndiGo, 1
+136,2021,BLR,"Bangalore,India,Kempegowda International",GOI,"Goa,India,Dabolim",IndiGo, 1
+135,2021,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",IndiGo, 0
+134,2021,YYZ,"Toronto,Canada,Lester B Pearson Intl.",DEL,"New Delhi,India,Indira Gandhi International",Air India, 0
+133,2020,DEL,"New Delhi,India,Indira Gandhi International",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Air Canada, 0
+132,2020,UDR,"Udaipur,India",DEL,"New Delhi,India,Indira Gandhi International",Air India, 1
+131,2020,DEL,"New Delhi,India,Indira Gandhi International",UDR,"Udaipur,India",IndiGo, 0
+130,2020,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",Air India, 0
+129,2020,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",Air India, 0
+128,2020,YYZ,"Toronto,Canada,Lester B Pearson Intl.",DEL,"New Delhi,India,Indira Gandhi International",Air India, 0
+127,2020,HKG,"Hong Kong,China,International",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Cathay Pacific, 0
+126,2020,DEL,"New Delhi,India,Indira Gandhi International",HKG,"Hong Kong,China,International",Cathay Pacific, 0
+125,2020,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",IndiGo, 0
+124,2020,CCU,"Kolkata,India,Netaji Subhas Int.",BLR,"Bangalore,India,Kempegowda International",SpiceJet, 1
+123,2019,DEL,"New Delhi,India,Indira Gandhi International",CCU,"Kolkata,India,Netaji Subhas Int.",SpiceJet, 1
+122,2019,IST,"Istanbul,Turkey,New Airport",DEL,"New Delhi,India,Indira Gandhi International",Turkish Airlines, 0
+121,2019,YYZ,"Toronto,Canada,Lester B Pearson Intl.",IST,"Istanbul,Turkey,New Airport",Turkish Airlines, 0
+120,2019,MUC,"Munich,Germany,Franz Josef Strauss",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Air Canada, 0
+119,2019,DEL,"New Delhi,India,Indira Gandhi International",MUC,"Munich,Germany,Franz Josef Strauss",Lufthansa, 0
+118,2019,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",IndiGo, 0
+117,2019,PAT,"Patna,India,Lok Nayak Jayaprakash",BLR,"Bangalore,India,Kempegowda International",GoAir, 0
+116,2019,BLR,"Bangalore,India,Kempegowda International",PAT,"Patna,India,Lok Nayak Jayaprakash",GoAir, 0
+115,2019,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",SpiceJet, 0
+114,2019,SVO,"Moscow,Russia,Sheremetyevo",DEL,"New Delhi,India,Indira Gandhi International",Aeroflot, 2
+113,2019,JFK,"New York,USA,John F. Kennedy",SVO,"Moscow,Russia,Sheremetyevo",Aeroflot, 2
+112,2019,AUS,"Austin,USA,Bergstrom International",JFK,"New York,USA,John F. Kennedy",American Airlines, 2
+111,2019,DFW,"Dallas/Fort Worth,USA,International",AUS,"Austin,USA,Bergstrom International",American Airlines, 2
+110,2019,JFK,"New York,USA,John F. Kennedy",DFW,"Dallas/Fort Worth,USA,International",American Airlines, 2
+109,2019,HKG,"Hong Kong,China,International",JFK,"New York,USA,John F. Kennedy",Cathay Pacific, 0
+108,2019,DEL,"New Delhi,India,Indira Gandhi International",HKG,"Hong Kong,China,International",Cathay Pacific, 0
+107,2019,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",SpiceJet, 0
+106,2018,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",SpiceJet, 0
+105,2018,JFK,"New York,USA,John F. Kennedy",DEL,"New Delhi,India,Indira Gandhi International",Air India, 0
+104,2018,EWR,"Newark,USA,Liberty",SYR,"Syracuse,USA,Syracuse Hancock International",United Airlines, 0
+103,2018,DET,"Detroit,USA,City",EWR,"Newark,USA,Liberty",United Airlines, 0
+102,2018,EWR,"Newark,USA,Liberty",DET,"Detroit,USA,City",United Airlines, 0
+101,2018,SYR,"Syracuse,USA,Syracuse Hancock International",EWR,"Newark,USA,Liberty",United Airlines, 0
+100,2018,LHR,"London,United Kingdom,Heathrow",JFK,"New York,USA,John F. Kennedy",Virgin Atlantic Airways, 0
+99,2018,DEL,"New Delhi,India,Indira Gandhi International",LHR,"London,United Kingdom,Heathrow",Virgin Atlantic Airways, 0
+98,2018,BLR,"Bangalore,India,Kempegowda International",JAI,"Jaipur,India",AirAsia, 0
+97,2018,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",IndiGo, 1
+96,2018,BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",DEL,"New Delhi,India,Indira Gandhi International",IndiGo, 1
+95,2018,DEL,"New Delhi,India,Indira Gandhi International",BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",GoAir, 1
+94,2018,LHR,"London,United Kingdom,Heathrow",DEL,"New Delhi,India,Indira Gandhi International",Virgin Atlantic Airways, 0
+93,2018,JFK,"New York,USA,John F. Kennedy",LHR,"London,United Kingdom,Heathrow",Virgin Atlantic Airways, 0
+92,2018,JFK,"New York,USA,John F. Kennedy",SYR,"Syracuse,USA,Syracuse Hancock International",Jetblue Airways, 0
+91,2018,DEN,"Denver,USA,International",JFK,"New York,USA,John F. Kennedy",Jetblue Airways, 0
+90,2018,BOS,"Boston,USA,Logan",DEN,"Denver,USA,International",Jetblue Airways, 0
+89,2018,SYR,"Syracuse,USA,Syracuse Hancock International",BOS,"Boston,USA,Logan",Jetblue Airways, 0
+88,2018,AMS,"Amsterdam,Netherlands,Schiphol",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Jet Airway, 0s
+87,2018,BLR,"Bangalore,India,Kempegowda International",AMS,"Amsterdam,Netherlands,Schiphol",Jetblue Airways, 0
+86,2018,AMS,"Amsterdam,Netherlands,Schiphol",BLR,"Bangalore,India,Kempegowda International",Jet Airways, 0
+85,2018,YYZ,"Toronto,Canada,Lester B Pearson Intl.",AMS,"Amsterdam,Netherlands,Schiphol",Jet Airways, 0
+84,2017,CLT,"Charlotte,USA,Charlotte/Douglas International",JFK,"New York,USA,John F. Kennedy",American Airlines, 1
+83,2017,AUS,"Austin,USA,Bergstrom International",CLT,"Charlotte,USA,Charlotte/Douglas International",American Airlines, 1
+82,2017,ORD,"Chicago,USA,O'Hare",AUS,"Austin,USA,Bergstrom International",American Airlines, 1
+81,2017,JFK,"New York,USA,John F. Kennedy",ORD,"Chicago,USA,O'Hare",American Airlines, 1
+80,2017,MAD,"Madrid,Spain,Adolfo Suárez, Barajas",JFK,"New York,USA,John F. Kennedy",Iberia, 0
+79,2017,ORY,"Paris,France,Orly",MAD,"Madrid,Spain,Adolfo Suárez, Barajas",Iberia, 1
+78,2017,BCN,"Barcelona,Spain,El Prat International",ORY,"Paris,France,Orly",Vueling Airlines, 1
+77,2017,GRX,"Granada-Jaén,Spain,Federico García Lorca",BCN,"Barcelona,Spain,El Prat International",Vueling Airlines, 1
+76,2017,JFK,"New York,USA,John F. Kennedy",MAD,"Madrid,Spain,Adolfo Suárez, Barajas",American Airlines, 1
+75,2017,ORD,"Chicago,USA,O'Hare",SYR,"Syracuse,USA,Syracuse Hancock International",American Airlines, 0
+74,2017,NRT,"Tokyo,Japan,Narita",ORD,"Chicago,USA,O'Hare",American Airlines, 0
+73,2017,ORD,"Chicago,USA,O'Hare",NRT,"Tokyo,Japan,Narita",Japan Airlines, 0
+72,2017,SYR,"Syracuse,USA,Syracuse Hancock International",ORD,"Chicago,USA,O'Hare",American Airlines, 0
+71,2017,SVO,"Moscow,Russia,Sheremetyevo",JFK,"New York,USA,John F. Kennedy",Aeroflot, 0
+70,2017,DEL,"New Delhi,India,Indira Gandhi International",SVO,"Moscow,Russia,Sheremetyevo",Aeroflot, 0
+69,2016,SVO,"Moscow,Russia,Sheremetyevo",DEL,"New Delhi,India,Indira Gandhi International",Aeroflot, 0
+68,2016,JFK,"New York,USA,John F. Kennedy",SVO,"Moscow,Russia,Sheremetyevo",Aeroflot, 0
+67,2016,AUH,"Abu Dhabi,United Arab Emirates,International",JFK,"New York,USA,John F. Kennedy",Etihad Airways, 0
+66,2016,DEL,"New Delhi,India,Indira Gandhi International",AUH,"Abu Dhabi,United Arab Emirates,International",Etihad Airways, 0
+65,2016,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",IndiGo, 1
+64,2016,DEL,"New Delhi,India,Indira Gandhi International",BLR,"Bangalore,India,Kempegowda International",IndiGo, 1
+63,2016,MAA,"Chennai,India,International",DEL,"New Delhi,India,Indira Gandhi International",GoAir, 1
+62,2016,BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",MAA,"Chennai,India,International",GoAir, 1
+61,2016,DEL,"New Delhi,India,Indira Gandhi International",BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",GoAir,1
+60,2016,PAT,"Patna,India,Lok Nayak Jayaprakash",DEL,"New Delhi,India,Indira Gandhi International",IndiGo,1
+59,2016,AUH,"Abu Dhabi,United Arab Emirates,International",DEL,"New Delhi,India,Indira Gandhi International",Etihad Airways, 0
+58,2016,JFK,"New York,USA,John F. Kennedy",AUH,"Abu Dhabi,United Arab Emirates,International",Etihad Airways, 0
+57,2016,PHL,"Philadelphia,USA,International",SYR,"Syracuse,USA,Syracuse Hancock International",American Airlines, 0
+56,2016,AZA,"Phoenix,USA,Williams Gateway Airport",PHL,"Philadelphia,USA,International",American Airlines, 0
+55,2016,SLC,"Salt Lake City,USA,International",AZA,"Phoenix,USA,Williams Gateway Airport",American Airlines, 0
+54,2016,DFW,"Dallas/Fort Worth,USA,International",SLC,"Salt Lake City,USA,International",American Airlines, 0
+53,2016,PHL,"Philadelphia,USA,International",ADS,"Dallas,USA,Addison Airport",American Airlines, 0
+52,2016,SYR,"Syracuse,USA,Syracuse Hancock International",PHL,"Philadelphia,USA,International",American Airlines, 0
+51,2016,LHR,"London,United Kingdom,Heathrow",YYZ,"Toronto,Canada,Lester B Pearson Intl.",Air Canada, 0
+50,2016,DEL,"New Delhi,India,Indira Gandhi International",LHR,"London,United Kingdom,Heathrow",Jet Airways, 0
+49,2015,LHR,"London,United Kingdom,Heathrow",DEL,"New Delhi,India,Indira Gandhi International",Jet Airways, 0
+48,2015,YYZ,"Toronto,Canada,Lester B Pearson Intl.",LHR,"London,United Kingdom,Heathrow",Air Canada, 0
+47,2015,AUH,"Abu Dhabi,United Arab Emirates,International",JFK,"New York,USA,John F. Kennedy",Etihad Airways, 0
+46,2015,DEL,"New Delhi,India,Indira Gandhi International",AUH,"Abu Dhabi,United Arab Emirates,International",Etihad Airways, 0
+45,2015,BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",JAI,"Jaipur,India",GoAir, 0
+44,2015,DEL,"New Delhi,India,Indira Gandhi International",BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",GoAir, 0
+43,2015,AUH,"Abu Dhabi,United Arab Emirates,International",DEL,"New Delhi,India,Indira Gandhi International",Etihad Airways, 0
+42,2015,JFK,"New York,USA,John F. Kennedy",AUH,"Abu Dhabi,United Arab Emirates,International",Etihad Airways, 0
+41,2015,KEF,"Reykjavik,Iceland,Keflavik International",JFK,"New York,USA,John F. Kennedy",Icelandair, 1
+40,2015,LGW,"London,United Kingdom,Gatwick",KEF,"Reykjavik,Iceland,Keflavik International",Icelandair, 1
+39,2015,ATH,"Athens,Greece,Eleftherios Venizelos",ORY,"Paris,France,Orly",Transavia Airlines, 0
+38,2015,PRG,"Prague,Czech Republic,Vaclav Havel",ATH,"Athens,Greece,Eleftherios Venizelos",Aegean Airlines, 1
+37,2014,LIS,"Lisbon,Portugal,Humberto Delgado",SXF,"Berlin,Germany,Schonefeld",TAP Air Portugal, 1
+36,2014,STN,"London,United Kingdom,Stansted",OPO,"Porto,Portugal,Francisco Sa Carneiro",Ryanair, 1
+35,2014,EDI,"Edinburgh,United Kingdom,Turnhouse",STN,"London,United Kingdom,Stansted",easyJet, 1
+34,2014,STN,"London,United Kingdom,Stansted",EDI,"Edinburgh,United Kingdom,Turnhouse",easyJet, 1
+33,2014,KEF,"Reykjavik,Iceland,Keflavik International",LGW,"London,United Kingdom,Gatwick",Icelandair, 1
+32,2014,JFK,"New York,USA,John F. Kennedy",KEF,"Reykjavik,Iceland,Keflavik International",Icelandair, 1
+31,2014,MIA,"Miami,USA,International",JFK,"New York,USA,John F. Kennedy",American Airlines, 0
+30,2014,POS,"Port-of-Spain,Trinidad and Tobago,Piarco",MIA,"Miami,USA,International",American Airlines, 0
+29,2014,JFK,"New York,USA,John F. Kennedy",POS,"Port-of-Spain,Trinidad and Tobago,Piarco",American Airlines, 0
+28,2014,IST,"Istanbul,Turkey,New Airport",JFK,"New York,USA,John F. Kennedy",Turkish Airlines, 0
+27,2014,DEL,"New Delhi,India,Indira Gandhi International",IST,"Istanbul,Turkey,New Airport",Turkish Airlines, 0
+26,2014,IST,"Istanbul,Turkey,New Airport",DEL,"New Delhi,India,Indira Gandhi International",Turkish Airlines, 0
+25,2014,JFK,"New York,USA,John F. Kennedy",IST,"Istanbul,Turkey,New Airport",Turkish Airlines, 0
+24,2014,MIA,"Miami,USA,International",JFK,"New York,USA,John F. Kennedy",American Airlines, 1
+23,2013,JFK,"New York,USA,John F. Kennedy",MIA,"Miami,USA,International",American Airlines, 1
+22,2013,SFO,"San Francisco,USA,International",JFK,"New York,USA,John F. Kennedy",Delta Air Lines, 0
+21,2013,JFK,"New York,USA,John F. Kennedy",SFO,"San Francisco,USA,International",Delta Air Lines, 0
+20,2013,JFK,"New York,USA,John F. Kennedy",SYR,"Syracuse,USA,Syracuse Hancock International",Jetblue Airways, 0
+19,2013,DEL,"New Delhi,India,Indira Gandhi International",JFK,"New York,USA,John F. Kennedy","Air India", 0
+18,2013,CCU,"Kolkata,India,Netaji Subhas Int.",DEL,"New Delhi,India,Indira Gandhi International",IndiGo, 0
+17,2012,DEL,"New Delhi,India,Indira Gandhi International",VNS,"Varanasi,India,Lal Bahadur Shastri",SpiceJet, 1
+16,2011,CDG,"Paris,France,Charles de Gaulle",DEL,"New Delhi,India,Indira Gandhi International",Air India, 0
+15,2011,MAD,"Madrid,Spain,Adolfo Suárez, Barajas",BVA,"Beauvais,France,Tille",Ryanair, 1
+14,2011,BCN,"Barcelona,Spain,El Prat International",MAD,"Madrid,Spain,Adolfo Suárez, Barajas",Vueling Airlines, 1
+13,2011,BVA,"Beauvais,France,Tille",BCN,"Barcelona,Spain,El Prat International",Ryanair, 1
+12,2011,NCE,"Nice,France,Cote d'Azur",CDG,"Paris,France,Charles de Gaulle",easyJet, 1
+11,2011,GVA,"Geneva,Switzerland,Geneve-Cointrin",NCE,"Nice,France,Cote d'Azur",easyJet, 1
+10,2011,CDG,"Paris,France,Charles de Gaulle",GVA,"Geneva,Switzerland,Geneve-Cointrin",easyJet, 1
+9,2011,HEL,"Helsinki,Finland,Vantaa",CDG,"Paris,France,Charles de Gaulle",Finnair, 0
+8,2011,DEL,"New Delhi,India,Indira Gandhi International",HEL,"Helsinki,Finland,Vantaa",Finnair, 0
+7,2011,HEL,"Helsinki,Finland,Vantaa",DEL,"New Delhi,India,Indira Gandhi International",Finnair, 0
+6,2011,CDG,"Paris,France,Charles de Gaulle",HEL,"Helsinki,Finland,Vantaa",Finnair, 0
+5,2011,CIA,"Roma,Italy,Ciampino",BVA,"Beauvais,France,Tille",Ryanair, 1
+4,2011,BVA,"Beauvais,France,Tille",BGY,"Bergamo,Italy,Orio al Serio",Ryanair, 1
+3,09-01-2010,DEL,"New Delhi,India,Indira Gandhi International",CDG,"Paris,France,Charles de Gaulle","Air India", 0
+2,2009,BLR,"Bangalore,India,Kempegowda International",DEL,"New Delhi,India,Indira Gandhi International",IndiGo, 0
+1,06-07-2009,BOM,"Mumbai (Bombay),India,Chhatrapati Shivaji",DEL,"New Delhi,India,Indira Gandhi International",Jet Airways, 0
