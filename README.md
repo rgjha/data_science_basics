@@ -18,3 +18,4 @@ Personal collection of notebooks and study material for exploring the field of d
 09 March 2023: Play around with my own flight data since 2009. Start working on House Price Regression  <br />
 10 March 2023: Work on book recommendation task based on dot product and neural network methods. <br />
 11/12 March 2023: Scrap data from IMDB and do regression. Try how to fix absent ratings in matrix using ALS <br /> 
+13 March 2023: Check CNN and GNN. Much more left to do. Go back to Kaggle tomorrow <br />
