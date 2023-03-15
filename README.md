@@ -19,3 +19,4 @@ Personal collection of notebooks and study material for exploring the field of d
 10 March 2023: Work on book recommendation task based on dot product and neural network methods. <br />
 11/12 March 2023: Scrap data from IMDB and do regression. Try how to fix absent ratings in matrix using ALS <br /> 
 13 March 2023: Check CNN and GNN. Much more left to do. Go back to Kaggle tomorrow <br />
+14 March 2023: Try using neural networks for stock prices and for CIFAR image set. <br />

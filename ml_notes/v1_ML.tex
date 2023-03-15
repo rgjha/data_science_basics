@@ -247,6 +247,13 @@ amazing 100-page textbook.\footnote{The Hundred-Page Machine Learning Book. by A
 	
 	\section{Introduction}
 	
+	\begin{mdframed}[backgroundcolor=celadon!20]
+``I have no data yet. It is a capital mistake to theorise before one has data. Insensibly one begins to twist facts to suit theories, instead of theories to suit facts.'' -- 
+	Sherlock Holmes, A Scandal in Bohemia
+\end{mdframed}
+	
+	
+	
 	It is no exagerration to say that all aspects of human life is related to data. 
 	It is then an interesting question to ask: how much the machine can learn and think 
 	like humans using that data. These questions all belong to the field of artificial intelligence (AI). 
@@ -350,16 +357,36 @@ Consider a ‘majority vote’ between the K points–the class or label dominat
 The real-life applications of KNN algorithms include facial recognition, text mining, and recommendation systems such as Amazon, Netflix, and others.
 This algorithm is known as \textbf{instance-based} learning. These work by memorising the training dataset. 
 The term “non-parametric” refers to not making any assumptions on the underlying data distribution. These methods do not have any fixed numbers of parameters in the model.
-Similarly in KNN, the model parameters grow with the training data by considering each training case as a parameter of the model. KNN is a non-parametric algorithm.
+Similarly in KNN, the model parameters grow with the training data by considering each training case as a parameter of the model. KNN is a non-parametric algorithm. If KNN is used for a regression problem, the mean (or median) of the y variables of the $K$ closest observations will be used for predictions.
+If KNN is used for a classification problem, it’s the mode (the value that appears most often) of the variables y of the K closest observations that will be used for predictions. The basic steps are as follows:
+
+\begin{mdframed}[backgroundcolor=celadon!6]
+Use a value of $N$ and do the following for every new sample we want to classify:
+\begin{itemize}
+\item Calculate the distance with every sample from the dataset.
+\item Pick the $N$ closest samples from the dataset.
+\item Returns the mode of the labels of those $N$ samples \textbf{OR} the mean (or median). 
+\end{itemize} 
+\end{mdframed}
+
+
 
 \item $k$-Means: This is a distance-based unsupervised machine learning algorithm that accomplishes clustering tasks. In this algorithm, you classify datasets into clusters (K clusters) where the data 
-points within one set remain homogenous, and the data points from two different clusters remain heterogeneous. The clusters under $k$-Means are formed using these steps:
+points within one set remain homogenous, and the data points from two different clusters remain heterogeneous. 
+
+
+\begin{mdframed}[backgroundcolor=celadon!6]
+The clusters under $k$-Means are formed using these steps:
 \begin{enumerate} 
-\item Initialization: The $K$-means algorithm selects centroids for each cluster (‘$K$’ number of points).
-\item Assign objects to centroid: Clusters are formed with the closest centroids ($K$ clusters) at each data point.
+\item Initialization: The $k$-means algorithm selects centroids for each cluster ($k$ number of points).
+\item Assign objects to centroid: Clusters are formed with the closest centroids ($k$ clusters) at each data point.
 \item Centroid update: Create new centroids based on existing clusters and determine the closest distance for each data point based on new centroids. Here, the position of the centroid also gets updated whenever required.
 \item Repeat: Repeat the process till the centroids do not change.
 \end{enumerate} 
+\end{mdframed}
+
+
+
 K-Means clustering is useful in applications such as clustering Facebook users with common likes and dislikes, document clustering, segmenting customers who buy similar ecommerce products, etc.
 
 Clusters are evaluated based on some similarity or dissimilarity measure such as the distance between cluster points. If the clustering algorithm separates dissimilar observations apart and similar observations together, then it has performed well. The two most popular metrics evaluation metrics for clustering algorithms are the Silhouette coefficient (S) and Dunn's index. 
