@@ -1113,6 +1113,35 @@ is used to perform learning using this gradient.}
 \TODO{Fill in .....} 
 
 
+\section{API} 
+
+An application programming interface (API) is a computing interface 
+which defines interactions between multiple software intermediaries. 
+It defines the kinds of calls or requests that can be made, how to make them, the data formats that should be used, the conventions to follow, etc.
+The way I like to understand an API is that it’s an “online function,” a function that I can call online.
+For example: one can have a movie API, which returns names of drama movies when we pass the `animation' genre as input.
+The advantage of using such a sort of mechanism is that the API user doesn’t get access to the whole dataset or source code 
+and yet they can get all the information they need. 
+
+Consider \texttt{http://www.omdbapi.com/?i=tt3896198\&apikey=9ea43e94} 
+
+Endpoint: In the above API call, the endpoint is : \texttt{http://www.omdbapi.com/}. 
+Simply this is the location of where the function code is running.
+API Access Key: Most of the public APIs will have some access key, which you can request. For OMDB API, I had to register and get the API key which is \texttt{9ea43e94}.
+
+$?$Operator: This operator is used to specify the parameters we want to send to the API or our “online function.” Here we give two params to our API i.e., IMDB movie ID and API Access Key using the ? operator. Since there are multiple inputs, we use \& operator also.
+
+One of the most common use cases for Data Science is how to create an API for getting a model’s prediction? Let us assume that we have a Titanic Survival model in place that predicts if a person will survive or not. And, it needs a person’s age and sex as input params to predict. We will create this API using FastAPI in two ways: GET and PUT. Don’t worry; I will explain each as we go.
+What is GET? — In a GET request, we usually try to retrieve data using query parameters that are embedded in the query string itself. For example, in the OMDB API, we use the GET request to specify the movie id and access key as part of the query itself.
+What is PUT? — An alternative to the GET request is the PUT request, where we send parameters using a payload, as we will see in the second method. The payload is not part of the query string, and thus PUT is more secure. It will become more clear when you see the second part.
+But before we go any further, we need to install FastAPI and uvicorn ASGI server with:
+
+\texttt{pip install fastapi} \newline 
+\texttt{pip install uvicorn} \newline
+
+% See https://towardsdatascience.com/a-layman-guide-for-data-scientists-to-create-apis-in-minutes-31e6f451cd2f
+
+
 
 
 \section{Quantum meets Machine Learning = QML} 
@@ -1154,7 +1183,7 @@ The result of QML is a measurement made by the observer.
 
 
 
-\TODO{By May 2023!} 
+\TODO{By 2023!} 
 
 \TODO{Tensor networks for QML}
 
@@ -1173,6 +1202,7 @@ to understand QML better. Much work has been done and a good reference page is
 \textsc{Question 1:} What is the probability to get two heads consecutively when a coin is tossed 5 times. What about general $n$? \\ \\ 
 \textsc{Question 2:} Suppose $P(A)$ is the probability that $A$ passes an exam, $P(B)$ is the probability that $B$ passes an exam, $P(A \cap B)$ is that both passes, $P(A \cup B)$ is at least one passes. We have: 
 \[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \] 
+\textsc{Question 3:}  \[ P(T rm{and} E) = P(E) P(T \vert E) \]. Where T is tsunami with probability $10^{-4}$ and E is earthquake with probability $10^{-4}$. Both are independent so $P(T \vert E) = P(T)$. 
 
 % https://www.geeksforgeeks.org/expected-number-of-trials-to-get-n-consecutive-heads/?ref=rp
 
@@ -1277,6 +1307,9 @@ It is typically implemented in the recommendation post-processing component.
 
 
 \section{Natural Language Processing (NLP), ChatGPT and all that..}
+
+NLP is a powerful machine learning technique that can help you create chatbots, 
+analyze sentiment, summarize text, classify data, and recognize speech.
 
 Unless you have been living in the mountains with no internet, you must have read 
 or experimented with ChatGPT. In this post, and probably subsequent ones, we will try to explain 
@@ -1723,6 +1756,48 @@ Pruning is a technique that can be used to reduce the size of a Decision Tree an
 In addition to improving the model's ability to generalize to new data, pruning a Decision Tree reduces the complexity of the model and makes it easier to interpret. By removing unnecessary nodes from the Decision Tree, the model becomes simpler and more transparent, making it easier to understand and interpret.
 
 Pruning also reduces the number of nodes and decision points the model needs to consider during training, which can improve the model's training speed and efficiency.
+
+
+ALL QUESTIONS AND ANSWERS BELOW ARE FROM CHAT-GPT:
+
+%Sure, here are some common questions asked in machine learning interviews:
+
+\begin{itemize} 
+\item What is overfitting and how can it be avoided? Overfitting is a common problem in machine learning where a model is trained too well on the training data, and as a result, it fits the noise or random fluctuations in the data as well. This leads to poor performance of the model on the test data, where it fails to generalize well. Overfitting can be prevented by using techniques such as regularization, cross-validation, and early stopping.
+
+\item What is the difference between supervised and unsupervised learning? Supervised learning is a type of machine learning where the model is trained on labeled data, where the input and output pairs are known. The goal of supervised learning is to learn a mapping function that can predict the output for new input data. Examples of supervised learning algorithms include linear regression, logistic regression, decision trees, and neural networks.
+Unsupervised learning is a type of machine learning where the model is trained on unlabeled data, where only the input data is known. The goal of unsupervised learning is to discover patterns or structures in the data. Examples of unsupervised learning algorithms include clustering, dimensionality reduction, and generative models.
+
+\item What is the difference between regression and classification?
+
+\item What is regularization and why is it important? Regularization is a technique used to prevent overfitting in machine learning models. It involves adding a penalty term to the loss function of the model, which discourages the model from fitting the noise or random fluctuations in the data. The penalty term is typically a function of the model parameters, such as the L1 norm or L2 norm of the weight vectors. Regularization can be used in various machine learning models such as linear regression, logistic regression, and neural networks.
+
+\item What are some common machine learning algorithms?
+
+\item What is the difference between a decision tree and a random forest?
+
+\item What is cross-validation and why is it used? Cross-validation is a technique used to evaluate the performance of a machine learning model on a limited amount of data. It involves splitting the data into k equally sized folds, and then training the model on k-1 folds and evaluating it on the remaining fold. This process is repeated k times, with each fold being used once as the validation set. The performance of the model is then averaged across the k runs. Cross-validation is useful for selecting hyperparameters, comparing different models, and estimating the generalization performance of a model.
+
+\item What is the bias-variance tradeoff? The bias-variance tradeoff is a fundamental concept in machine learning that describes the relationship between the complexity of a model and its generalization performance. Bias refers to the error introduced by the model's assumptions or simplifications, while variance refers to the error introduced by the model's sensitivity to small fluctuations in the data. A model with high bias is said to underfit the data, while a model with high variance is said to overfit the data. The goal is to find a model that achieves a balance between bias and variance that minimizes the generalization error.
+
+\item What is gradient descent and how does it work?
+\item What is deep learning and how is it different from traditional machine learning?
+\item What is a convolutional neural network (CNN) and how is it used in image recognition? A convolutional neural network (CNN) is a type of neural network used in deep learning to process and analyze images. It uses convolutional layers that extract features from the input image, followed by pooling layers that reduce the dimensionality of the output, and finally fully connected layers that classify the image. CNNs are widely used in image recognition tasks such as object detection, face recognition, and image segmentation.
+\item What is the ROC curve and how is it used to evaluate a classification model? The ROC (Receiver Operating Characteristic) curve is a graphical representation of the performance of a binary classification model. It illustrates the trade-off between the true positive rate (TPR) and false positive rate (FPR) for different threshold values.
+In a binary classification problem, we classify examples into two classes, such as "positive" and "negative". The ROC curve is obtained by plotting TPR (also called sensitivity or recall) on the y-axis and FPR on the x-axis.
+
+To calculate TPR and FPR, we need to set a threshold that separates the positive and negative examples predicted by the model. A threshold of 0.5 is often used as a default, but this can be adjusted depending on the problem and the goals of the model.
+
+The TPR is the proportion of true positive examples that are correctly classified as positive by the model, while the FPR is the proportion of negative examples that are incorrectly classified as positive. As the threshold is varied, different points on the ROC curve are generated.
+
+A perfect classifier would have a ROC curve that passes through the top-left corner of the plot, with TPR = 1 and FPR = 0. In practice, most classifiers will have a ROC curve that lies somewhere below this ideal line.
+
+The area under the ROC curve (AUC) is a common metric used to evaluate the performance of a binary classifier. AUC ranges from 0.0 to 1.0, with a higher value indicating better classification performance. An AUC of 0.5 indicates random classification performance, while an AUC of 1.0 indicates perfect classification performance.
+
+In summary, the ROC curve provides a useful tool to visualize and evaluate the performance of a binary classification model, and the AUC provides a single scalar value to summarize the overall performance.
+\item What is natural language processing (NLP) and how is it used in machine learning?
+\item What is reinforcement learning and how is it used in AI?
+\end{itemize} 
 
 
 % Supervised learning is a type of machine learning where the model is trained on labeled data. In the case of Palmer's model, she could use supervised learning to train a model on the data for past races, where the data is labeled with the outcome (i.e., whether each car crashed or not). This would allow the model to learn from the data and predict future races.

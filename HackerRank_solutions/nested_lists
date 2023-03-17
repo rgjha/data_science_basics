@@ -1,0 +1,18 @@
+if __name__ == '__main__':
+    
+    li, ls =[], []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        li.append([name,score])
+        ls.append(score)
+
+    #li being sorted by name    
+    li.sort(key= lambda x: x[0])
+    s = sorted(set(ls))
+
+    for name, score in li:
+        if score == s[1]:
+            print(name)
+
+Problem: https://www.hackerrank.com/challenges/nested-list/problem?isFullScreen=true&h_r=next-challenge&h_v=zen
