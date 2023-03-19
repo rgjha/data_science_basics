@@ -21,3 +21,5 @@ Personal collection of notebooks and study material for exploring the field of d
 13 March 2023: Check CNN and GNN. Much more left to do. Go back to Kaggle tomorrow <br />
 14 March 2023: Try using neural networks for stock prices and for CIFAR image set. <br />
 16 March 2023: Read about BERT and Transformers. Should get more NLP reading before going there <br />
+18 March 2023: Revise statistics, probability. Check spaCy and revise tensorflow. <br />
+

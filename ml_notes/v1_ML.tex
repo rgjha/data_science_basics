@@ -314,7 +314,42 @@ where $x$ = input value, $y$ = predicted output, $b_0$ = bias or intercept term,
 Logistic regression could be used to predict whether a particular team will win (1) a tournament or not (0), 
 or whether a lockdown will be imposed (1) due to rising COVID-19 cases or not (0) or whether a tumor is benign or not. 
 Thus, the binary outcomes of logistic regression facilitate faster decision-making as you only need to pick one out of the two alternatives.
+
+
 \item Decision trees: With a decision tree, you can visualize the map of potential results for a series of decisions. It enables companies to compare possible outcomes and then take a straightforward decision based on parameters such as advantages and probabilities that are beneficial to them. Decision tree algorithms can potentially anticipate the best option based on a mathematical construct and also come in handy while brainstorming over a specific decision. The tree starts with a root node (decision node) and then branches into sub-nodes representing potential outcomes. Each outcome can further create child nodes that can open up other possibilities. The algorithm generates a tree-like structure that is used for classification problems. For example, consider the decision tree below that helps finalize a weekend plan based on the weather forecast.
+
+\emph{Gradient Boosting is similar to AdaBoost (Adaptive Boost) in that they both use an ensemble of decision trees to predict a target label. However, unlike AdaBoost, the Gradient Boost trees have a depth larger than 1. In practice, you’ll typically see Gradient Boost being used with a maximum number of leaves of between 8 and 32.}
+We know that \texttt{error = bias + variance}. Boosting is based on weak learners i.e., high bias and low variance. 
+In terms of decision trees, \emph{weak learners are shallow trees}, sometimes even as small as decision stumps 
+(trees with two leaves). Boosting reduces error mainly by reducing bias (and also to some extent variance, by aggregating the output from many models).
+On the other hand, Random Forest uses as you said fully grown decision trees (low bias, high variance). It tackles the error reduction task in the opposite way: by reducing variance. The trees are made uncorrelated to maximize the decrease in variance, but the algorithm cannot reduce bias (which is slightly higher than the bias of an individual tree in the forest). Hence the need for large, unpruned trees, so that the bias is initially as low as possible.
+Please note that unlike Boosting (which is sequential), RF grows trees in parallel.
+
+ 
+\emph{In addition, the random forest approach is a bagging method where deep trees, fitted on bootstrap samples, 
+are combined to produce an output with lower variance.}
+
+
+Random Forest is an ensemble learning method that creates multiple decision trees and combines their predictions to make a final prediction. In random forest, 
+each decision tree is built on a \emph{randomly selected subset} of the training data, and a \emph{randomly selected subset of features} 
+is used for each tree. This helps to reduce overfitting and increase the accuracy of the model.
+
+Gradient Boosting, on the other hand, is also an ensemble learning method that combines multiple weak learners to make a strong learner. In Gradient Boosting, a sequence of decision trees is built, where each tree tries to correct the errors of the previous tree. The algorithm starts by building a simple model (say mean in regression problems) 
+and then gradually improves it by adding more complex models. 
+Gradient Boosting typically requires more training time than Random Forest, but it can often achieve higher accuracy.
+
+In summary, the main differences between Random Forest and Gradient Boosting are:
+
+\begin{itemize}
+\item Random Forest builds multiple decision trees independently, while GB builds a sequence of decision trees, where each tree tries to correct the errors of the previous tree.
+\item Random Forest uses random subsets of data and features to build each tree, while GB uses all the data but focuses on the instances that were misclassified by the previous trees.
+\item Random Forest is less prone to overfitting, while Gradient Boosting can overfit if the number of trees or their complexity is too high.
+\item Random Forest is typically faster to train than Gradient Boosting, but Gradient can achieve higher accuracy. 
+\end{itemize}
+
+
+
+
 \item Support Vector Methods: Support vector machine algorithms are used to accomplish both classification (SVM, M for Machine) and regression (SVR, R for regression) tasks. 
 With SVR, we can then give our model some flexibility in finding the predicted values, as long as the error is within that range.
 In contrast to OLS discussed above in Linear regression, 
@@ -389,7 +424,21 @@ The clusters under $k$-Means are formed using these steps:
 
 K-Means clustering is useful in applications such as clustering Facebook users with common likes and dislikes, document clustering, segmenting customers who buy similar ecommerce products, etc.
 
-Clusters are evaluated based on some similarity or dissimilarity measure such as the distance between cluster points. If the clustering algorithm separates dissimilar observations apart and similar observations together, then it has performed well. The two most popular metrics evaluation metrics for clustering algorithms are the Silhouette coefficient (S) and Dunn's index. 
+Clusters are evaluated based on some similarity or dissimilarity measure such as the distance between cluster points. If the clustering algorithm separates dissimilar observations apart and similar observations together, then it has performed well. The two most popular metrics evaluation metrics for clustering algorithms are:  
+
+
+Silhouette score: It measures the similarity of observation to its own cluster compared to other clusters. The score ranges from -1 to 1, with values closer to 1 indicating a stronger clustering structure.
+Calinski-Harabasz Index: It measures the ratio of the between-cluster variance to the within-cluster variance. Higher values indicate a better clustering solution.
+Davies-Bouldin Index: It measures the average similarity between each cluster and its most similar cluster. Lower values indicate a better clustering solution.
+Adjusted Rand Index: It measures the similarity between the true class labels and the predicted cluster labels, adjusted for the chance. Higher values indicate a better clustering solution.
+Confusion matrix: It can be used to evaluate the accuracy of clustering models by comparing the predicted clusters to the true classes.
+
+
+
+Dunn's Index: 
+
+\[ \text{min.}  \text{min.} \Big(\frac{\delta(X_i, X_j)}{\text{max.} \Delta X_k} \Big)\] 
+intercluster distance, intracluster (within cluster) is given by $\Delta X_k$. 
 
 
 
@@ -721,21 +770,15 @@ df_preprocessed['Age_transformed'], lambda_ = boxcox(df_preprocessed['Age'])
 \end{mdframed}
 
 
+\section{Deep Learning} 
 
-
-
-
-What is Deep Learning?
-
-Deep learning uses artificial neural networks to perform sophisticated computations on large amounts of data. It is a type of machine learning that works based on the structure and function of the human brain. 
-
+Deep learning uses artificial neural networks to perform sophisticated computations on large amounts of data. It is a type of machine learning that works based on the structure and function of the human brain. By deep, we mean that there are many layers separating the input and output (hidden layers). 
 Deep learning algorithms train machines by learning from examples. Industries such as health care, eCommerce, entertainment, and advertising commonly use deep learning.
-
-
 A neural network is structured like the human brain and consists of artificial neurons, also known as nodes. These nodes are stacked next to each other in three layers:
-The input layer, the hidden layer(s), the output layer
-
-
+The input layer, the hidden layer(s), the output layer. The most basic neural network is the `perceptron' also known as forward pass or forward propagation. 
+Irrespective of the number of features in the sample (input), the out of perceptron is a single value (predicted class). 
+The output comes from multiplying the input vector by the weights ($w$) and passing the result 
+through the activation function which is a step function in this case. 
 
 Here is the list of top 10 most popular deep learning algorithms:
 \begin{enumerate}
@@ -746,16 +789,17 @@ Here is the list of top 10 most popular deep learning algorithms:
 \item Radial Basis Function Networks (RBFNs)
 \item Multilayer Perceptrons (MLPs)
 \item Self Organizing Maps (SOMs)
-\item Deep Belief Networks (DBNs)
-\item Restricted Boltzmann Machines( RBMs)
-\item Autoencoders
+\item Deep Belief Networks (DBNs) based on Restricted Boltzmann Machines( RBMs)
+\item Deep Autoencoders based on `autoencoders'. 
 \end{enumerate} 
 
 Long Short Term Memory networks – usually just called `LSTMs' – are a special kind of RNN, 
-capable of learning long-term dependencies. 
-They were introduced by Hochreiter \& Schmidhuber (1997), 
+capable of learning long-term dependencies. They were introduced by Hochreiter \& Schmidhuber (1997), 
 and were refined and popularized by many people in following work.
 They work tremendously well on a large variety of problems, and are now widely used.
+
+
+
 
 
 
@@ -936,7 +980,7 @@ whereas the prediction accuracy is 1-ERR. We also have FPR, TPR.
 
 \begin{equation}
 \textbf{TPR} = \frac{TP}{FN+TP} 
-\end{equation}
+\end{equation}A
 
 REC (recall) is equal to TPR while PRE (precision) is defined as:
 \begin{equation}
@@ -950,6 +994,15 @@ F1 score is the harmonic mean of \textbf{PRE} and \textbf{REC}, and it is calcul
 using the following formula: 
 \[ F1 = \frac{2 \cdot \textbf{PRE} \cdot \textbf{REC}}{\textbf{PRE} + \textbf{REC}}\] 
 The F1 score is used when the recall and the precision are equally important.
+
+
+% For recommender systems we can compute 
+% Precision: The proportion of recommended items that are relevant to the user.
+% Recall: The proportion of relevant items that are recommended by the system.
+% F1-Score: The harmonic mean of precision and recall.
+ %Mean Average Precision (MAP): A measure of the average precision of a recommendation system's overall users.
+% Normalized Discounted Cumulative Gain (NDCG): A measure of the rank-weighted relevance of the recommended items.
+% Root Mean Square Error (RMSE): A measure of the difference between the predicted ratings and the actual ratings for a set of items.
 
 
 
@@ -1059,6 +1112,36 @@ This has the advantage that the gradient is nonzero at all points (except 0 wher
 \begin{equation} 
 f(x) = \dfrac{\exp(x)}{1+\exp(x)} = \dfrac{1}{1+\exp(-x)}
 \end{equation} 
+
+
+Softmax's i$^\text{th}$ component is defined as: $\frac{\exp(x_i)}{\sum_j \exp(x_j)}$
+The function Softmax $S$ is also a non-linear function but it is special in that it usually is the last operation done in a network. 
+It takes in a vector of real numbers and returns a probability distribution with components summing to 1.  
+
+
+The backpropagation computes $L(\theta)$ using Chain rule and then 
+weights are updated as: $\theta^{(t+1)} = \theta^{(t)} - \eta \nabla_\theta L(\theta)$.
+$\eta$ is also referred to as learning rate. Just replacing standard SGD with an 
+optimizer like Adam or RMSProp will boost performance a lot. 
+
+
+\subsection{Fun with matrices}
+
+Non-negative matrix factorization (Lee, 2000).
+% https://www.researchgate.net/publication/2538030_Algorithms_for_Non-negative_Matrix_Factorization
+
+
+\begin{mdframed}[backgroundcolor=celadon!6]
+\begin{lstlisting}[language=Python]
+import numpy as np
+X = np.array([[1, 2], [2, 2], [3, 1.2], [4, 1], [5, 0.8], [6, 1]])
+from sklearn.decomposition import NMF
+model = NMF(n_components=2, init='random', random_state=0)
+W = model.fit_transform(X)
+H = model.components_
+\end{lstlisting}
+   \end{mdframed} 
+
 
 
 
@@ -1373,8 +1456,165 @@ the transformer architecture, which means they have an encoder to process the in
 Both the encoder and decoder have a multi-head (The ‘multi-head’ attention is an evolution of self-attention) attention mechanism that allows the model to differentially weight parts of the sequence to infer meaning and context. 
 In addition, the encoder leverages masked-language-modeling to understand the relationship between words and produce more comprehensible responses.
 The self-attention mechanism that drives GPT works by converting tokens (pieces of text, which can be a word, sentence, or other grouping of text) into vectors that represent the importance of the token in the input sequence. 
-To do this, the model,
 
+\newpage 
+
+\emph{The text below was generated by Chat GPT-3 with the prompts: Write notes about Large language models (LLM) in \LaTeX, 
+Explain Transformer LLM, What is the Maths behind Transformer LLM and so on. It even made a schematic diagram (in TikZ) for me
+on instruction which was not very ordered and black and white. 
+It would be interesting to try this with GPT-4.} 
+
+
+\subsection*{Large Language Models (LLMs)}
+Large Language Models (LLMs) are machine learning models that use deep neural networks to learn the statistical patterns and structure of natural language data. LLMs are designed to generate text that is similar in style, tone, and content to human language, and can be used for a wide range of natural language processing tasks.
+
+\subsubsection*{Architecture}
+LLMs are typically based on a type of neural network known as a transformer, which is designed to process sequential data such as text. The transformer network is composed of multiple layers of self-attention mechanisms, which allow the model to attend to different parts of the input sequence and learn the relationships between them.
+
+\subsubsection*{Training Data}
+LLMs are trained on large amounts of natural language data, typically in the form of text corpora such as books, articles, and web pages. The training data is preprocessed to remove noise, and then fed into the model in batches. The model is trained to predict the next word in a sequence of words, given the previous words as context.
+
+\subsubsection*{Applications}
+LLMs have a wide range of applications in natural language processing, including but not limited to:
+\begin{itemize} 
+\item Text generation and summarization
+\item Language translation
+\item Question-answering systems
+\item Sentiment analysis
+\item Named entity recognition
+\item Text classification
+\item  LLMs are particularly useful in tasks where the input data is unstructured and the output is expected to be in natural language form.
+\end{itemize} 
+
+\subsubsection*{Challenges}
+LLMs also present several challenges, including:
+\begin{itemize} 
+\item Computational complexity: LLMs require large amounts of computational power to train and run, making them expensive to use.
+\item Bias: LLMs can reflect the biases and prejudices present in the training data, leading to unfair or inaccurate results.
+\item Privacy: LLMs can be used to generate text that appears to be written by a specific person, leading to potential privacy concerns.
+\end{itemize} 
+
+\subsubsection*{Future Directions}
+LLMs are an active area of research, with ongoing efforts to improve their accuracy, efficiency, and fairness. Researchers are also exploring new applications of LLMs, such as generating creative writing, generating code, and creating interactive conversational agents.
+
+\subsubsection*{Fine-tuning}
+LLMs can be fine-tuned on specific tasks by further training the model on a smaller dataset that is specific to that task. This allows the model to adapt to the specific language and patterns of the task, leading to improved performance.
+
+\subsubsection*{Pretrained Models}
+Pretrained LLMs, such as OpenAI's GPT series and Google's BERT, are available for general use and can be fine-tuned for specific tasks. These models have been trained on massive amounts of data, making them capable of generating high-quality text in a wide range of contexts.
+
+\subsubsection*{Ethical Considerations}
+LLMs raise important ethical considerations, particularly with regard to bias and privacy. Because LLMs learn from large datasets that may contain biases and prejudices, the output of the model may reflect these biases, leading to unfair or discriminatory results. Additionally, LLMs can be used to generate text that appears to be written by a specific person, leading to potential privacy concerns.
+
+\subsubsection*{Interpretability}
+LLMs can be difficult to interpret, as the internal workings of the model are complex and opaque. Researchers are exploring ways to make LLMs more transparent and interpretable, such as through attention visualization and feature attribution techniques.
+
+\subsubsection*{Open Research}
+LLMs are the subject of active research, with ongoing efforts to improve their accuracy, efficiency, and fairness. Many LLMs are open-source, allowing researchers and developers to build upon existing models and advance the field.
+
+
+\subsubsection*{Multilingual LLMs}
+Multilingual LLMs are models that have been trained on multiple languages, allowing them to generate text in different languages and perform cross-lingual tasks. Multilingual LLMs can be useful in multilingual societies and in tasks that involve multiple languages.
+
+\subsubsection*{Domain-Specific LLMs}
+Domain-specific LLMs are models that have been trained on text data from a specific domain, such as legal documents or scientific papers. These models are designed to generate text that is specific to the domain and can be useful in tasks that require specialized knowledge.
+
+\subsubsection*{Combining LLMs with other NLP Techniques}
+LLMs can be combined with other natural language processing (NLP) techniques, such as sentiment analysis and named entity recognition, to create more complex and powerful NLP models. This approach is known as neural architecture search and can lead to significant improvements in performance.
+
+\subsubsection*{Limitations}
+LLMs have limitations, particularly in tasks that require more than just statistical patterns in language. LLMs struggle with tasks that require common sense reasoning or knowledge that is not explicitly present in the training data. Additionally, LLMs can produce text that is fluent but not necessarily coherent, leading to potential issues in certain applications.
+
+\subsubsection*{Impact on Society}
+LLMs have the potential to transform many aspects of society, including education, journalism, and entertainment. However, the widespread use of LLMs also raises important ethical considerations, such as the potential for misuse and the impact on employment. It is important for researchers and developers to consider the social and ethical implications of LLMs in their work.
+
+
+\section{Details about Transformer LLM}
+Transformer LLM refers to a type of Large Language Model that is based on the Transformer architecture. The Transformer is a neural network architecture that was introduced by Vaswani et al. in 2017 and has been used extensively in natural language processing (NLP) tasks, including machine translation and language modeling. Transformer LLMs use a self-attention mechanism to process input sequences of variable length and produce output sequences of variable length. The self-attention mechanism allows the model to attend to different parts of the input sequence at each step of the computation, allowing it to capture long-range dependencies and improve performance on NLP tasks. One example of a Transformer LLM is the GPT (Generative Pretrained Transformer) series developed by OpenAI. GPT models have been pre-trained on large amounts of text data and can be fine-tuned for a variety of downstream NLP tasks, such as language generation, summarization, and question answering. Transformer LLMs have shown significant improvements in NLP tasks and have been used in a variety of applications, including chatbots, language translation, and sentiment analysis.
+
+%\documentclass[tikz, border=5pt]{standalone}
+
+\usetikzlibrary{positioning, arrows.meta}
+
+%\begin{document}
+	\begin{tikzpicture}[font=\small, node distance=1.5cm]
+	
+	% Encoder layer
+	\node [draw, thick, rectangle, minimum width=2cm, minimum height=1cm] (enc1) {Encoder};
+	\node [draw, thick, circle, minimum size=0.5cm, above right=1cm and 0.5cm of enc1] (add1) {+};
+	\node [draw, thick, rectangle, minimum width=2cm, minimum height=1cm, above right=0.5cm and 1cm of add1] (norm1) {Normalization};
+	\node [draw, thick, rectangle, minimum width=2cm, minimum height=1cm, below right=0.5cm and 1cm of add1] (attn1) {Attention};
+	\node [draw, thick, rectangle, minimum width=2cm, minimum height=1cm, above right=0.5cm and 1cm of norm1] (ff1) {Feedforward};
+	
+	% Decoder layer
+	\node [draw, thick, rectangle, minimum width=2cm, minimum height=1cm, right=4cm of enc1] (dec1) {Decoder};
+	\node [draw, thick, circle, minimum size=0.5cm, above right=1cm and 0.5cm of dec1] (add2) {+};
+	\node [draw, thick, rectangle, minimum width=2cm, minimum height=1cm, above right=0.5cm and 1cm of add2] (norm2) {Normalization};
+	\node [draw, thick, rectangle, minimum width=2cm, minimum height=1cm, below right=0.5cm and 1cm of add2] (attn2) {Attention};
+	\node [draw, thick, rectangle, minimum width=2cm, minimum height=1cm, above right=0.5cm and 1cm of norm2] (ff2) {Feedforward};
+	\node [draw, thick, circle, minimum size=0.5cm, right=1.5cm of ff2] (softmax) {$\sigma$};
+	
+	% Input/output
+	\node [draw, thick, circle, minimum size=0.5cm, left=2cm of enc1] (input) {$x$};
+	\node [draw, thick, circle, minimum size=0.5cm, right=2cm of softmax] (output) {$y$};
+	
+	% Connections
+	\draw [->, thick] (input) -- (enc1);
+	\draw [->, thick] (enc1) -- (add1);
+	\draw [->, thick] (add1) -- (norm1);
+	\draw [->, thick] (add1) -- (attn1);
+	\draw [->, thick] (norm1) -- (ff1);
+	\draw [->, thick] (ff1) -- (add1);
+	\draw [->, thick] (attn1) -- (add2); 
+	
+	\end{tikzpicture}
+	
+
+
+\subsubsection*{Training}
+Training a Transformer LLM involves pre-training the model on a large corpus of text data using an unsupervised learning approach, such as the masked language modeling task. During pre-training, the model learns to predict missing words in a sentence, which helps it to develop a general understanding of language.
+After pre-training, the Transformer LLM can be fine-tuned on specific downstream NLP tasks, using supervised learning techniques. Fine-tuning involves training the model on a smaller dataset that is specific to the task, which allows the model to adapt to the language and patterns of the task.
+
+\subsubsection*{Architecture}
+The Transformer LLM architecture consists of an encoder and a decoder, each composed of multiple layers of self-attention and feedforward neural networks. The encoder processes the input sequence and produces a sequence of hidden states, while the decoder generates the output sequence based on the encoder's hidden states. The self-attention mechanism allows the model to learn which parts of the input sequence to attend to at each step of the computation. The feedforward neural networks apply a non-linear transformation to the hidden states, allowing the model to capture complex patterns in the input sequence.
+
+\subsubsection*{Advantages}
+
+Transformer LLMs have several advantages over traditional recurrent neural network (RNN) based language models. They can process input sequences in parallel, making them faster and more efficient. They can also capture long-range dependencies in the input sequence, which is particularly useful for NLP tasks that require understanding of context. Additionally, Transformer LLMs can be fine-tuned on specific tasks with relatively small amounts of data, making them useful in practical applications.
+
+\subsubsection*{Limitations}
+
+Transformer LLMs are not without limitations. They can be computationally expensive to train and require large amounts of data to achieve state-of-the-art performance. Additionally, they may struggle with tasks that require common sense reasoning or knowledge that is not explicitly present in the training data.
+
+\subsubsection*{Future Directions}
+
+Research on Transformer LLMs is ongoing, with ongoing efforts to improve their performance, efficiency, and interpretability. Researchers are also exploring ways to incorporate external knowledge into LLMs, such as through external memory or attention mechanisms, in order to improve their ability to reason and understand context. The Transformer LLM is based on the Transformer architecture, which is a type of neural network that uses self-attention to process input sequences. Here's a brief overview of the mathematics involved in the Transformer LLM:
+
+\subsubsection*{Self-Attention}
+
+At the heart of the Transformer LLM is the self-attention mechanism, which allows the model to attend to different parts of the input sequence at each step of the computation. Self-attention can be represented mathematically as follows:
+
+Given an input sequence of length $n$, we first transform each input element into a vector of dimension $d$. These vectors are arranged into a matrix $X \in \mathbb{R}^{n \times d}$. We then compute three matrices: $Q \in \mathbb{R}^{n \times d}$, $K \in \mathbb{R}^{n \times d}$, and $V \in \mathbb{R}^{n \times d}$, which are called the query, key, and value matrices, respectively. The self-attention mechanism then computes a weighted sum of the value vectors, where the weights are determined by the dot product between the query and key vectors, normalized by a scaling factor:
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V$$
+here, $\text{softmax}$ is the softmax function, which normalizes the dot product scores into a probability distribution over the input sequence.
+
+\subsubsection*{Encoder}
+
+The Transformer LLM uses a stack of self-attention layers in the encoder, which allows the model to attend to different parts of the input sequence at different levels of abstraction. Each self-attention layer consists of two sub-layers:
+
+A multi-head self-attention layer, which applies the self-attention mechanism described above to the input sequence, using different sets of query, key, and value matrices (known as "heads").
+A position-wise feedforward layer, which applies a non-linear transformation to each element of the sequence independently.
+These sub-layers are connected through a residual connection and layer normalization, which helps to prevent vanishing gradients and improves training stability.
+
+\subsubsection*{Decoder}
+
+The decoder in the Transformer LLM is similar to the encoder, but also includes an additional multi-head self-attention layer that attends to the output sequence generated so far. This allows the decoder to use context from the output sequence to generate the next element in the sequence.
+
+\subsubsection*{Training}
+
+To train the Transformer LLM, we typically use a variant of stochastic gradient descent (SGD) to minimize a loss function that measures the discrepancy between the model's predictions and the true output. The loss function depends on the specific task and can be chosen based on the type of data and desired performance metric.
+
+During training, the weights of the model are updated using backpropagation, which computes the gradient of the loss with respect to the model's parameters. The use of layer normalization and residual connections in the Transformer architecture helps to prevent vanishing gradients and improve training stability.
 
 
 
@@ -1814,6 +2054,11 @@ In summary, the ROC curve provides a useful tool to visualize and evaluate the p
 
 
 
+
+\section{Statistics} 
+
+\textbf{Central Limit theorem:} If $X_{1}, X_{2}, \cdots X_{N}$ are random samples drawn from a distribution (any) with overall mean $\mu$ and variance $\sigma^2$
+and if $\bar{X}$ is the sample mean of first $n$ samples, then the limiting form of distribution is Gaussian in $n \to \infty$ limit. 
 
 
 
