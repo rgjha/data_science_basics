@@ -1,6 +1,5 @@
-1. With DATA as (SELECT DATE, user_name, message_sent/message_received as RATIO from [TABLE NAME]  where message_received>0)
-Select date, user_name, max(RATIO) as high_ratio_of_day from DATA 
-GROUP by 1, 2, 3
+1. SELECT DATE, user_name, max(RATIO) as high_ratio_of_day from (SELECT DATE, user_name, message_sent/message_received as RATIO from [TABLE NAME] WHERE message_received>0) as DATA 
+GROUP by DATE
 
 2. SELECT first_name, last_name, gender FROM patients WHERE gender='M'; 
 
@@ -12,7 +11,43 @@ GROUP by 1, 2, 3
 
 6. HackerRank: SELECT NAME FROM STUDENTS WHERE MARKS>75 ORDER BY RIGHT(NAME,3), ID ASC;
 
-7. 
+7. HackerRank: SELECT MAX(MONTHS * SALARY), COUNT(*) FROM EMPLOYEE 
+WHERE MONTHS * SALARY = (SELECT MAX(MONTHS * SALARY) FROM EMPLOYEE);
+
+8. HackerRank: SELECT ROUND(SUM(LAT_N), 2), ROUND(SUM(LONG_W), 2) FROM STATION;  
+
+9. SELECT ROUND(SUM(LAT_N), 4) FROM STATION WHERE LAT_N > 38.7880 AND LAT_N < 137.2345;
+
+10. SELECT ROUND(LAT_N, 4) FROM STATION WHERE LAT_N < 137.2345 ORDER BY LAT_N DESC LIMIT 1;
+# Note that LAT_N DESC LIMIT 0,1 also works!!  
+ 
+11. SELECT first_name, country FROM Customers WHERE country IN ('USA', 'UK');
+
+
+12. Two equivalent queries: 
+
+A. SELECT DISTINCT Customers.customer_id, Customers.first_name
+FROM Customers
+INNER JOIN Orders
+ON Customers.customer_id = Orders.customer_id
+ORDER BY Customers.customer_id;
+
+B. SELECT customer_id, first_name
+FROM Customers 
+WHERE customer_id IN (
+  SELECT customer_id
+  FROM Orders
+);
+
+Former is faster than subquery. 
+
+
+
+
+
+
+
+
 -- 1> Write a SQL query to find the nth highest salary from employee table. 
 -- Example: finding 3rd highest salary from employee table
 select * from employee order by salary desc;
@@ -28,6 +63,8 @@ select count(*) from employee where department = 'Admin';
 
 -- 4> Write a SQL query to fetch department wise count employees sorted by department count in desc order.
 select * from employee;
+
+
 
 select department, count(*) as employeecount 
 from employee
