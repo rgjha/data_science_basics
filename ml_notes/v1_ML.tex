@@ -1309,6 +1309,20 @@ Both $z$-scores and $p$-values are associated with the standard normal distribut
 associated with very small $p$-values, are found in the tails of the normal distribution. The higher or lower the $z$-score, the more unlikely the result is to happen by chance and the more likely the result is meaningful.
 \end{itemize}  
 
+
+\begin{figure}
+\centering 
+\includegraphics[width=0.85\textwidth]{p-z-val.png}
+\caption{\label{fig:pzval1}-----}
+\end{figure}
+
+
+\subsection{A/B test} 
+
+
+
+
+
 \section{Recommender Systems}
 
 A recommender system (RS), or a recommendation system, is a subclass of information filtering system that seeks to predict the “rating” or “preference” a user would give to an item. Recommender systems are utilized in a variety of areas, with commonly recognized examples taking the form of playlist generators for video and music services, product recommenders for online stores, etc. These systems can operate using a single input, like music, or multiple inputs within and across platforms like news, books, and search queries. Recommender systems are utilized in order to make better product suggestions to customers, or personalized recommendations to friends.
@@ -1404,6 +1418,12 @@ and machine learning, that can quantify the importance or relevance of string re
 Let us take an example of two documents: A: `The car is driven on the road' and B: `The truck is driven on the highway'. 
 Then we have the following situation. 
 
+\begin{figure}
+\centering 
+\includegraphics[width=0.85\textwidth]{tfidf.png}
+\caption{\label{fig:tfidf1}-----}
+\end{figure}
+
 
 TF is just the ratio of number of times a word over the total words in the document. For example, in the document $A$ above, car has TF of 1/7. 
 Inverse document frequency (IDF) 
@@ -1415,6 +1435,24 @@ The denominator is simply the number of documents in which the term, $t$, appear
 \[ IDF(t,D)  = \log\Big( \frac{d}{\text{Count}(t)} \Big) \] 
 
 
+
+
+\subsection{Algorithms for NLP}
+
+The famous `no-free lunch' says that there is no single algorithm that works for all cases. Same is true for NLP. But in particular, following algorithms are popular:
+
+\begin{itemize} 
+\item Naive Bayes: a probabilistic algorithm that is often used for text classification tasks such as spam filtering
+\item Support Vector Machines (SVM): a popular algorithm for text classification tasks that involves finding a hyperplane that maximally separates the data points in the input space.
+\item Decision Trees: a simple yet effective algorithm that involves recursively splitting the data based on the most informative features until the desired classification accuracy is achieved.
+\item Random Forests: an ensemble learning method that combines multiple decision trees to improve classification accuracy.
+\item Gradient Boosting: a machine learning technique that involves combining multiple weak models to create a stronger model.
+\item Recurrent Neural Networks (RNN): a type of neural network that can model sequence data such as text by processing each word in a sentence one at a time. This includes LSTM.
+\item Convolutional Neural Networks (CNN): a type of neural network that is often used for image processing, but can also be applied to text data by treating the input as a two-dimensional grid of word embeddings.
+\end{itemize} 
+
+The choice of algorithm depends on the specific task, the size and complexity of the dataset, and other factors such as computational resources and time constraints. Experimentation with different algorithms and 
+hyperparameters is often necessary to determine the best approach for a given problem.
 
 
 

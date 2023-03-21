@@ -42,7 +42,15 @@ WHERE customer_id IN (
 Former is faster than subquery. 
 
 
+13. SELECT SUM(population) FROM world WHERE name IN ('Estonia','Latvia','Lithuania')
 
+14. SELECT SUM(gdp) FROM world WHERE continent = 'AFRICA'
+
+15. SELECT continent, COUNT(name) FROM world GROUP BY continent
+
+16. SELECT continent, count(name) FROM world WHERE population>=10000000 GROUP BY continent
+
+17. 
 
 
 
