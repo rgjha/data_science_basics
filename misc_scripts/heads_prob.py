@@ -1,7 +1,9 @@
 # Python3 implementation to find the
 # probability of not getting two
-# consecutive heads together when
+# consecutive heads when
 # N coins are tossed
+
+# https://www.geeksforgeeks.org/probability-of-not-getting-two-consecutive-heads-together-in-n-tosses-of-coin/
  
  
 import math

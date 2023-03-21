@@ -1394,6 +1394,31 @@ It is typically implemented in the recommendation post-processing component.
 NLP is a powerful machine learning technique that can help you create chatbots, 
 analyze sentiment, summarize text, classify data, and recognize speech.
 
+
+\subsection{TF, IDF, TF-IDF} 
+
+TF-IDF stands for term frequency-inverse document frequency and it is a measure, used in the fields of information retrieval (IR) 
+and machine learning, that can quantify the importance or relevance of string representations (words, phrases, lemmas, etc)  in a document amongst a collection of documents (also known as a corpus).
+
+
+Let us take an example of two documents: A: `The car is driven on the road' and B: `The truck is driven on the highway'. 
+Then we have the following situation. 
+
+
+TF is just the ratio of number of times a word over the total words in the document. For example, in the document $A$ above, car has TF of 1/7. 
+Inverse document frequency (IDF) 
+looks at how common (or uncommon) a word is amongst the corpus. 
+IDF is calculated as follows where $t$ is the term (word) we are looking to measure the commonness of and $N$ is the number of documents ($d$) in the corpus ($D$).
+The denominator is simply the number of documents in which the term, $t$, appears in. 
+
+
+\[ IDF(t,D)  = \log\Big( \frac{d}{\text{Count}(t)} \Big) \] 
+
+
+
+
+
+
 Unless you have been living in the mountains with no internet, you must have read 
 or experimented with ChatGPT. In this post, and probably subsequent ones, we will try to explain 
 what makes it tick and the foundations behind this progress. First some acronyms used:
@@ -1943,8 +1968,16 @@ Insertion, Selection, Bubble, Merge, Quick. We denote time and space complexity 
 \item Selection: Find minimum of list and place it first (assuming ascending sort). Then focus on remaining and iterate.   $C(N^2, 1)$
 \item Bubble: This works by repeatedly swapping the adjacent elements if they are in the wrong order.  $C(N^2, 1)$
 \item Merge: Divide and conquer. It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves.  The merge(A, p, q, r) is a key process that assumes that A[p..q] and A[q+1..r] are sorted and merges the two sorted sub-arrays into one. $C(N \log N, N$)
-\item Quicksort: QuickSort is also a divide and conquer algorithm. It picks an element as a pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways. $N \log N, \log N$
+\item Quicksort: QuickSort is also a divide and conquer algorithm. It picks an element as a pivot (usually rightmost element) and partitions the given array around the picked pivot i.e., less than pivot moved to left, more than pivot to right
+and pivot at center. Then pick pivots of left and right sets and continue iterating. There are many different versions of quickSort that pick pivot in different ways. $N \log N, \log N$
 \end{itemize} 
+
+Python uses Tim sort (which is a combination of both merge sort and insertion sort).  $C(N \log N, N)$
+
+Say Tim sort wants to sort \texttt{3, 1, 6, 4, 5, 7, 2}. We choose two blocks, run size=4. Left is 3,1,6,4 and right is 5,7,2.
+3,1,6,4 -> 1,3,6,4 -> 1,3,4,6 
+
+% https://www.javatpoint.com/tim-sort
 
 
 
