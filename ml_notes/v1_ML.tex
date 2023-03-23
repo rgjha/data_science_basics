@@ -422,10 +422,8 @@ The clusters under $k$-Means are formed using these steps:
 
 
 
-K-Means clustering is useful in applications such as clustering Facebook users with common likes and dislikes, document clustering, segmenting customers who buy similar ecommerce products, etc.
-
-Clusters are evaluated based on some similarity or dissimilarity measure such as the distance between cluster points. If the clustering algorithm separates dissimilar observations apart and similar observations together, then it has performed well. The two most popular metrics evaluation metrics for clustering algorithms are:  
-
+K-Means clustering is useful in applications such as clustering Facebook users with common likes and dislikes, document clustering, segmenting customers who buy similar 
+e-commerce products, etc. Clusters are evaluated based on some similarity or dissimilarity measure such as the distance between cluster points. If the clustering algorithm separates dissimilar observations apart and similar observations together, then it has performed well. Some popular metrics evaluation metrics for clustering algorithms are:  
 
 Silhouette score: It measures the similarity of observation to its own cluster compared to other clusters. The score ranges from -1 to 1, with values closer to 1 indicating a stronger clustering structure.
 Calinski-Harabasz Index: It measures the ratio of the between-cluster variance to the within-cluster variance. Higher values indicate a better clustering solution.
@@ -441,7 +439,25 @@ Dunn's Index:
 intercluster distance, intracluster (within cluster) is given by $\Delta X_k$. 
 
 
+We list some advantages of the $k$-means clustering algorithm:
 
+\begin{itemize}
+
+\item Easy to comprehend, robust, and fast. 
+\item Efficient with $\mathcal{O}(tknd)$ complexity where $t$ is number of iterations, $n$ is number of objects/points
+and $d$ is the dimensionality of each object. Usually we have: $k,t,d \ll n$. 
+\item Best result when the data sets are distinct and well separated from each other.
+\end{itemize}
+
+Now, we note some drawbacks:
+\begin{itemize}
+\item The algorithm requires the apriori specification of the number of cluster centres.
+\item Cannot resolve clusters with highly overlapping data.
+\item The algorithm is not invariant to non-linear transformations, i.e., different representations of data reveal different results. 
+\item The algorithm fails for categorical data and is applicable only when the mean is defined.
+\item The algorithm fails for a non-linear data set.
+\item Unable to handle noisy data and outliers.
+\end{itemize}
 
 
 
@@ -1313,7 +1329,6 @@ $t$-test is a statistical test that is used to compare the means of any two grou
 Both $z$-scores and $p$-values are associated with the standard normal distribution. Very high or very low (negative) $z$-scores, 
 associated with very small $p$-values, are found in the tails of the normal distribution. The higher or lower the $z$-score, the more unlikely the result is to happen by chance and the more likely the result is meaningful.
 \end{itemize}  
-
 
 Kernel density estimation is the process of estimating an unknown probability density function of a random variable 
 using a kernel function $K(u)$. This is important since if we know the distribution (can predict or fit it well), then we 
