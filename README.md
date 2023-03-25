@@ -24,4 +24,4 @@ Personal collection of notebooks and study material for exploring the field of d
 18 March 2023: Revise statistics, probability. Check spaCy and revise tensorflow. <br />
 22 March 2023: In the last 4 days, submitted a notebook to Kaggle on NLP. Fixed bug in flight code. Played around with
 arXiv data. Read about LeNet 5-layer, LSTM. Did EDA on a Media consumption data (Deloitte). 
-23 March 2023: 
+23,24 March 2023: Play with Sakura data for fun. Continue working on Media consumption. 

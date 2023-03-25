@@ -1146,6 +1146,23 @@ $\eta$ is also referred to as learning rate. Just replacing standard SGD with an
 optimizer like Adam or RMSProp will boost performance a lot. 
 
 
+However, there are cases where the gradient gets stuck at zero or alternatively
+explodes. One technique that can help with the exploding gradient problem is gradient clipping, 
+where the gradients are capped at a maximum value to prevent them from growing too large.
+In addition, weight regularization can also help prevent the gradients from exploding 
+and improve the stability of the network. Another way to control this is to
+include batch normalization. This will normalize the input to the network and 
+prevent the values from reaching the edges where the gradients are too large.
+We do this in tensor networks remember! ? 
+
+For zero gradient issue, we can use different activation function like ReLU. 
+One of the recent ways to resolve the vanishing gradient problem is 
+with residual neural networks, or ResNets (not to be confused with recurrent neural networks).
+Some others are -- multi-level hierarchy and LSTM. 
+
+
+
+
 \subsection{Fun with matrices}
 
 Non-negative matrix factorization (Lee, 2000).
@@ -1378,24 +1395,17 @@ The following is a list of benefits / value of building recommender system and w
 There are different types of RS. Some of them are listed below:
 
 \begin{itemize}
-\item Content-based recommendation: The most common type of recommender system is the content-based recommender system. A content-based recommender system is a type of recommender system that relies on the similarity between items to make recommendations. For example, if you’re looking for a new movie to watch, a content-based recommender system might recommend movies that are similar to ones you’ve watched in the past. Content-based recommender systems are commonly used in music, books, and movies. They can be used to recommend products, services, or even websites. Content-based recommender systems are based on the idea that if you like one item, you’re likely to like other items that are similar to it. To build a content-based recommender system, you need to first define what similarity means. This is where machine learning comes in. A content-based recommender system can use machine learning to learn the similarity between items. Once it has learned the similarity between items, it can make recommendations accordingly.
+\item Content-based recommendation: The most common type of recommender system is the content-based recommender system. A content-based recommender system is a type of recommender system that relies on the similarity between items to make recommendations. For example, if you’re looking for a new movie to watch, a content-based recommender system might recommend movies that are similar to ones you’ve watched in the past. If you have watched thriller, then it is almost certain that you will be 
+suggested other thriller movies. Content-based recommender systems are commonly used in music, books, and movies. They can be used to recommend products, services, or even websites. Content-based recommender systems are based on the idea that if you like one item, you’re likely to like other items that are similar to it. To build a content-based recommender system, you need to first define what similarity means. This is where machine learning comes in. A content-based recommender system can use machine learning to learn the similarity between items. Once it has learned the similarity between items, it can make recommendations accordingly. Content-based recommender systems focus on the attributes of items in order to make recommendations. This can often lead to issues with scalability, as the system needs to be constantly updated with new content in order to make accurate recommendations. Collaborative filtering systems, on the other hand, focus on the relationships between users and items. This can often result in problems with sparsity, as it can be difficult to find enough users who have rated a given item. The hybrid approach seeks to overcome these limitations by combining the two approaches. 
 
 \item Collaborative filtering based recommendation: 
-Another type of recommender system is the collaborative filtering recommender system. A collaborative filtering recommender system is a type of machine learning algorithm that makes predictions about what a user might want to buy or watch based on the past behavior of other users. The algorithm looks at the items that other users with similar taste have purchased or rated highly, and recommends those items to the new user.
+Another type of recommender system is the collaborative filtering recommender system. A collaborative filtering recommender system is a type of machine learning algorithm that makes predictions about what a user might want to buy or watch based on the past behavior of other users. It explores similarity between users and/or items. 
+The algorithm looks at the items that other users with similar taste have purchased or rated highly, and recommends those items to the new user.
 The main advantage of collaborative filtering is that it doesn’t require any information about the users or items; all it needs is a dataset of past user behavior. Collaborative filtering is one of the most popular techniques for building recommender systems, and is used by major companies such as Amazon, Netflix, and Spotify.
 
-\item Hybrid recommender system: A third type of recommender system is the hybrid recommender system. The hybrid approach has become increasingly popular in recent years as it offers the potential to overcome some of the limitations of each individual approach.
+\item Hybrid recommender system: A third type of recommender system is the hybrid recommender system. The hybrid approach has become increasingly popular in recent years as it offers the potential to overcome some of the limitations of each individual approach. A hybrid recommender system is a type of recommender system that combines both content-based and collaborative filtering approaches. The hybrid approach takes advantage of both content-based and collaborative filtering by using them to supplement each other. For example, a hybrid recommender system might first identify a set of items that are similar to the item the user is interested in, and then use collaborative filtering to identify which of those items the user is most likely to enjoy. This approach can provide more accurate recommendations than either method used alone. The hybrid approach has been shown to be more effective than either method used alone, as it is able to leverage the strengths of both approaches. Hybrid recommender systems are often more scalable and efficient than pure content-based or collaborative filtering systems.
 \end{itemize}
 
-
-
-
-Content-based recommender systems focus on the attributes of items in order to make recommendations. This can often lead to issues with scalability, as the system needs to be constantly updated with new content in order to make accurate recommendations. Collaborative filtering systems, on the other hand, focus on the relationships between users and items. This can often result in problems with sparsity, as it can be difficult to find enough users who have rated a given item. The hybrid approach seeks to overcome these limitations by combining the two approaches. 
-
-A hybrid recommender system is a type of recommender system that combines both content-based and collaborative filtering approaches. The hybrid approach takes advantage of both content-based and collaborative filtering by using them to supplement each other. For example, a hybrid recommender system might first identify a set of items that are similar to the item the user is interested in, and then use collaborative filtering to identify which of those items the user is most likely to enjoy. This approach can provide more accurate recommendations than either method used alone. The hybrid approach has been shown to be more effective than either method used alone, as it is able to leverage the strengths of both approaches. Hybrid recommender systems are often more scalable and efficient than pure content-based or collaborative filtering systems.
-
-Examples of Recommender Systems
-Some of the most popular examples of recommender systems include the ones used by Amazon, Netflix, and Spotify.
 
 Amazon’s recommender system is based on a combination of collaborative filtering and content-based algorithms. It uses past customer behavior to make recommendations for new products. Amazon’s recommender system is one of the most complex and sophisticated in the world.
 Netflix’s recommender system is also based on a combination of collaborative filtering and content-based algorithms. However, Netflix takes things a step further by also incorporating machine learning into its algorithm. This allows Netflix to make predictions about what a user might want to watch based on the behavior of other users.
@@ -1419,6 +1429,17 @@ as shown in Fig. below.
 \subsection{Matrix Factorization}
 
 In collaborative filtering, matrix factorization is the state-of-the-art solution for sparse data problem, it is also known as `Netflix Prize Challenge'.
+
+For this neighborhood models are the most common approach. 
+
+Matrix Factorization are part of \rmph{latent factor models}. These compress user-item matrix into a low-dimensional representation in terms of latent factors. 
+One advantage of using this approach is that instead of having a high dimensional matrix containing abundant number of missing values we will be dealing with a much smaller matrix in lower-dimensional space. A reduced presentation could be utilized for either user-based or item-based neighborhood algorithms that are presented in the previous section. There are several advantages with this paradigm. It handles the sparsity of the original matrix better than memory based ones. Also comparing similarity on the resulting matrix is much more scalable especially in dealing with large sparse datasets.
+
+We can use a popular latent factor model named Singular Value Decomposition (SVD). There are other matrix factorization frameworks more specific to CF.
+An important decision is the number of factors to factor the user-item matrix. The higher the number of factors, the more precise is the factorization in the original matrix reconstructions. Therefore, if the model is allowed to memorize too much details of the original matrix, it may not generalize well for data it was not trained on. Reducing the number of factors increases the model generalization.
+
+% https://medium.com/@medfordxie/neighborhood-vs-latent-factors-methods-in-collaborative-filter-recommender-systems-part-2-5b0fc4d1e90e
+
 
 
 \subsubsection{Dithering}
