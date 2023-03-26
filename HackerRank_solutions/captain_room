@@ -3,4 +3,4 @@ r_number_list = [int(i) for i in input().split()]
 print((sum(set(r_number_list)) * k - sum(r_number_list)) // (k-1))
 
 
-https://www.hackerrank.com/challenges/py-the-captains-room/problem?isFullScreen=true
+Problem: https://www.hackerrank.com/challenges/py-the-captains-room/problem?isFullScreen=true
