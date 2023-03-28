@@ -23,5 +23,7 @@ Personal collection of notebooks and study material for exploring the field of d
 16 March 2023: Read about BERT and Transformers. Should get more NLP reading before going there <br />
 18 March 2023: Revise statistics, probability. Check spaCy and revise tensorflow. <br />
 22 March 2023: In the last 4 days, submitted a notebook to Kaggle on NLP. Fixed bug in flight code. Played around with
-arXiv data. Read about LeNet 5-layer, LSTM. Did EDA on a Media consumption data (Deloitte). 
-23,24 March 2023: Play with Sakura data for fun. Continue working on Media consumption. 
+arXiv data. Read about LeNet 5-layer, LSTM. Did EDA on a Media consumption data (Deloitte). <br />
+23,24 March 2023: Play with Sakura data for fun. Continue working on Media consumption. <br />
+25 March 2023: Work on RS, PCA, NLP topics. <br />
+26 March 2023: Content-based and collaborative RS. <br />
