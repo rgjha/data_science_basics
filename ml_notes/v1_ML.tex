@@ -1553,7 +1553,7 @@ say anything about lattice field theory since it doesn't see the whole corpus of
 
 
 Because of these limitations, in 2017, a paper titled `Attention is all you need' was posted which introduced the idea of `transformers'. 
-The title is named because the central idea of this architecture is to rely on attention (or, self-attention) 
+The title is named because the central idea of this architecture is to rely on attention (or, more precisely, self-attention) 
 instead of the feedback loop found in RNNs. Remember that 
 LSTM networks are a type of RNN that uses special units in addition to standard units. 
 Unlike LSTMs, transformers can process all input data at once! 
@@ -1642,7 +1642,7 @@ LLMs have the potential to transform many aspects of society, including educatio
 
 
 \section{Details about Transformer LLM}
-Transformer LLM refers to a type of Large Language Model that is based on the Transformer architecture. The Transformer is a neural network architecture that was introduced by Vaswani et al. in 2017 and has been used extensively in natural language processing (NLP) tasks, including machine translation and language modeling. Transformer LLMs use a self-attention mechanism to process input sequences of variable length and produce output sequences of variable length. The self-attention mechanism allows the model to attend to different parts of the input sequence at each step of the computation, allowing it to capture long-range dependencies and improve performance on NLP tasks. One example of a Transformer LLM is the GPT (Generative Pretrained Transformer) series developed by OpenAI. GPT models have been pre-trained on large amounts of text data and can be fine-tuned for a variety of downstream NLP tasks, such as language generation, summarization, and question answering. Transformer LLMs have shown significant improvements in NLP tasks and have been used in a variety of applications, including chatbots, language translation, and sentiment analysis. Transformers are a type of deep learning model widely used in Natural Language processing tasks, such as machine translation and text summarization. One of the key characteristics of transformers is their use of attention mechanisms. Attention allows the model to focus on specific input parts, which is useful when processing long data sequences. Another characteristic of transformers is their ability to handle variable-length sequences in parallel. This is useful when dealing with natural language data, which often has varying lengths.
+Transformer LLM refers to a type of Large Language Model that is based on the Transformer architecture. The Transformer is a neural network architecture that was introduced by Vaswani et al. in 2017 and has been used extensively in natural language processing (NLP) tasks, including machine translation and language modeling. Transformer LLMs use a self-attention mechanism to process input sequences of variable length and produce output sequences of variable length. The self-attention mechanism allows the model to attend to different parts of the input sequence at each step of the computation, allowing it to capture long-range dependencies and improve performance on NLP tasks. One example of a Transformer LLM is the GPT (Generative Pre-trained Transformer) series developed by OpenAI. GPT models have been pre-trained on large amounts of text data and can be fine-tuned for a variety of downstream NLP tasks, such as language generation, summarization, and question answering. Transformer LLMs have shown significant improvements in NLP tasks and have been used in a variety of applications, including chatbots, language translation, and sentiment analysis. Transformers are a type of deep learning model widely used in Natural Language processing tasks, such as machine translation and text summarization. One of the key characteristics of transformers is their use of attention mechanisms. Attention allows the model to focus on specific input parts, which is useful when processing long data sequences. Another characteristic of transformers is their ability to handle variable-length sequences in parallel. This is useful when dealing with natural language data, which often has varying lengths.
 We can train transformers to perform multiple tasks at once using a process known as multitask learning. In multitask learning, a single model is trained to perform multiple tasks simultaneously using a shared set of parameters. This allows the model to learn common features relevant to all tasks, which can improve the model's performance on each task.
 
 Transformers \textbf{do not use} convolutional layers to process input data. Convolutional layers work by sliding a small window, or kernel, across the input data and performing an element-wise multiplication between the values in the kernel and the values in the input data. The resulting values are then summed and passed through a nonlinear activation function before being output as the output of the convolutional layer.
@@ -2174,19 +2174,30 @@ In summary, the ROC curve provides a useful tool to visualize and evaluate the p
 \end{enumerate}
 
 
-
-
-
-
 \section{Statistics} 
 
 \textbf{Central Limit theorem:} If $X_{1}, X_{2}, \cdots X_{N}$ are random samples drawn from a distribution (any) with overall mean $\mu$ and variance $\sigma^2$
 and if $\bar{X}$ is the sample mean of first $n$ samples, then the limiting form of distribution is Gaussian in $n \to \infty$ limit. 
 
 
+\section{Reading stuff}
 
+PinSage is a random-walk-based Graph Convolutional Networks (GCN)
+which operates on a massive graph with 3 billion nodes and 18 billion edges — a graph that is 10,000 times 
+larger than typical applications of GCNs. GCN were introduced in \cite{kipf2017semisupervised}. 
+This is used to create image embedding of billion of pins. It uses visual and textual features
+with graph information. 
 
+When training ItemSage, the PinSage model is used to provide the embeddings of both the feature images of the product and the query images, while the SearchSage model embeds the search query string. 
 
+Earlier approaches typically focus on building embeddings from content in a single modality, i.e. text or images. 
+Product information spans both modalities. We introduce a transformer-based architecture capable of combining 
+features from these different modalities which is different from earlier works. 
+
+There are three surfaces: Home (past activity), Close-up (similar to current view), Search (recommendations based on query string). 
+They use single-stream of single-layer transformer model. 
+
+Argue that first work which uses the transformer idea with multi-modal features to learn for production level recommendations. 
 
 
 
