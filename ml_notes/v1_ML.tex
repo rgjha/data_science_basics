@@ -567,6 +567,9 @@ plt.show()
 # calculate basic statistics for a numeric column
 print(df['Fare'].describe())
 
+# upto some decimal places
+pd.set_option('display.float_format', lambda x: '%.3f' % x)
+
 # calculate the correlation between two numeric columns
 print(df['Fare'].corr(df['Survived']))
 
