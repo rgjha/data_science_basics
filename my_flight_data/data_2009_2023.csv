@@ -1,4 +1,6 @@
 flightNumber,Date,Starting_IATA_Code,Starting_Location,Destination_IATA_Code,Destination_Location,Carrier,Companion
+167,04-08-2023,SEA,"Seattle,USA,Seattle Tacoma International",ORF,"Norfolk,USA,Norfolk International",American Airlines,0
+166,04-02-2023,ORF,"Norfolk,USA,Norfolk International",SEA,"Seattle,USA,Seattle Tacoma International",American Airlines,0
 165,01-13-2023,DOH,"Doha,Qatar,Hamad International",JFK,"New York,USA,John F. Kennedy",Qatar Airways,0
 164,01-13-2023,DEL,"New Delhi,India,Indira Gandhi International",DOH,"Doha,Qatar,Hamad International",Qatar Airways,0
 163,12-16-2022,EWR,"Newark,USA,Liberty",DEL,"New Delhi,India,Indira Gandhi International",United Airlines,0
