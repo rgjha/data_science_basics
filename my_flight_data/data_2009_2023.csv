@@ -1,6 +1,17 @@
 flightNumber,Date,Starting_IATA_Code,Starting_Location,Destination_IATA_Code,Destination_Location,Carrier,Companion
-167,04-08-2023,SEA,"Seattle,USA,Seattle Tacoma International",ORF,"Norfolk,USA,Norfolk International",American Airlines,0
-166,04-02-2023,ORF,"Norfolk,USA,Norfolk International",SEA,"Seattle,USA,Seattle Tacoma International",American Airlines,0
+178,17-10-2023,ORD,"Chicago,USA,O'Hare",SUX,"Sioux Gateway Airport",United Airlines,0
+177,17-10-2023,ORF,"Norfolk,USA,Norfolk International",ORD,"Chicago,USA,O'Hare",United Airlines,0
+176,04-10-2023,ORD,"Chicago,USA,O'Hare",ORF,"Norfolk,USA,Norfolk International",United Airlines,0
+175,04-10-2023,SUX,"Sioux Gateway Airport",ORD,"Chicago,USA,O'Hare",United Airlines,0
+174,10-09-2023,ORD,"Chicago,USA,O'Hare",SUX,"Sioux Gateway Airport",United Airlines,1
+173,09-09-2023,ORF,"Norfolk,USA,Norfolk International",ORD,"Chicago,USA,O'Hare",United Airlines,1
+172,06-08-2023,CLT,"Charlotte,USA,Charlotte/Douglas International",ORF,"Norfolk,USA,Norfolk International",American Airlines,1
+171,05-08-2023,ORD,"Chicago,USA,O'Hare",CLT,"Charlotte,USA,Charlotte/Douglas International",American Airlines,1
+170,30-07-2023,ORF,"Norfolk,USA,Norfolk International",ORD,"Chicago,USA,O'Hare",American Airlines,1
+169,04-08-2023,CLT,"Charlotte,USA,Charlotte/Douglas International",ORF,"Norfolk,USA,Norfolk International",American Airlines,0
+168,04-08-2023,SEA,"Seattle,USA,Seattle Tacoma International",CLT,"Charlotte,USA,Charlotte/Douglas International",American Airlines,0
+167,04-02-2023,CLT,"Charlotte,USA,Charlotte/Douglas International",SEA,"Seattle,USA,Seattle Tacoma International",American Airlines,0
+166,04-02-2023,ORF,"Norfolk,USA,Norfolk International",CLT,"Charlotte,USA,Charlotte/Douglas International",American Airlines,0
 165,01-13-2023,DOH,"Doha,Qatar,Hamad International",JFK,"New York,USA,John F. Kennedy",Qatar Airways,0
 164,01-13-2023,DEL,"New Delhi,India,Indira Gandhi International",DOH,"Doha,Qatar,Hamad International",Qatar Airways,0
 163,12-16-2022,EWR,"Newark,USA,Liberty",DEL,"New Delhi,India,Indira Gandhi International",United Airlines,0
